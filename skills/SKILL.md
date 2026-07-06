@@ -5,6 +5,9 @@ it exists so that the result is presentation-grade every time, regardless of whi
 
 ## Golden rules
 
+0. **Use the wired project flow.** Do not add setup steps. If something is missing, stop
+   and report the exact failure.
+
 1. **You write JSON, not code.** Never edit `engine/` to make a deck work. If a deck can't
    express something, say so — don't hack the engine.
 2. **Never invent content.** Every name, number, date, and label comes from the user. If content
@@ -17,6 +20,7 @@ it exists so that the result is presentation-grade every time, regardless of whi
    errors (`slides[3].tiles[0].label: required`) and overflow warnings before you open a browser.
 5. **Never overwrite `index.html`** unless the user explicitly asks to change the default
    presentation. Build your deck to `dist/<name>.html`.
+6. **Run the verification gate.** Before delivery, run `npm run verify`.
 
 ## Workflow
 
@@ -70,6 +74,12 @@ what the user asked for. If you can take screenshots, take one per slide and ins
 A deck is not "done" because it built — it is done when every slide has been *seen*.
 
 ### Step 6 — Deliver
+Before delivery, also run:
+
+```bash
+npm run verify
+```
+
 Give the user the `dist/<name>.html` file and the one-line instructions:
 "Open it, press F for fullscreen, present with ← →."
 
@@ -78,7 +88,8 @@ Give the user the `dist/<name>.html` file and the one-line instructions:
 The root `index.html` is built from `decks/seegp-ax-monthly.json`. To change it:
 1. Edit the JSON (content only — names, dates, projects).
 2. `npm run build` (this rebuilds `index.html`).
-3. Do Step 5 on `index.html` before telling the user it's ready.
+3. `npm run verify`.
+4. Do Step 5 on `index.html` before telling the user it's ready.
 
 ## When the user asks for something the engine can't do
 

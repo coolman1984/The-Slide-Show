@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
+  "generatedAt": "2026-07-06T17:49:01.736Z",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3477,
+      "sha256": "26c19db6f0fb2152d4d4eecdc99b8b3ce6e49426807996c00a91bac5dadff433"
+    },
+    {
+      "path": "decks/demo-product-launch.json",
+      "bytes": 5587,
+      "sha256": "b00e8103114a23cd614045b42455e746bcc0e1ad362053c19fafb8c5ea8385ba"
+    },
+    {
+      "path": "decks/seegp-ax-monthly.json",
+      "bytes": 11920,
+      "sha256": "1dfb72e322cae2dca935f48953a60dfce489f72019d970034a3a153c2c1fabf6"
+    },
+    {
+      "path": "dist/demo.html",
+      "bytes": 44650,
+      "sha256": "606b05b199996a8cc885709cff3bdaf5eb05de580f71a4f250dbeb468735f157"
+    },
+    {
+      "path": "dist/seegp-ax-monthly.html",
+      "bytes": 65515,
+      "sha256": "8fa04646a96690bca0c6840bffd97b4856bb1b9247672b54d4a476765f76108d"
+    },
+    {
+      "path": "dist/seegp-emerald.html",
+      "bytes": 65575,
+      "sha256": "ae730e5bf234141b6c6a24bba35c9446ebc1da6cf41fea2bc6cff82b8b64adf3"
+    },
+    {
+      "path": "docs/CHANGE_ON_THE_FLY.md",
+      "bytes": 1614,
+      "sha256": "846c45d70eceff345bea65c137433a94194acb851bbe5d62ec2a50213e1a80c6"
+    },
+    {
+      "path": "docs/decisions/ADR-001-offline-first-self-contained-presentations.md",
+      "bytes": 1735,
+      "sha256": "ba51f8579ac85ba38e88b67ce253e34bce9e72cc5ad5b40474516656e11d9f64"
+    },
+    {
+      "path": "docs/decisions/ADR-002-json-decks-over-hand-edited-html.md",
+      "bytes": 1410,
+      "sha256": "1c0dc1175c8afc4f9b5a24834fe354c2ec0e8c4c34767e59869bff237afda624"
+    },
+    {
+      "path": "docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md",
+      "bytes": 3292,
+      "sha256": "cbc41cd598aa977d286584325e8d7a4d83559102c3263a7446c34709c9b5aa84"
+    },
+    {
+      "path": "docs/OFFLINE_OPERATING_MODEL.md",
+      "bytes": 3884,
+      "sha256": "52b6d3c1dbb5c4ecc381688463f242030fe92fd8f356d21517bc48a63bece360"
+    },
+    {
+      "path": "docs/PROJECT_MAP.md",
+      "bytes": 3312,
+      "sha256": "d22135e6a1e266dbd9aba63ffaeee307423ee1ff70832e46785e31ecf3c5144d"
+    },
+    {
+      "path": "docs/SLIDEFORGE_OS_MASTER_PLAN.md",
+      "bytes": 18381,
+      "sha256": "b49c242a745467c2b2ca3b37b2fe728f4907257883579e7951ddc843ae82178a"
+    },
+    {
+      "path": "engine/build.js",
+      "bytes": 6655,
+      "sha256": "8912dfa54033ed82c92f212e2fb6e9bf63dd5a98d5985a6c09619c5946ebd622"
+    },
+    {
+      "path": "engine/lib/css.js",
+      "bytes": 21629,
+      "sha256": "f7c75d09bc1af6adbbe15a6ad8c4c8be87834b0622802dddd0f63ef4e3e701bf"
+    },
+    {
+      "path": "engine/lib/icons.js",
+      "bytes": 5833,
+      "sha256": "52c2a6f78ed106e7c7f9e2c8b253f2755d16369b13c76c4a28678103da5a02f1"
+    },
+    {
+      "path": "engine/lib/render.js",
+      "bytes": 16143,
+      "sha256": "6656c138695dfbe1669c254944afd46c048dc72fdf1a8a1c1ddb86acedec85e7"
+    },
+    {
+      "path": "engine/lib/runtime.js",
+      "bytes": 7183,
+      "sha256": "47d73214137c9276a63b670737fa0f96b75f40fa5a7a848cd92d84d4b78f70fd"
+    },
+    {
+      "path": "engine/lib/themes.js",
+      "bytes": 12338,
+      "sha256": "a0e62829896c4b92f03f60365e4976330df94361344a440711f67dea93a9e6cd"
+    },
+    {
+      "path": "engine/lib/validate.js",
+      "bytes": 9445,
+      "sha256": "524600dc60c852670a3e79232884c50057319ab9fdec7360d34c8dc0120f2cd9"
+    },
+    {
+      "path": "index.html",
+      "bytes": 65586,
+      "sha256": "03bf9b428f3f8a5b0d69c4f9ccf04ea315850db8afe53a081658dccfa12682d1"
+    },
+    {
+      "path": "package.json",
+      "bytes": 658,
+      "sha256": "bc19685bb3045e29b85292cc523eaa54cf8d63be08ac56e5716035e24c0e2b5c"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 25270,
+      "sha256": "ba627f26b375d354342e9ffb9af448c10c558061072499bccaa901542ad8c238"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4335,
+      "sha256": "6676651918e5d1121653202c41c3ad4e9ea679be630d9fe93400b07b6592490c"
+    },
+    {
+      "path": "skills/deck-schema.md",
+      "bytes": 7312,
+      "sha256": "a4a6031c99e994ac96bf7bde2894630b688257e6c16ec0948c2b073676abeb68"
+    },
+    {
+      "path": "skills/design-guide.md",
+      "bytes": 3756,
+      "sha256": "ec0d218de7d408f457aed27973be9bf020b7a97a78854f6d6a505f58f5c4244f"
+    },
+    {
+      "path": "skills/SKILL.md",
+      "bytes": 5031,
+      "sha256": "9c544d94bf236ac137757208525d08fc420c0dcb8e5fc604b171aa9fc7453966"
+    },
+    {
+      "path": "skills/theming-guide.md",
+      "bytes": 4280,
+      "sha256": "990c6f6a5d7ff36e1f7f541d6fa63774a056e8faebeac88440bd0a7c427e503d"
+    },
+    {
+      "path": "skills/troubleshooting.md",
+      "bytes": 3746,
+      "sha256": "914e8e374e36cd67a27784bd4f07605fc515e9f0d15212ed2828179eaa93d490"
+    },
+    {
+      "path": "tools/offline_manifest.js",
+      "bytes": 1865,
+      "sha256": "2d16e4ce02b8f279cf6100e03953d7e446f76a4d6e5c0caa54c20e595f312fbf"
+    },
+    {
+      "path": "tools/offline_verify.js",
+      "bytes": 4133,
+      "sha256": "be3e1ca8042ab6c4fe768066b2ecbb29b66a9614981647189ab8caf9dbed88e2"
+    }
+  ]
+}

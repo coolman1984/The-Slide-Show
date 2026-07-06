@@ -1,5 +1,9 @@
 # Slide Forge
 
+**Self-contained delivery:** the final presentation is one HTML file that opens
+by double-clicking. Routine deck work uses the commands already wired in this
+project.
+
 A layered slideshow factory. It turns a simple **JSON deck file** into a single, self-contained,
 animated HTML presentation — the kind you can present to top management, built by *any* AI agent
 or human, because all of the hard parts (design, layout, animation, theming, edge cases) live in
@@ -20,6 +24,9 @@ for fullscreen, present with the arrow keys.
 ## Quickstart
 
 ```bash
+# Verify the project is ready for presentation
+npm run verify
+
 # Rebuild the default presentation (writes index.html at the repo root)
 npm run build
 
@@ -32,6 +39,8 @@ node engine/build.js decks/my-deck.json --theme emerald-night --transition fade 
 # See every available theme, slide type, icon, transition, background
 node engine/build.js --list
 ```
+
+For AI agents, start at `AGENTS.md`, then follow `skills/SKILL.md`.
 
 The output HTML has **zero external dependencies** — no internet, no server, no fonts to install.
 Double-click it anywhere and it works. Keyboard: `←/→` navigate, `1–9` jump, `F` fullscreen,

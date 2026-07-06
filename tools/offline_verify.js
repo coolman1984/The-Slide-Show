@@ -1,0 +1,149 @@
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const childProcess = require('child_process');
+const os = require('os');
+
+const ROOT = path.resolve(__dirname, '..');
+const MANIFEST = path.join(ROOT, 'OFFLINE_MANIFEST.json');
+
+const failures = [];
+const warnings = [];
+
+function rel(p) {
+  return path.relative(ROOT, p).split(path.sep).join('/');
+}
+
+function fail(msg) {
+  failures.push(msg);
+}
+
+function warn(msg) {
+  warnings.push(msg);
+}
+
+function sha256(file) {
+  return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+}
+
+function readJson(file) {
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (err) {
+    fail(`${rel(file)} is not valid JSON: ${err.message}`);
+    return null;
+  }
+}
+
+function runNode(args, label) {
+  const result = childProcess.spawnSync(process.execPath, args, {
+    cwd: ROOT,
+    encoding: 'utf8',
+    windowsHide: true,
+  });
+  if (result.status !== 0) {
+    fail(`${label} failed.\n${result.stdout || ''}${result.stderr || ''}`.trim());
+  }
+  return result;
+}
+
+function checkNoPackageDependencies() {
+  const pkg = readJson(path.join(ROOT, 'package.json'));
+  if (!pkg) return;
+  if (pkg.dependencies && Object.keys(pkg.dependencies).length) {
+    fail('package.json must not contain dependencies.');
+  }
+  if (pkg.devDependencies && Object.keys(pkg.devDependencies).length) {
+    fail('package.json must not contain devDependencies.');
+  }
+}
+
+function checkDeckValidation() {
+  const deckDir = path.join(ROOT, 'decks');
+  if (!fs.existsSync(deckDir)) {
+    fail('decks/ folder is missing.');
+    return;
+  }
+  const decks = fs.readdirSync(deckDir).filter(f => f.endsWith('.json')).sort();
+  if (!decks.length) {
+    fail('No deck JSON files found in decks/.');
+    return;
+  }
+  for (const deck of decks) {
+    const out = path.join(os.tmpdir(), `slide-forge-verify-${Date.now()}-${deck.replace(/\.json$/, '.html')}`);
+    const result = runNode(['engine/build.js', `decks/${deck}`, '-o', out], `Build decks/${deck}`);
+    const text = `${result.stdout || ''}\n${result.stderr || ''}`;
+    if (/warning\(s\)|\bwarning\b/i.test(text)) {
+      warn(`decks/${deck} built with warnings. Review before presenting.`);
+    }
+    if (fs.existsSync(out)) fs.unlinkSync(out);
+  }
+}
+
+function checkHtmlOffline(file) {
+  if (!fs.existsSync(file)) {
+    fail(`${rel(file)} is missing.`);
+    return;
+  }
+  const html = fs.readFileSync(file, 'utf8');
+  const externalPatterns = [
+    /<script\b[^>]*\bsrc\s*=/i,
+    /<link\b[^>]*\bhref\s*=/i,
+    /<img\b[^>]*\bsrc\s*=/i,
+    /<iframe\b/i,
+    /https?:\/\//i,
+    /@import\s+url/i,
+  ];
+  for (const pattern of externalPatterns) {
+    if (pattern.test(html)) {
+      fail(`${rel(file)} contains an external-reference pattern: ${pattern}`);
+    }
+  }
+}
+
+function checkBuiltOutputs() {
+  checkHtmlOffline(path.join(ROOT, 'index.html'));
+  const dist = path.join(ROOT, 'dist');
+  if (!fs.existsSync(dist)) return;
+  for (const file of fs.readdirSync(dist).filter(f => f.endsWith('.html'))) {
+    checkHtmlOffline(path.join(dist, file));
+  }
+}
+
+function checkManifest() {
+  if (!fs.existsSync(MANIFEST)) {
+    fail('OFFLINE_MANIFEST.json is missing. Creator should run npm run architect:manifest after verified changes.');
+    return;
+  }
+  const manifest = readJson(MANIFEST);
+  if (!manifest || !Array.isArray(manifest.files)) return;
+  for (const item of manifest.files) {
+    const full = path.join(ROOT, item.path);
+    if (!fs.existsSync(full)) {
+      fail(`Manifest file missing: ${item.path}`);
+      continue;
+    }
+    const actual = sha256(full);
+    if (actual !== item.sha256) {
+      fail(`Hash mismatch: ${item.path}`);
+    }
+  }
+}
+
+checkNoPackageDependencies();
+checkDeckValidation();
+checkBuiltOutputs();
+checkManifest();
+
+for (const msg of warnings) console.warn(`WARN: ${msg}`);
+
+if (failures.length) {
+  console.error('\nVERIFY FAILED');
+  failures.forEach((msg, i) => console.error(`\n${i + 1}. ${msg}`));
+  process.exit(1);
+}
+
+console.log(`VERIFY PASSED${warnings.length ? ` with ${warnings.length} warning(s)` : ''}.`);

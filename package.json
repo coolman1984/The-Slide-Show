@@ -5,7 +5,9 @@
   "scripts": {
     "build": "node engine/build.js decks/seegp-ax-monthly.json -o index.html",
     "demo": "node engine/build.js decks/demo-product-launch.json -o dist/demo.html",
-    "list": "node engine/build.js --list"
+    "list": "node engine/build.js --list",
+    "verify": "node tools/offline_verify.js",
+    "architect:manifest": "node tools/offline_manifest.js"
   },
   "license": "UNLICENSED",
   "private": true
