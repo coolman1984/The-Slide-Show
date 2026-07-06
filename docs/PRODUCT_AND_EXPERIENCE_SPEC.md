@@ -139,6 +139,7 @@ will guide agents into a safe workflow and produce a polished, verified output.
 - Density selector
 - Color/accent selector
 - Shape/radius selector
+- Surface style selector
 - Footer/confidentiality controls
 - Slide preview
 - Validation panel
@@ -168,6 +169,8 @@ It should feel like an operations tool, not a marketing landing page.
 - Template-specific grids.
 - Responsive stage scaling.
 - No content should move unpredictably during presentation.
+- Optional fields should collapse cleanly when null.
+- Text should never shrink below the readable floor; split or shorten instead.
 
 ### Color
 
@@ -254,6 +257,7 @@ to justify the extra bundled runtime.
 - SlideSpec JSON
 - Template registry JSON
 - Theme token JSON
+- Surface style registry JSON
 - Validator error format
 - Prompt compiler task format
 - Repair request/response format
@@ -311,4 +315,3 @@ SlideForge OS is successful when:
 - themes can change the look without breaking layout
 - current deck remains safe while the system expands
 - future features are added through contracts, not hacks
-

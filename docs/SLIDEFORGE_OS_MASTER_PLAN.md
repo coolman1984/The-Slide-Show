@@ -255,6 +255,25 @@ Theme variants must control:
 - static vs animated background
 - conservative vs high-impact visual style
 
+### 3.1 Shape And Surface Style Engine
+
+The visual system must support more than color changes. Templates should expose
+controlled surface styles:
+
+| Surface Style | Use |
+|---|---|
+| rounded-card | default executive cards |
+| sharp-card | conservative corporate decks |
+| glass-card | AI / high-tech decks |
+| ticket-cutout | ticket, coupon, event, or modular comparison layouts |
+| folder-tab | project folders, workstreams, governance packs |
+| split-panel | before/after, option comparison, decision slides |
+| badge-stack | status, award, risk, training slides |
+| memo-panel | executive one-page summaries |
+
+Agents may select only allowed `surfaceStyle` values. The renderer implements
+the actual shape with CSS/SVG. Agents must not describe custom shapes in prose.
+
 ### 4. Auto Layout Engine
 
 The system must prevent common AI slide failures:
@@ -282,6 +301,9 @@ Required capabilities:
 - compact mode and spacious mode
 - per-template overflow strategies
 - hard failure when content cannot fit safely
+- null-value degradation for optional fields
+- minimum readable font floor before repair/split
+- safe collapse of empty sections
 
 ### 5. Validation Layer
 
@@ -477,6 +499,15 @@ If future export tools need dependencies, the creator must vendor or bundle
 them into the project or provide a prebuilt local runtime. The operator agent
 must not need to install them.
 
+Future renderer/export candidates:
+
+- Playwright for high-fidelity screenshots if a local bundled browser path is
+  available
+- PptxGenJS or python-pptx for PPTX export if the dependency is packaged
+- PDF export from local browser rendering or a bundled PDF tool
+
+These are architecture options, not current routine setup requirements.
+
 ### 13. Local Control Panel
 
 Future UI:
@@ -632,6 +663,21 @@ Track:
 - repair actions
 - final artifact hash
 - approved/rejected state
+
+### 21. Dependency Bundle Layer
+
+Future features may require libraries. The creator must make those dependencies
+boring for the operator.
+
+Allowed future patterns:
+
+- vendor a small JS library directly in `vendor/`
+- bundle a local Node runtime or package cache
+- bundle a Python runtime only if necessary
+- document dependency decisions in ADRs
+- verify routine commands do not fetch anything
+
+The operator agent should never be asked to solve dependency installation.
 
 ## Edge Cases To Design For
 
@@ -815,6 +861,7 @@ Deliverables:
 - PPTX export if local dependency can be bundled safely
 - export verification
 - package folder for meeting delivery
+- dependency bundle decision ADR for any renderer/export library
 
 ### Phase 7 - Local Control Panel
 

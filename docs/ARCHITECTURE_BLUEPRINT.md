@@ -31,6 +31,7 @@ source material
 | Repair loop | make narrow corrections | redesign whole deck blindly |
 | Template registry | list supported templates | store source facts |
 | Theme engine | resolve visual tokens | change content |
+| Surface engine | resolve approved card/shape styles | accept arbitrary prose design |
 | Renderer | produce HTML/SVG/CSS | invent copy |
 | Exporter | package output formats | modify source deck |
 | Quality gates | block risky output | hide warnings |
@@ -51,6 +52,12 @@ and repair rules.
 
 Defines token values for typography, colors, spacing, shapes, surfaces,
 backgrounds, charts, icons, footers, and motion.
+
+### Surface Style Contract
+
+Defines approved shape treatments such as rounded cards, ticket cutouts, folder
+tabs, split panels, and memo panels. Agents select IDs only; renderer code owns
+the implementation.
 
 ### Validator Result Contract
 
@@ -121,6 +128,14 @@ Routine operation must stay pre-wired. If a future feature needs a library:
 3. creator documents the reason in an ADR
 4. verification proves routine users do not run setup
 
+Candidate dependencies must be classified:
+
+| Class | Meaning | Policy |
+|---|---|---|
+| Current core | Already works with the repo | Safe for routine use |
+| Bundled future | Creator packages it locally | Allowed after ADR and verification |
+| External setup | Requires install/download by operator | Not allowed for routine use |
+
 ## Packaging Strategy
 
 Future meeting package:
@@ -155,4 +170,3 @@ Future local UI should use:
 - bottom panel: issues, provenance, approval state
 
 It should optimize repeated production work, not marketing decoration.
-

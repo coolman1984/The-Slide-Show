@@ -54,6 +54,8 @@ repair, exports, and eventually a local control panel.
 - [ ] Task 3.3: Add Samsung-inspired, finance executive, factory operations,
       and high-contrast projector themes.
 - [ ] Task 3.4: Add theme preview generation.
+- [ ] Task 3.5: Add controlled surface style registry for cards, tickets,
+      folder tabs, split panels, badges, and memo panels.
 
 ### Phase 4: Weak-Agent Pipeline
 
@@ -69,6 +71,7 @@ repair, exports, and eventually a local control panel.
 - [ ] Task 5.2: Add overflow preflight checks per template.
 - [ ] Task 5.3: Add deterministic repair suggestions.
 - [ ] Task 5.4: Add deck story checks for agenda/order/section consistency.
+- [ ] Task 5.5: Add null-value degradation checks and readable font floor.
 
 ### Phase 6: Export Expansion
 

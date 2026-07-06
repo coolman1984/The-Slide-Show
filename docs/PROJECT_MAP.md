@@ -69,8 +69,12 @@ Start with `skills/SKILL.md`. It routes the agent through:
 | `docs/ARCHITECTURE_BLUEPRINT.md` | Module boundaries, interfaces, testing, packaging |
 | `docs/QUALITY_AND_GOVERNANCE_GATES.md` | Readiness gates for decks, themes, templates, and releases |
 | `docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md` | Rules for weak-model compatible workflows |
+| `docs/IDEA_INTAKE_DECISIONS.md` | Which external/raw planning ideas were adopted, reframed, deferred, or rejected |
+| `docs/CODING_AGENT_EXECUTION_MANUAL.md` | Exact implementation manual for coding agents |
+| `docs/WORK_AGENT_OPERATING_MANUAL.md` | Simple routine operating manual for the final work agent |
 | `tasks/plan.md` | Implementable phase plan |
 | `tasks/todo.md` | Current task checklist |
+| `tasks/implementation_backlog.md` | Granular ordered task backlog for coding agents |
 
 ## Change Types
 

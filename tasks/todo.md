@@ -19,6 +19,8 @@
 8. [ ] Add theme preview generator.
 9. [ ] Add quality gate checklist to verification output.
 10. [ ] Draft local control panel wireframe.
+11. [ ] Add surface style registry draft.
+12. [ ] Add null-field degradation rules to template contracts.
 
 ## Definition Of Done For Each Task
 

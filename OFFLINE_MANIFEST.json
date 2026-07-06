@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T17:58:07.035Z",
+  "generatedAt": "2026-07-06T18:12:59.720Z",
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 3590,
-      "sha256": "53d85fadb00e19feebfca744429fa78fea21a14446b537731c061d9bf4b5774a"
+      "bytes": 3682,
+      "sha256": "d8fa1bcd5ad04eb4c33d19c4576882f7ff4c3c735b7c78afaf296a71d4218fd6"
     },
     {
       "path": "decks/demo-product-launch.json",
@@ -35,13 +35,18 @@
     },
     {
       "path": "docs/ARCHITECTURE_BLUEPRINT.md",
-      "bytes": 3859,
-      "sha256": "a3f98e7238af6af9fc760e8962c86cfdbed24267d0f1ab377c26b8bd45935be1"
+      "bytes": 4488,
+      "sha256": "6d62909ab603d833c37aca1c609a1d932477d0b211b72e7e7c05208b03822726"
     },
     {
       "path": "docs/CHANGE_ON_THE_FLY.md",
       "bytes": 1614,
       "sha256": "846c45d70eceff345bea65c137433a94194acb851bbe5d62ec2a50213e1a80c6"
+    },
+    {
+      "path": "docs/CODING_AGENT_EXECUTION_MANUAL.md",
+      "bytes": 12065,
+      "sha256": "46ce696599261a80d4812b9a48bdf58673346edc581180c3c64c1fa9c6519836"
     },
     {
       "path": "docs/decisions/ADR-001-offline-first-self-contained-presentations.md",
@@ -52,6 +57,11 @@
       "path": "docs/decisions/ADR-002-json-decks-over-hand-edited-html.md",
       "bytes": 1410,
       "sha256": "1c0dc1175c8afc4f9b5a24834fe354c2ec0e8c4c34767e59869bff237afda624"
+    },
+    {
+      "path": "docs/IDEA_INTAKE_DECISIONS.md",
+      "bytes": 5684,
+      "sha256": "1d2ca4d2b4afeff171ff04b0d99d12640cb4de74f1799fbd59aabcc592398282"
     },
     {
       "path": "docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md",
@@ -65,13 +75,13 @@
     },
     {
       "path": "docs/PRODUCT_AND_EXPERIENCE_SPEC.md",
-      "bytes": 8777,
-      "sha256": "55a776f44f7424132a3aedd854dd54d51c10b0a964012d9f2415d3ed418497cd"
+      "bytes": 8963,
+      "sha256": "10d6b122320842b5c9c0e1ceb7afa8b4ab9ece14ae7ae426bfb2d13fc475846b"
     },
     {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 3608,
-      "sha256": "eb81d5311abbe6b43632dad00974591c126e9100e27b0a2a5a423008178653d5"
+      "bytes": 4007,
+      "sha256": "7ca5cdf70f6f80b57cf2fd1fade2b7949f0c5758ecda1a45777560bfa80abbf4"
     },
     {
       "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
@@ -80,8 +90,13 @@
     },
     {
       "path": "docs/SLIDEFORGE_OS_MASTER_PLAN.md",
-      "bytes": 21119,
-      "sha256": "1740186556930e0cd876abc1ec067c1dc1d6d8e58aa685bc8c7af67eda966b20"
+      "bytes": 22895,
+      "sha256": "12adb2f2d177209e5c18074b6dc7c82dbff2a7770b18a531ba50b4a812f79f9b"
+    },
+    {
+      "path": "docs/WORK_AGENT_OPERATING_MANUAL.md",
+      "bytes": 1683,
+      "sha256": "a7370ba877c13046ac22916a9bc329ac487a40c9b8b3a090b982da8441091870"
     },
     {
       "path": "engine/build.js",
@@ -164,14 +179,19 @@
       "sha256": "914e8e374e36cd67a27784bd4f07605fc515e9f0d15212ed2828179eaa93d490"
     },
     {
+      "path": "tasks/implementation_backlog.md",
+      "bytes": 9261,
+      "sha256": "979f9e3781fc4c08ff823a7066bd40eff2b315b742ffe22163c4c69e8d71b3d4"
+    },
+    {
       "path": "tasks/plan.md",
-      "bytes": 5645,
-      "sha256": "ed2f90ef0dc6d9f887b36d518fe7385aa9a188b9febba5bc0b121b5a13ff9a63"
+      "bytes": 5852,
+      "sha256": "bcb94568630e9be89eb571cbf5a3a4747291ec50f61f9a984950335e16b4da3e"
     },
     {
       "path": "tasks/todo.md",
-      "bytes": 1095,
-      "sha256": "1495ef74ead589673beb43a856cf1708134d8958b820bbeff16a44e9ec2e3725"
+      "bytes": 1201,
+      "sha256": "0dde192d2e0e2e63c5419404695132f7484e59819256f80b18a757ffbb8ca8a4"
     },
     {
       "path": "tools/offline_manifest.js",
