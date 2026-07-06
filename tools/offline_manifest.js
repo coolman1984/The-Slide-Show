@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'OFFLINE_MANIFEST.json');
 
-const INCLUDE_DIRS = ['decks', 'dist', 'docs', 'engine', 'skills', 'tools'];
+const INCLUDE_DIRS = ['decks', 'dist', 'docs', 'engine', 'skills', 'tasks', 'tools'];
 const INCLUDE_FILES = ['AGENTS.md', 'README.md', 'PLAN.md', 'package.json', 'index.html'];
 const EXCLUDE_NAMES = new Set(['.git', '.agents', '.codex', 'OFFLINE_MANIFEST.json']);
 

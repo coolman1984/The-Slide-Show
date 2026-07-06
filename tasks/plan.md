@@ -92,6 +92,22 @@ repair, exports, and eventually a local control panel.
 - [ ] Task 8.3: Design screenshot-to-template intake workflow.
 - [ ] Task 8.4: Add approval memory docs and storage format.
 
+### Phase 9: Product-Grade Control Panel
+
+- [ ] Task 9.1: Design local control panel wireframe and information architecture.
+- [ ] Task 9.2: Build deck browser and slide list.
+- [ ] Task 9.3: Build structured slide editor from template schema.
+- [ ] Task 9.4: Build validation and issue panel.
+- [ ] Task 9.5: Build variant comparison and approval flow.
+
+### Phase 10: Governance And Release System
+
+- [ ] Task 10.1: Add artifact export manifest.
+- [ ] Task 10.2: Add draft/approved output folders.
+- [ ] Task 10.3: Add rollback meeting package.
+- [ ] Task 10.4: Add template/theme versioning rules.
+- [ ] Task 10.5: Add release notes process for engine changes.
+
 ## Risks And Mitigations
 
 | Risk | Impact | Mitigation |
@@ -103,6 +119,8 @@ repair, exports, and eventually a local control panel.
 | Theme variants become inconsistent | Medium | Token schema and preview catalog |
 | Agent edits generated HTML | Medium | AGENTS.md forbids it; verification detects drift |
 | Visual QA skipped | High | Keep visual inspection in Definition of Done |
+| Big plan becomes too large to execute | High | Build in vertical phases; protect current deck |
+| Control panel becomes decorative instead of useful | Medium | Follow operations UI principles; prioritize workflow |
 
 ## Open Questions
 
@@ -111,4 +129,3 @@ repair, exports, and eventually a local control panel.
 - What Samsung visual boundaries are allowed for internal decks?
 - Which first three new templates should be built after the current family?
 - What exact source-tracking level is required for management decks?
-

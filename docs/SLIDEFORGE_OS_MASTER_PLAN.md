@@ -534,6 +534,105 @@ Support must include:
 
 For management decks, clear English remains the default.
 
+### 16. Governance And Release Layer
+
+The project needs release discipline because the output is used in management
+settings.
+
+Required capabilities:
+
+- draft vs approved outputs
+- template lifecycle
+- theme lifecycle
+- schema versioning
+- migration scripts for breaking changes
+- release notes for engine changes
+- rollback path for meeting day
+- exact final-file naming
+- manifest and export records
+
+### 17. Local UI/UX Layer
+
+The future control panel must be designed as an operations cockpit. It should
+reduce decisions, show risks, and keep the user in control.
+
+Required screens:
+
+- deck browser
+- slide editor
+- template catalog
+- theme catalog
+- variant comparison
+- validation report
+- source/provenance inspector
+- export package screen
+- approval memory screen
+
+### 18. Marketing And Positioning Layer
+
+The system should help create decks for different communication goals, not only
+visual styles.
+
+Positioning routes for decks:
+
+- executive update
+- finance decision
+- factory operations improvement
+- AI transformation story
+- project status
+- training and adoption
+- risk and mitigation
+- automation ROI
+- award and recognition
+- strategy proposal
+
+Each route should suggest:
+
+- deck story structure
+- best template sequence
+- tone of language
+- evidence required
+- visual style
+- likely management question
+- recommended final ask
+
+### 19. Plugin And Extension Layer
+
+Future capabilities must be added as modules, not one tangled script.
+
+Possible plugin families:
+
+- importers: Excel, CSV, image, screenshot, email text
+- analyzers: KPI, variance, timeline, risk, org chart
+- generators: deck story, speaker notes, executive summary
+- renderers: HTML, PNG, PDF, PPTX
+- validators: content, design, accessibility, security
+- exporters: meeting package, archive package
+
+Each plugin must declare:
+
+- input contract
+- output contract
+- dependencies
+- verification command
+- failure behavior
+- examples
+
+### 20. Observability And Audit Layer
+
+Even local tools need traceability.
+
+Track:
+
+- command run
+- input file
+- output file
+- validation result
+- warning count
+- repair actions
+- final artifact hash
+- approved/rejected state
+
 ## Edge Cases To Design For
 
 ### Input Edge Cases
@@ -743,6 +842,36 @@ Deliverables:
 - visual regression checks
 - approval memory registry
 
+### Phase 9 - Product-Grade Control Panel
+
+Goal: make the system usable by Mohamed without technical thinking.
+
+Deliverables:
+
+- local UI shell
+- deck/task chooser
+- structured edit forms
+- safe change-on-the-fly mode
+- validation issue panel
+- variant compare view
+- export package workflow
+- approval memory workflow
+
+### Phase 10 - Enterprise-Grade Governance
+
+Goal: make the system reliable for repeated serious use.
+
+Deliverables:
+
+- artifact manifest
+- approved/draft status
+- rollback package
+- template versioning
+- schema migration scripts
+- release notes
+- audit log
+- redaction mode
+
 ## Key Architectural Boundaries
 
 Always:
@@ -779,4 +908,3 @@ SlideForge OS should become:
 > A deterministic AI-assisted presentation factory where agents structure
 > content, templates act as machines, validators act as quality control, and
 > the renderer guarantees executive-grade slides.
-

@@ -50,6 +50,8 @@ Read `docs/CHANGE_ON_THE_FLY.md` when the user needs a fast live-meeting edit.
 `docs/OFFLINE_OPERATING_MODEL.md` is for the creator/architect, not routine
 deck editing.
 For architecture expansion work, read `docs/SLIDEFORGE_OS_MASTER_PLAN.md`,
+`docs/PRODUCT_AND_EXPERIENCE_SPEC.md`, `docs/ARCHITECTURE_BLUEPRINT.md`,
+`docs/QUALITY_AND_GOVERNANCE_GATES.md`,
 `docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md`, and `tasks/plan.md`.
 
 ## Standard Workflow

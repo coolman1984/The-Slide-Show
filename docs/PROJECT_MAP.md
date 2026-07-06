@@ -65,6 +65,9 @@ Start with `skills/SKILL.md`. It routes the agent through:
 | Path | Purpose |
 |---|---|
 | `docs/SLIDEFORGE_OS_MASTER_PLAN.md` | Full product architecture and roadmap |
+| `docs/PRODUCT_AND_EXPERIENCE_SPEC.md` | Product promise, UX model, and missing expert requirements |
+| `docs/ARCHITECTURE_BLUEPRINT.md` | Module boundaries, interfaces, testing, packaging |
+| `docs/QUALITY_AND_GOVERNANCE_GATES.md` | Readiness gates for decks, themes, templates, and releases |
 | `docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md` | Rules for weak-model compatible workflows |
 | `tasks/plan.md` | Implementable phase plan |
 | `tasks/todo.md` | Current task checklist |

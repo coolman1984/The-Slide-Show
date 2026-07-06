@@ -17,6 +17,8 @@
 6. [ ] Add prompt compiler docs for weak agents.
 7. [ ] Add first new template beyond current deck.
 8. [ ] Add theme preview generator.
+9. [ ] Add quality gate checklist to verification output.
+10. [ ] Draft local control panel wireframe.
 
 ## Definition Of Done For Each Task
 
@@ -25,4 +27,3 @@
 - [ ] `npm run verify` passes.
 - [ ] Visual output inspected when presentation rendering changes.
 - [ ] No routine workflow requires a new setup step.
-

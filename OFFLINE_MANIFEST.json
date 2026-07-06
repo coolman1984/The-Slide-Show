@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T17:49:01.736Z",
+  "generatedAt": "2026-07-06T17:58:07.035Z",
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 3477,
-      "sha256": "26c19db6f0fb2152d4d4eecdc99b8b3ce6e49426807996c00a91bac5dadff433"
+      "bytes": 3590,
+      "sha256": "53d85fadb00e19feebfca744429fa78fea21a14446b537731c061d9bf4b5774a"
     },
     {
       "path": "decks/demo-product-launch.json",
@@ -34,6 +34,11 @@
       "sha256": "ae730e5bf234141b6c6a24bba35c9446ebc1da6cf41fea2bc6cff82b8b64adf3"
     },
     {
+      "path": "docs/ARCHITECTURE_BLUEPRINT.md",
+      "bytes": 3859,
+      "sha256": "a3f98e7238af6af9fc760e8962c86cfdbed24267d0f1ab377c26b8bd45935be1"
+    },
+    {
       "path": "docs/CHANGE_ON_THE_FLY.md",
       "bytes": 1614,
       "sha256": "846c45d70eceff345bea65c137433a94194acb851bbe5d62ec2a50213e1a80c6"
@@ -59,14 +64,24 @@
       "sha256": "52b6d3c1dbb5c4ecc381688463f242030fe92fd8f356d21517bc48a63bece360"
     },
     {
+      "path": "docs/PRODUCT_AND_EXPERIENCE_SPEC.md",
+      "bytes": 8777,
+      "sha256": "55a776f44f7424132a3aedd854dd54d51c10b0a964012d9f2415d3ed418497cd"
+    },
+    {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 3312,
-      "sha256": "d22135e6a1e266dbd9aba63ffaeee307423ee1ff70832e46785e31ecf3c5144d"
+      "bytes": 3608,
+      "sha256": "eb81d5311abbe6b43632dad00974591c126e9100e27b0a2a5a423008178653d5"
+    },
+    {
+      "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
+      "bytes": 2892,
+      "sha256": "35e4e4b53534f50fe0ab6007bcbef5704fafb047355bb17f65ef2bf60ed665a4"
     },
     {
       "path": "docs/SLIDEFORGE_OS_MASTER_PLAN.md",
-      "bytes": 18381,
-      "sha256": "b49c242a745467c2b2ca3b37b2fe728f4907257883579e7951ddc843ae82178a"
+      "bytes": 21119,
+      "sha256": "1740186556930e0cd876abc1ec067c1dc1d6d8e58aa685bc8c7af67eda966b20"
     },
     {
       "path": "engine/build.js",
@@ -149,9 +164,19 @@
       "sha256": "914e8e374e36cd67a27784bd4f07605fc515e9f0d15212ed2828179eaa93d490"
     },
     {
+      "path": "tasks/plan.md",
+      "bytes": 5645,
+      "sha256": "ed2f90ef0dc6d9f887b36d518fe7385aa9a188b9febba5bc0b121b5a13ff9a63"
+    },
+    {
+      "path": "tasks/todo.md",
+      "bytes": 1095,
+      "sha256": "1495ef74ead589673beb43a856cf1708134d8958b820bbeff16a44e9ec2e3725"
+    },
+    {
       "path": "tools/offline_manifest.js",
-      "bytes": 1865,
-      "sha256": "2d16e4ce02b8f279cf6100e03953d7e446f76a4d6e5c0caa54c20e595f312fbf"
+      "bytes": 1874,
+      "sha256": "486ae90600d5b927f57063973351e1077f5488782d6c1ac23df35d01bed6e5e6"
     },
     {
       "path": "tools/offline_verify.js",
