@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEEG-P AX Monthly Meeting</title>
+<style>
+/* ============================================================
+   GLOBAL / DESIGN TOKENS
+   ============================================================ */
+:root{
+  --bg-deep:#04091a;
+  --cyan:#22d3ee;
+  --cyan-bright:#4ff5ff;
+  --blue:#3b82f6;
+  --teal:#2dd4a8;
+  --purple:#a78bfa;
+  --purple-deep:#7c5cff;
+  --text-hi:#f4f8ff;
+  --text-mid:#c7d5ea;
+  --text-low:#8fa3c0;
+  --card-bg:linear-gradient(180deg,rgba(20,42,78,.55),rgba(9,20,42,.65));
+  --card-border:rgba(56,130,220,.35);
+  --ease:cubic-bezier(.22,.9,.3,1);
+
+  --l-bg:#f4f6f9; --l-panel:#eceff3; --l-card:#ffffff; --l-card-brd:#e3e8ee;
+  --l-header:#1b2a41; --l-title:#1785c7; --l-text:#2b3648;
+  --green:#22a453; --green-bg:#e4f6ea;
+  --status-blue:#1d7fd6; --blue-bg:#e3f0fc;
+  --orange:#e8940a; --orange-bg:#fdf0d7;
+  --prep-purple:#7c3aed; --mvp-red:#e2492f; --aug-red:#c2410c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-deep)}
+body{
+  font-family:"Segoe UI","Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+
+/* ============================================================
+   STAGE — fixed 1920x1080 canvas, scaled to fit viewport
+   ============================================================ */
+#stage{
+  position:absolute;top:50%;left:50%;width:1920px;height:1080px;
+  transform:translate(-50%,-50%) scale(1);
+  background:
+    radial-gradient(600px 240px at 88% 4%, rgba(60,130,220,.16), transparent 70%),
+    radial-gradient(120% 90% at 78% 8%, #0e2c52 0%, rgba(14,44,82,0) 55%),
+    radial-gradient(100% 80% at 10% 100%, #0a1f3d 0%, rgba(10,31,61,0) 50%),
+    linear-gradient(155deg,#071127 0%,#050d20 45%,#03081a 100%);
+  overflow:hidden;
+}
+#fx{position:absolute;inset:0;z-index:0}
+
+/* ============================================================
+   SLIDES — base + transition
+   ============================================================ */
+.slide{
+  position:absolute;inset:0;z-index:1;opacity:0;visibility:hidden;
+  transform:translateX(calc(44px * var(--dir,1)));
+  transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s linear .5s;
+}
+.slide.active{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.slide.leaving{opacity:0;visibility:visible;transform:translateX(calc(-44px * var(--dir,1)));transition-delay:0s}
+.slide.light{background:var(--l-bg)}
+
+/* ============================================================
+   ENTRANCE ANIMATION SYSTEM
+   .a elements are hidden until the slide gets .play
+   ============================================================ */
+.a{opacity:0}
+.play .a-up  {animation:kUp   .6s var(--ease) var(--d,0s) both}
+.play .a-left{animation:kLeft .6s var(--ease) var(--d,0s) both}
+.play .a-pop {animation:kPop  .55s var(--ease) var(--d,0s) both}
+.play .a-fade{animation:kFade .6s ease var(--d,0s) both}
+.play .a-drop{animation:kDrop .5s var(--ease) var(--d,0s) both}
+.play .a-zoom{animation:kZoom .7s var(--ease) var(--d,0s) both}
+.play .a-wipe{animation:kWipe .5s var(--ease) var(--d,0s) both;transform-origin:left center}
+.play .a-wipe.from-center{transform-origin:center center}
+@keyframes kUp  {from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes kLeft{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+@keyframes kPop {0%{opacity:0;transform:scale(.5)}70%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes kFade{from{opacity:0}to{opacity:1}}
+@keyframes kDrop{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:none}}
+@keyframes kZoom{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes kWipe{from{opacity:1;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
+@keyframes kBreathe{0%,100%{filter:drop-shadow(0 0 5px rgba(34,211,238,.30))}50%{filter:drop-shadow(0 0 15px rgba(34,211,238,.65))}}
+.breathe{animation:kBreathe 4s ease-in-out infinite}
+
+/* ============================================================
+   SHARED DARK COMPONENTS
+   ============================================================ */
+.foot{position:absolute;left:65px;right:65px;bottom:32px;z-index:2}
+.foot .rule{height:1px;background:rgba(120,160,210,.25);position:relative;margin-bottom:15px}
+.foot .rule::after{content:"";position:absolute;right:0;top:-1px;width:60px;height:3px;background:var(--cyan);box-shadow:0 0 10px rgba(34,211,238,.7);border-radius:2px}
+.foot .flabel{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.25em;color:var(--text-low);font-weight:600}
+.foot svg{width:14px;height:14px;stroke:var(--text-low)}
+
+.shead{display:flex;align-items:center;gap:20px;padding:34px 0 0 42px}
+.shead .idx{font-size:54px;font-weight:800;color:var(--cyan);line-height:1;text-shadow:0 0 18px rgba(34,211,238,.5)}
+.shead .sep{width:5px;height:48px;background:rgba(240,248,255,.92);border-radius:2px}
+.shead h2{font-size:54px;font-weight:800;color:var(--text-hi);line-height:1;letter-spacing:.01em}
+
+.dpill{display:inline-flex;align-items:center;border-radius:999px;border:1px solid;font-weight:700}
+
+/* ============================================================
+   SLIDE 1 — TITLE
+   ============================================================ */
+#s1{display:flex;align-items:center;justify-content:center}
+#s1 .stack{text-align:center;margin-top:-70px}
+#s1 h1{font-size:92px;font-weight:700;color:var(--text-hi);letter-spacing:.005em}
+#s1 .divider{position:relative;width:280px;height:5px;margin:44px auto 0}
+#s1 .divider .line{position:absolute;left:0;right:0;top:2px;height:2px;background:linear-gradient(90deg,transparent,rgba(120,180,255,.65),transparent)}
+#s1 .divider .bar{position:absolute;left:50%;top:0;width:72px;height:5px;transform:translateX(-50%);background:var(--cyan);border-radius:3px;box-shadow:0 0 14px rgba(34,211,238,.9)}
+#s1 .date{margin-top:44px;font-size:30px;font-weight:500;color:var(--text-mid)}
+
+/* ============================================================
+   SLIDE 2 — AGENDA
+   ============================================================ */
+#s2 .h2head{display:flex;align-items:center;gap:24px;padding:58px 0 0 66px}
+#s2 .vbar{width:9px;height:62px;background:var(--cyan);border-radius:2px;box-shadow:0 0 16px rgba(34,211,238,.65)}
+#s2 h2{font-size:66px;font-weight:800;color:var(--text-hi);line-height:1}
+#s2 .agenda{margin:52px 0 0 142px}
+#s2 .arow{display:flex;align-items:center;gap:46px;height:66px}
+#s2 .num{flex:none;width:58px;height:58px;border-radius:50%;border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;font-size:29px;font-weight:600;color:var(--text-hi);box-shadow:0 0 16px rgba(34,211,238,.30),inset 0 0 10px rgba(34,211,238,.12)}
+#s2 .txt{font-size:32px;font-weight:600;color:var(--text-hi)}
+#s2 .agline{height:1px;background:rgba(120,160,210,.22);margin:14px 0 14px 102px;width:1245px}
+
+/* ============================================================
+   SLIDE 3 — AI CREW ORG
+   ============================================================ */
+#s3 .orgrow{display:flex;align-items:center;padding:0 232px;margin-top:4px}
+#s3 .conn{flex:1;height:2px;background:rgba(140,180,230,.5);min-width:40px}
+#s3 .node{border-radius:16px;background:var(--card-bg);padding:12px 26px;text-align:center}
+#s3 .node.leader{position:relative;border:2px solid var(--purple);box-shadow:0 0 26px rgba(167,139,250,.35);min-width:340px;padding:14px 34px}
+#s3 .leader .ltitle{font-size:26px;font-weight:700;color:var(--purple)}
+#s3 .leader .lname{font-size:31px;font-weight:800;color:var(--text-hi);margin-top:2px}
+#s3 .leader .drop{position:absolute;left:50%;top:100%;width:2px;height:42px;background:rgba(140,180,230,.5)}
+#s3 .node.side{border:1.5px solid rgba(34,211,238,.55);box-shadow:0 0 18px rgba(34,211,238,.12);min-width:300px}
+#s3 .node.side.right{border-color:rgba(120,150,255,.6);box-shadow:0 0 18px rgba(124,92,255,.15);text-align:left;padding:10px 26px}
+#s3 .side .ntitle{font-size:24px;font-weight:700;color:var(--cyan);margin-bottom:4px}
+#s3 .side.right .ntitle{background:linear-gradient(90deg,var(--cyan),#7aa8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#s3 .side .nm{font-size:23px;font-weight:600;color:var(--text-hi);line-height:1.42}
+#s3 .side.right .nm{font-size:21px;line-height:1.38}
+#s3 .divs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:46px;padding:0 64px;margin-top:26px}
+#s3 .dhead{display:flex;align-items:center;justify-content:space-between}
+#s3 .dhead h3{font-size:30px;font-weight:800;color:var(--text-hi);letter-spacing:.02em}
+#s3 .mpill{font-size:19px;padding:5px 18px}
+#s3 .mpill.b{color:#4da3ff;border-color:rgba(77,163,255,.6);background:rgba(30,80,160,.35)}
+#s3 .mpill.t{color:var(--teal);border-color:rgba(45,212,168,.6);background:rgba(16,90,70,.35)}
+#s3 .mpill.p{color:var(--purple);border-color:rgba(167,139,250,.6);background:rgba(88,60,160,.35)}
+#s3 .dunder{height:2px;background:rgba(120,160,210,.35);margin-top:12px;position:relative}
+#s3 .dunder::before{content:"";position:absolute;left:0;top:-3px;width:8px;height:8px;border-radius:50%}
+#s3 .dunder.b::before{background:#4da3ff;box-shadow:0 0 8px #4da3ff}
+#s3 .dunder.t::before{background:var(--teal);box-shadow:0 0 8px var(--teal)}
+#s3 .dunder.p::before{background:var(--purple);box-shadow:0 0 8px var(--purple)}
+#s3 .cards{display:flex;flex-direction:column;gap:11px;margin-top:16px}
+#s3 .cards.airy{gap:34px;margin-top:20px}
+#s3 .tcard{border-radius:12px;background:var(--card-bg);border:1px solid var(--card-border);padding:10px 16px;box-shadow:0 0 20px rgba(34,211,238,.05)}
+#s3 .cards.airy .tcard{padding:18px 18px}
+#s3 .thead{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+#s3 .tname{font-size:24px;font-weight:700}
+#s3 .col-vd .tname{color:var(--cyan-bright)}
+#s3 .col-mx .tname{color:var(--teal)}
+#s3 .col-co .tname{color:#c4b5fd}
+#s3 .cnt{width:30px;height:30px;border-radius:8px;border:1px solid rgba(150,180,220,.45);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:var(--text-hi);background:rgba(15,30,60,.5)}
+#s3 .mem{display:flex;align-items:center;gap:12px;height:37px}
+#s3 .av{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;letter-spacing:.02em}
+#s3 .col-vd .av{background:linear-gradient(135deg,#2563eb,#22d3ee)}
+#s3 .col-mx .av{background:linear-gradient(135deg,#0d9488,#34d399)}
+#s3 .col-co .av{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+#s3 .mname{font-size:21.5px;font-weight:600;color:var(--text-hi);white-space:nowrap}
+#s3 .mrole{font-size:19px;color:var(--text-low);white-space:nowrap}
+
+/* ============================================================
+   SLIDE 4 — AI CREW ROLE
+   ============================================================ */
+#s4 .bullet{display:flex;align-items:center;gap:24px;margin:34px 0 0 66px}
+#s4 .chk{flex:none;width:30px;height:30px;border:3px solid var(--cyan);border-radius:7px;box-shadow:0 0 10px rgba(34,211,238,.35)}
+#s4 .bullet h3{font-size:37px;font-weight:800;color:var(--text-hi)}
+#s4 .subs{margin:12px 0 0 122px}
+#s4 .subs div{font-size:26px;color:var(--text-mid);line-height:1.65}
+#s4 .subs .dash{color:var(--cyan);font-weight:700;margin-right:14px}
+#s4 .rolewrap{display:grid;grid-template-columns:1fr 560px;gap:48px;padding:0 66px;margin-top:36px}
+#s4 .seclab{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+#s4 .seclab svg{width:30px;height:30px}
+#s4 .seclab span{font-size:22px;font-weight:800;letter-spacing:.08em;white-space:nowrap}
+#s4 .seclab .rline{flex:1;height:1px;background:rgba(120,160,210,.3)}
+#s4 .seclab.cy span{color:var(--cyan)}
+#s4 .seclab.mg span{color:#c084fc}
+#s4 .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#s4 .rcol{display:grid;gap:20px}
+.rcard{border-radius:16px;background:var(--card-bg);border:1px solid var(--card-border);padding:24px 26px;min-height:246px}
+.rcard.cy{border-left:3px solid var(--cyan);box-shadow:-6px 0 22px -8px rgba(34,211,238,.45),0 0 20px rgba(34,211,238,.05)}
+.rcard.pu{border-left:3px solid var(--purple);box-shadow:-6px 0 22px -8px rgba(167,139,250,.5),0 0 20px rgba(167,139,250,.06)}
+.rcard .rtop{display:flex;align-items:flex-start;justify-content:space-between}
+.ichip{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(10,24,50,.75)}
+.ichip.cy{border:1.5px solid rgba(34,211,238,.6)}
+.ichip.pu{border:1.5px solid rgba(167,139,250,.65)}
+.ichip svg{width:27px;height:27px}
+.rbadge{border:1px solid rgba(150,180,220,.4);border-radius:8px;padding:6px 13px;font-size:16px;font-weight:700;letter-spacing:.12em;color:#dfe9f7;background:rgba(15,30,60,.5)}
+.rcard h4{font-size:29px;font-weight:800;color:var(--text-hi);margin:16px 0 10px}
+.rcard p{font-size:20.5px;line-height:1.5;color:var(--text-mid)}
+
+/* ============================================================
+   SLIDES 5 & 6 — MASTER TIMELINE MATRIX (LIGHT)
+   ============================================================ */
+.tlslide{display:flex;flex-direction:column;padding:30px 40px 22px}
+.tlslide .ltop{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.tlslide .ltl{display:flex;align-items:center;gap:14px;font-size:22px;font-weight:600;color:var(--l-text);padding-top:8px}
+.tlslide .lbar{width:6px;height:34px;background:var(--l-title);border-radius:2px}
+.tlslide .ltr{font-size:40px;font-weight:800;color:var(--l-title);letter-spacing:.01em}
+.tlgrid{flex:1;display:grid;grid-template-columns:180px repeat(6,1fr);grid-template-rows:56px repeat(4,1fr);gap:14px;min-height:0}
+.tlh{background:var(--l-header);border-radius:8px;color:#fff;font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tlproj{grid-column:1;grid-row:2/6;background:var(--l-panel);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;color:var(--l-text)}
+.pcard{background:var(--l-card);border:1px solid var(--l-card-brd);border-top:3px solid var(--green);border-radius:10px;box-shadow:0 2px 6px rgba(27,42,65,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:10px 14px;text-align:center}
+.pcard .pname{font-size:23px;font-weight:600;color:var(--l-text);line-height:1.3}
+.pcard .prow{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.spill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:5px 15px;font-size:17px;font-weight:700}
+.spill i{width:8px;height:8px;border-radius:50%}
+.spill.completed{background:var(--green-bg);color:var(--green)}   .spill.completed i{background:var(--green)}
+.spill.inprogress{background:var(--blue-bg);color:var(--status-blue)} .spill.inprogress i{background:var(--status-blue)}
+.spill.planning{background:var(--orange-bg);color:var(--orange)}  .spill.planning i{background:var(--orange)}
+.sbadge{display:inline-flex;align-items:center;border-radius:6px;padding:5px 12px;font-size:16px;font-weight:800;color:#fff;letter-spacing:.03em}
+.sbadge.prep{background:var(--prep-purple)}
+.sbadge.mvp{background:var(--mvp-red)}
+.legend{display:flex;align-items:center;gap:44px;margin:20px 0 0 12px}
+.legend .li{display:flex;align-items:center;gap:12px;font-size:19px;color:#4a5568;font-weight:500}
+.legend .sq{width:17px;height:17px;border-radius:4px}
+.lfoot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #dfe3e9;margin-top:18px;padding-top:14px;font-size:19px;color:#8a94a6}
+
+/* ============================================================
+   SLIDE 7 — AI CAPABILITY EXPANSION
+   ============================================================ */
+#s7 .sub{padding:10px 0 0 122px;font-size:28px;color:var(--text-mid)}
+#s7 .seclab{display:flex;align-items:center;gap:14px;margin:38px 66px 0}
+#s7 .seclab svg{width:27px;height:27px}
+#s7 .seclab span{font-size:26px;font-weight:800;color:var(--cyan);white-space:nowrap}
+#s7 .seclab .rline{flex:1;height:1px;background:linear-gradient(90deg,rgba(34,211,238,.5),rgba(34,211,238,0))}
+#s7 .models{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 66px;margin-top:28px}
+.mcard{border-radius:18px;background:var(--card-bg);border:1px solid var(--card-border);padding:30px 32px;min-height:330px}
+.mcard.cy{border-left:2px solid var(--cyan);box-shadow:-6px 0 24px -8px rgba(34,211,238,.4)}
+.mcard.te{border-left:2px solid #2dd4d4;box-shadow:-6px 0 24px -8px rgba(45,212,212,.4)}
+.mcard.pu{border-left:2px solid var(--purple);box-shadow:-6px 0 24px -8px rgba(167,139,250,.45)}
+.mcard .mtop{display:flex;align-items:center;gap:22px}
+.mcard .ichip{width:68px;height:68px}
+.mcard .ichip svg{width:34px;height:34px}
+.mcard .mname{font-size:38px;font-weight:800;color:var(--text-hi)}
+.mcard .mline{display:block;height:3px;width:92px;border-radius:2px;margin-top:7px}
+.mcard.cy .mline{background:var(--cyan)} .mcard.te .mline{background:#2dd4d4} .mcard.pu .mline{background:var(--purple)}
+.mcard p{font-size:22.5px;line-height:1.55;color:var(--text-mid);margin-top:20px}
+#s7 .banner{margin:22px 66px 0;border-radius:18px;background:var(--card-bg);border:1px solid var(--card-border);border-left:3px solid var(--cyan);box-shadow:-6px 0 26px -8px rgba(34,211,238,.4);display:flex;gap:32px;align-items:flex-start;padding:34px 42px}
+#s7 .banner .ichip{flex:none;width:84px;height:84px}
+#s7 .banner .ichip svg{width:42px;height:42px}
+#s7 .banner h4{font-size:40px;font-weight:800;color:var(--text-hi);margin-bottom:14px}
+#s7 .banner p{font-size:26px;line-height:1.6;color:var(--text-mid)}
+
+/* ============================================================
+   CHROME (navigation UI)
+   ============================================================ */
+#chrome{position:absolute;inset:0;z-index:50;pointer-events:none}
+#chrome>*{pointer-events:auto;transition:opacity .4s ease}
+#chrome.hid>*{opacity:0!important;pointer-events:none}
+#hair{position:absolute;top:0;left:0;right:0;height:3px;pointer-events:none!important}
+#hair i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));box-shadow:0 0 8px rgba(34,211,238,.6);transition:width .5s var(--ease)}
+.navbtn{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:1px solid rgba(160,190,230,.35);background:rgba(12,25,50,.35);color:#cfe0f5;font-size:30px;line-height:1;cursor:pointer;opacity:.38;transition:opacity .25s,background .25s}
+.navbtn:hover{opacity:1;background:rgba(20,45,90,.6);box-shadow:0 0 16px rgba(34,211,238,.35)}
+#prev{left:22px} #next{right:22px}
+#dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:11px;align-items:center}
+#dots .dot{width:11px;height:11px;border-radius:6px;background:rgba(255,255,255,.32);cursor:pointer;transition:all .35s var(--ease)}
+#dots .dot.on{width:34px;background:var(--cyan);box-shadow:0 0 12px rgba(34,211,238,.8)}
+#counter{position:absolute;right:24px;bottom:64px;font-size:15px;color:rgba(210,225,245,.65);letter-spacing:.08em;font-weight:600}
+#chrome.lite .navbtn{border-color:rgba(27,42,65,.25);background:rgba(27,42,65,.06);color:#33455e}
+#chrome.lite #dots .dot{background:rgba(27,42,65,.28)}
+#chrome.lite #dots .dot.on{background:var(--l-title);box-shadow:0 0 10px rgba(23,133,199,.55)}
+#chrome.lite #counter{color:rgba(27,42,65,.55)}
+#toast{position:absolute;bottom:76px;left:50%;transform:translateX(-50%);background:rgba(8,18,40,.9);border:1px solid rgba(34,211,238,.4);border-radius:999px;padding:12px 30px;font-size:16px;color:var(--text-mid);letter-spacing:.04em;opacity:0;transition:opacity .6s ease;white-space:nowrap}
+#toast.show{opacity:1}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  .a{opacity:1!important}
+  .play .a-up,.play .a-left,.play .a-pop,.play .a-fade,.play .a-drop,.play .a-zoom,.play .a-wipe{animation:none!important}
+  .slide{transition:none}
+  .breathe{animation:none}
+  #hair i{transition:none}
+}
+</style>
+</head>
+<body>
+<div id="stage" style="--dir:1">
+  <canvas id="fx" width="1920" height="1080"></canvas>
+
+  <!-- ================= SLIDE 1 : TITLE ================= -->
+  <section class="slide" id="s1">
+    <div class="stack">
+      <h1 class="a a-zoom" style="--d:.15s">[SEEG-P AX monthly meeting]</h1>
+      <div class="divider a a-wipe from-center" style="--d:.85s"><span class="line"></span><span class="bar breathe"></span></div>
+      <div class="date a a-up" style="--d:1.15s">[10/7/2026]</div>
+    </div>
+    <footer class="foot a a-fade" style="--d:1.4s">
+      <div class="rule"></div>
+      <div class="flabel"><span>CONFIDENTIAL &amp; PROPRIETARY</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= SLIDE 2 : AGENDA ================= -->
+  <section class="slide" id="s2">
+    <div class="h2head">
+      <span class="vbar a a-drop" style="--d:.05s"></span>
+      <h2 class="a a-left" style="--d:.15s">Agenda</h2>
+    </div>
+    <div class="agenda">
+      <div class="arow"><span class="num a a-pop" style="--d:.35s">1</span><span class="txt a a-left" style="--d:.42s">1. AI Crew Org. update</span></div>
+      <div class="agline a a-wipe" style="--d:.5s"></div>
+      <div class="arow"><span class="num a a-pop" style="--d:.43s">2</span><span class="txt a a-left" style="--d:.5s">2. AI Crew Role</span></div>
+      <div class="agline a a-wipe" style="--d:.58s"></div>
+      <div class="arow"><span class="num a a-pop" style="--d:.51s">3</span><span class="txt a a-left" style="--d:.58s">3. Process map example (To update projects)</span></div>
+      <div class="agline a a-wipe" style="--d:.66s"></div>
+      <div class="arow"><span class="num a a-pop" style="--d:.59s">4</span><span class="txt a a-left" style="--d:.66s">4. Gauss agent case study (Q&amp;A chatbot / OTD report automation)</span></div>
+      <div class="agline a a-wipe" style="--d:.74s"></div>
+      <div class="arow"><span class="num a a-pop" style="--d:.67s">5</span><span class="txt a a-left" style="--d:.74s">5. Training courses update</span></div>
+      <div class="agline a a-wipe" style="--d:.82s"></div>
+      <div class="arow"><span class="num a a-pop" style="--d:.75s">6</span><span class="txt a a-left" style="--d:.82s">6. AI Award Introduction</span></div>
+    </div>
+    <footer class="foot a a-fade" style="--d:1s">
+      <div class="rule"></div>
+      <div class="flabel"><span>CONFIDENTIAL &amp; PROPRIETARY</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= SLIDE 3 : AI CREW ORG ================= -->
+  <section class="slide" id="s3">
+    <header class="shead">
+      <span class="idx a a-pop" style="--d:.05s">1</span>
+      <span class="sep a a-drop" style="--d:.12s"></span>
+      <h2 class="a a-left" style="--d:.18s">AI Crew Org.</h2>
+    </header>
+    <div class="orgrow">
+      <div class="node side left a a-up" style="--d:.55s">
+        <div class="ntitle">AI Part</div>
+        <div class="nm">Ahmed Ramadan</div>
+        <div class="nm">Eslam Matrawy</div>
+        <div class="nm">Ahmed Ashraf</div>
+      </div>
+      <div class="conn a a-wipe" style="--d:.45s"></div>
+      <div class="node leader breathe a a-pop" style="--d:.3s">
+        <div class="ltitle">AX G Leader</div>
+        <div class="lname">Abdullah Selim</div>
+        <span class="drop"></span>
+      </div>
+      <div class="conn a a-wipe" style="--d:.45s"></div>
+      <div class="node side right a a-up" style="--d:.55s">
+        <div class="ntitle">Development part</div>
+        <div class="nm">Abdelrahman Rabea</div>
+        <div class="nm">Abdelkereem Salah</div>
+        <div class="nm">Abdelrahman Taha</div>
+        <div class="nm">Albaraa Galal</div>
+        <div class="nm">Doaa Khairat</div>
+      </div>
+    </div>
+    <div class="divs">
+      <!-- VD DIVISION -->
+      <div class="col col-vd">
+        <div class="dhead a a-left" style="--d:.7s"><h3>VD DIVISION</h3><span class="dpill mpill b">7 Members</span></div>
+        <div class="dunder b a a-wipe" style="--d:.78s"></div>
+        <div class="cards">
+          <div class="tcard a a-up" style="--d:.85s">
+            <div class="thead"><span class="tname">VD Droduction T</span><span class="cnt">3</span></div>
+            <div class="mem"><span class="av">SA</span><span class="mname">Sara Ahmed Fouad</span><span class="mrole">— Main/LCM</span></div>
+            <div class="mem"><span class="av">NA</span><span class="mname">Nada Ahmed Abdel Raouf Abdelaziz</span><span class="mrole">— SMD/PBA</span></div>
+            <div class="mem"><span class="av">AW</span><span class="mname">Abdelrahman Walid Sayed Gomaa</span><span class="mrole">— Inhouse</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:.91s">
+            <div class="thead"><span class="tname">Engineering T</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">ST</span><span class="mname">Seif Tarek Mohsen Ismail</span><span class="mrole">— Mecha Solution P</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:.97s">
+            <div class="thead"><span class="tname">CS T</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">OM</span><span class="mname">Osama Mohamed Ashour</span><span class="mrole">— LCM OQC P</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:1.03s">
+            <div class="thead"><span class="tname">Procurement T</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">MN</span><span class="mname">Mohamed Nabil Reyad</span><span class="mrole">— Mecha. Import Purc. P</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:1.09s">
+            <div class="thead"><span class="tname">SCM G</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">KN</span><span class="mname">Khalid Nagy Abdelgaleel Ahmed</span><span class="mrole">— Main Planning P</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- MX DIVISION -->
+      <div class="col col-mx">
+        <div class="dhead a a-left" style="--d:.78s"><h3>MX DIVISION</h3><span class="dpill mpill t">3 Members</span></div>
+        <div class="dunder t a a-wipe" style="--d:.86s"></div>
+        <div class="cards airy">
+          <div class="tcard a a-up" style="--d:.93s">
+            <div class="thead"><span class="tname">MX Production T</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">MK</span><span class="mname">Mina Kamel</span><span class="mrole">— Innovation P (MX)</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:.99s">
+            <div class="thead"><span class="tname">SCM G (MX)</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">HO</span><span class="mname">Hisham Omar El-Farouk</span><span class="mrole">— SCM P (MX)</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:1.05s">
+            <div class="thead"><span class="tname">CS &amp; Eng. G (MX)</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">MM</span><span class="mname">Mohamed Maged</span><span class="mrole">— PE P (MX)</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- COMMON DIVISION -->
+      <div class="col col-co">
+        <div class="dhead a a-left" style="--d:.86s"><h3>COMMON DIVISION</h3><span class="dpill mpill p">5 Members</span></div>
+        <div class="dunder p a a-wipe" style="--d:.94s"></div>
+        <div class="cards">
+          <div class="tcard a a-up" style="--d:1.01s">
+            <div class="thead"><span class="tname">People T</span><span class="cnt">2</span></div>
+            <div class="mem"><span class="av">FS</span><span class="mname">Farah Sameh Mohamed Abdelmoneam</span><span class="mrole">— People</span></div>
+            <div class="mem"><span class="av">AG</span><span class="mname">Ayman Gamal Sayed Ewais</span><span class="mrole">— Work Solution</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:1.07s">
+            <div class="thead"><span class="tname">Business Mgmt T</span><span class="cnt">2</span></div>
+            <div class="mem"><span class="av">MF</span><span class="mname">Mohamed Fawzy</span><span class="mrole">— Finance</span></div>
+            <div class="mem"><span class="av">AA</span><span class="mname">Ahmed Mohamed Abdelwahed</span><span class="mrole">— Gov. Relation</span></div>
+          </div>
+          <div class="tcard a a-up" style="--d:1.13s">
+            <div class="thead"><span class="tname">EHS G</span><span class="cnt">1</span></div>
+            <div class="mem"><span class="av">MA</span><span class="mname">Mohamed Abdallah Abdelmohsen Ali</span><span class="mrole">— EHS Officer</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="foot a a-fade" style="--d:1.25s">
+      <div class="rule"></div>
+      <div class="flabel"><span>CONFIDENTIAL &amp; PROPRIETARY</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= SLIDE 4 : AI CREW ROLE ================= -->
+  <section class="slide" id="s4">
+    <header class="shead">
+      <span class="idx a a-pop" style="--d:.05s">2</span>
+      <span class="sep a a-drop" style="--d:.12s"></span>
+      <h2 class="a a-left" style="--d:.18s">AI Crew Role</h2>
+    </header>
+    <div class="bullet a a-left" style="--d:.35s"><span class="chk"></span><h3>As start, Focus on process automation</h3></div>
+    <div class="subs">
+      <div class="a a-left" style="--d:.48s"><span class="dash">–</span>Find process, Automate using AI.</div>
+      <div class="a a-left" style="--d:.56s"><span class="dash">–</span>Support is available for programming area.</div>
+    </div>
+    <div class="rolewrap">
+      <div class="rsec">
+        <div class="seclab cy a a-left" style="--d:.7s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.6 1 2.5h6c0-.9.2-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
+          <span>BUSINESS &amp; STRATEGY ROLES</span><i class="rline"></i>
+        </div>
+        <div class="rgrid">
+          <div class="rcard cy a a-up" style="--d:.82s">
+            <div class="rtop"><span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></span><span class="rbadge">LEAD 01</span></div>
+            <h4>Opportunity Finder</h4>
+            <p>Identify process bottlenecks and evaluate potential automation ROI. [Insert custom objectives or scoping KPI parameters here].</p>
+          </div>
+          <div class="rcard cy a a-up" style="--d:.91s">
+            <div class="rtop"><span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.4"/><circle cx="18" cy="5" r="2.4"/><circle cx="12" cy="19" r="2.4"/><path d="M6 7.4V11a2 2 0 0 0 2 2h2M18 7.4V11a2 2 0 0 1-2 2h-2M12 13v3.6"/></svg></span><span class="rbadge">LEAD 02</span></div>
+            <h4>Process Map</h4>
+            <p>Design and document comprehensive "AS-WAS" and "AS-IS" workflows. [Insert standard notation tool or mapping guidelines here].</p>
+          </div>
+          <div class="rcard cy a a-up" style="--d:1s">
+            <div class="rtop"><span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4 4 15l3 3L18 7z"/><path d="m15 4 3 3"/><path d="M19 2v2M22 5h-2M19.5 9.5l1.5 1.5M9 2 8 4M5 6 3 5"/></svg></span><span class="rbadge">LEAD 03</span></div>
+            <h4>Innovation Leader</h4>
+            <p>Champion digital culture and lead change management efforts. [Insert operational transition milestones or training goals here].</p>
+          </div>
+          <div class="rcard cy a a-up" style="--d:1.09s">
+            <div class="rtop"><span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2.5"/><path d="M12 8V5M12 5h.01"/><circle cx="9.2" cy="12.5" r=".8" fill="#22d3ee"/><circle cx="14.8" cy="12.5" r=".8" fill="#22d3ee"/><path d="M9.5 15.5h5"/><path d="M3 12v3M21 12v3"/></svg></span><span class="rbadge">LEAD 04</span></div>
+            <h4>Agent Builder</h4>
+            <p>Configure autonomous agents, system prompts, and operational rules. [Insert LLM engine or safety framework bounds here].</p>
+          </div>
+        </div>
+      </div>
+      <div class="rsec">
+        <div class="seclab mg a a-left" style="--d:.78s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg>
+          <span>TECHNICAL SUPPORT ROLES</span><i class="rline"></i>
+        </div>
+        <div class="rcol">
+          <div class="rcard pu a a-up" style="--d:.9s">
+            <div class="rtop"><span class="ichip pu breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span><span class="rbadge">TECH 01</span></div>
+            <h4>Programmer</h4>
+            <p>Write robust integration logic, database queries, and secure API bridges. [Insert backend environment or language specs here].</p>
+          </div>
+          <div class="rcard pu a a-up" style="--d:.99s">
+            <div class="rtop"><span class="ichip pu breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a3 3 0 0 0-3-1.5 3 3 0 0 0-2.8 4A3.2 3.2 0 0 0 4 10a3.2 3.2 0 0 0 1.6 2.8A3.4 3.4 0 0 0 6 17a3.4 3.4 0 0 0 3.4 3c1.1 0 2-.5 2.6-1.2V4.5z"/><path d="M12 4.5a3 3 0 0 1 3-1.5 3 3 0 0 1 2.8 4A3.2 3.2 0 0 1 20 10a3.2 3.2 0 0 1-1.6 2.8A3.4 3.4 0 0 1 18 17a3.4 3.4 0 0 1-3.4 3c-1.1 0-2-.5-2.6-1.2V4.5z"/></svg></span><span class="rbadge">TECH 02</span></div>
+            <h4>Data Scientist</h4>
+            <p>Govern analytical models, parse pipeline outputs, and refine algorithms. [Insert data cleansing protocols or target precision bounds here].</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="foot a a-fade" style="--d:1.2s">
+      <div class="rule"></div>
+      <div class="flabel">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>CONFIDENTIAL &amp; PROPRIETARY</span>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ================= SLIDE 5 : TIMELINE JAN-JUN (built by JS) ================= -->
+  <section class="slide light tlslide" id="s5"></section>
+
+  <!-- ================= SLIDE 6 : TIMELINE JUL-DEC (built by JS) ================= -->
+  <section class="slide light tlslide" id="s6"></section>
+
+  <!-- ================= SLIDE 7 : AI CAPABILITY EXPANSION ================= -->
+  <section class="slide" id="s7">
+    <header class="shead">
+      <span class="idx a a-pop" style="--d:.05s">3</span>
+      <span class="sep a a-drop" style="--d:.12s"></span>
+      <h2 class="a a-left" style="--d:.18s">AI Capability Expansion</h2>
+    </header>
+    <div class="sub a a-left" style="--d:.3s">Generative AI Comparison &amp; Gauss Access Update</div>
+    <div class="seclab a a-left" style="--d:.45s">
+      <svg viewBox="0 0 24 24" fill="#22d3ee"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>
+      <span>How the 3 Generative AI Models Differ</span><i class="rline a a-wipe" style="--d:.55s"></i>
+    </div>
+    <div class="models">
+      <div class="mcard cy a a-up" style="--d:.65s">
+        <div class="mtop">
+          <span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="#22d3ee"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+          <div><div class="mname">Gemini</div><span class="mline a a-wipe" style="--d:1.1s"></span></div>
+        </div>
+        <p>Best for Google-connected workflows and real-time information lookup.</p>
+        <p>Strong for web research and tasks linked with Gmail, Sheets, and Workspace.</p>
+      </div>
+      <div class="mcard te a a-up" style="--d:.77s">
+        <div class="mtop">
+          <span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#2dd4d4" stroke-width="1.8" stroke-linecap="round"><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="m8.8 10.8 6.4-4M8.8 13.2l6.4 4"/></svg></span>
+          <div><div class="mname">ChatGPT</div><span class="mline a a-wipe" style="--d:1.22s"></span></div>
+        </div>
+        <p>Best for flexible content creation, ideation, and coding support.</p>
+        <p>Useful for brainstorming, drafting, debugging, and prompt-driven productivity.</p>
+      </div>
+      <div class="mcard pu a a-up" style="--d:.89s">
+        <div class="mtop">
+          <span class="ichip pu breathe"><svg viewBox="0 0 24 24" fill="#c4a5fd"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+          <div><div class="mname">Claude</div><span class="mline a a-wipe" style="--d:1.34s"></span></div>
+        </div>
+        <p>Best for long-document review and higher-reasoning work.</p>
+        <p>Strong for structured analysis, consistency, and handling complex instructions at scale.</p>
+      </div>
+    </div>
+    <div class="banner a a-up" style="--d:1.05s">
+      <span class="ichip cy breathe"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h6l4 4v8.5"/><path d="M14 3v4h4"/><path d="M8 3H7a2 2 0 0 0-2 2v6"/><path d="M8 9h5M8 12h3"/><circle cx="12" cy="17.5" r="2.3"/><path d="M7.5 22a4.6 4.6 0 0 1 9 0"/></svg></span>
+      <div>
+        <h4>Gauss Portal Permission Update</h4>
+        <p>From July 3, the Lab Creator role can be granted even if the required training is not completed.<br>
+        Inactive users are excluded, new users start with Advanced access, and Lab Creator is assigned every<br>
+        Friday to reactivated and new users until full automation is ready.</p>
+      </div>
+    </div>
+    <footer class="foot a a-fade" style="--d:1.3s">
+      <div class="rule"></div>
+      <div class="flabel"><span>CONFIDENTIAL &amp; PROPRIETARY</span></div>
+    </footer>
+  </section>
+
+  <!-- ================= CHROME ================= -->
+  <div id="chrome">
+    <div id="hair"><i></i></div>
+    <button id="prev" class="navbtn" aria-label="Previous slide">&#8249;</button>
+    <button id="next" class="navbtn" aria-label="Next slide">&#8250;</button>
+    <div id="dots"></div>
+    <div id="counter">1 / 7</div>
+    <div id="toast">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; F fullscreen &nbsp;&middot;&nbsp; P autoplay</div>
+  </div>
+</div>
+
+<script>
+'use strict';
+/* ============================================================
+   TIMELINE SLIDES (5 & 6) — generated from data
+   ============================================================ */
+const TL = [
+  {
+    id:'s5', title:'MASTER TIMELINE MATRIX — JAN–JUN', slideNo:'Slide 5',
+    months:['Jan','Feb','Mar','Apr','May','Jun'],
+    cols:[
+      [{n:'Data Pipeline Audit',s:'completed'},{n:'Infrastructure Setup',s:'completed'}],
+      [{n:'AI Governance Charter',s:'completed'},{n:'Model Sandbox Dev',s:'completed'}],
+      [{n:'Finance OCR Engine',s:'completed'},{n:'Inventory Forecasting',s:'completed'}],
+      [{n:'HR Resume Screener',s:'completed'},{n:'Predictive Maintenance',s:'inprogress'}],
+      [{n:'Log Anomaly Detection',s:'inprogress'},{n:'Marketing Copy Gen',s:'inprogress'}],
+      [{n:'Executive Dashboard',s:'inprogress'},{n:'Fraud Classifier API',s:'planning'}]
+    ]
+  },
+  {
+    id:'s6', title:'MASTER TIMELINE MATRIX — JUL–DEC', slideNo:'Slide 6',
+    months:['Jul','Aug','Sep','Oct','Nov','Dec'],
+    cols:[
+      [{n:'Org Change Readiness',b:'prep',s:'completed'},{n:'Data Schema Refactor',b:'prep',s:'inprogress'}],
+      [{n:'Intelligent CX Chatbot',b:'mvp',s:'inprogress'},{n:'Demand Forecasting v2',b:'mvp',s:'inprogress'}],
+      [{n:'Procurement Model',s:'planning'},{n:'Support Auto-Route',s:'planning'}],
+      [{n:'Strategic Pricing Bot',s:'planning'},{n:'Retail Recommender',s:'planning'}],
+      [{n:'Supply Chain Optimizer',s:'planning'},{n:'Legal Contract Analyzer',s:'planning'}],
+      [{n:'Federated Learning Sys',s:'planning'},{n:'Annual Program Review',s:'planning'}]
+    ]
+  }
+];
+const STATUS_LABEL = {completed:'Completed', inprogress:'In Progress', planning:'Planning'};
+const TOP_COLOR    = {completed:'var(--green)', inprogress:'var(--status-blue)', planning:'var(--orange)',
+                      prep:'var(--prep-purple)', mvp:'var(--mvp-red)'};
+const BADGE_LABEL  = {prep:'PREP', mvp:'MVP GATE'};
+
+function buildTimeline(cfg){
+  const el = document.getElementById(cfg.id);
+  let cells = `<div class="tlh a a-drop" style="--d:.1s">Timeline</div>`;
+  cfg.months.forEach((m,i)=>{ cells += `<div class="tlh a a-drop" style="--d:${(.16+i*.06).toFixed(2)}s">${m}</div>`; });
+  cells += `<div class="tlproj a a-fade" style="--d:.5s">Projects</div>`;
+  // 4 rows x 6 cols; rows 3-4 repeat rows 1-2 (as in source deck)
+  for(let row=0;row<4;row++){
+    for(let col=0;col<6;col++){
+      const p = cfg.cols[col][row%2];
+      const top = TOP_COLOR[p.b || p.s];
+      const d = (.55 + col*.14 + row*.035).toFixed(3);
+      let pills = '';
+      if(p.b) pills += `<span class="sbadge ${p.b}">${BADGE_LABEL[p.b]}</span>`;
+      pills += `<span class="spill ${p.s}"><i></i>${STATUS_LABEL[p.s]}</span>`;
+      cells += `<div class="pcard a a-up" style="--d:${d}s;border-top-color:${top};grid-column:${col+2};grid-row:${row+2}">
+        <div class="pname">${p.n}</div><div class="prow">${pills}</div></div>`;
+    }
+  }
+  el.innerHTML = `
+    <div class="ltop">
+      <div class="ltl a a-left" style="--d:.05s"><span class="lbar"></span>Enterprise AI Monthly Implementation Plan</div>
+      <h2 class="ltr a a-fade" style="--d:.1s">${cfg.title}</h2>
+    </div>
+    <div class="tlgrid">${cells}</div>
+    <div class="legend a a-fade" style="--d:1.15s">
+      <span class="li"><span class="sq" style="background:var(--green)"></span>Completed</span>
+      <span class="li"><span class="sq" style="background:var(--status-blue)"></span>In Progress</span>
+      <span class="li"><span class="sq" style="background:var(--orange)"></span>Planning</span>
+      <span class="li"><span class="sq" style="background:var(--prep-purple)"></span>Jul Preparation for External AI change</span>
+      <span class="li"><span class="sq" style="background:var(--aug-red)"></span>August External AI change</span>
+    </div>
+    <footer class="lfoot a a-fade" style="--d:1.25s">
+      <span>enterprise ai</span>
+      <span>Continuous Allocation: 2 Projects Per Month Master Plan</span>
+      <span>${cfg.slideNo}</span>
+    </footer>`;
+}
+TL.forEach(buildTimeline);
+
+/* ============================================================
+   PARTICLE WAVE BACKGROUND (dark slides)
+   ============================================================ */
+const cvs = document.getElementById('fx'), ctx = cvs.getContext('2d');
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let dots = [], phase = 0, raf = null;
+const lerp = (a,b,t)=>a+(b-a)*t;
+
+function seedDots(){
+  dots = [];
+  // bottom-left dunes
+  for(let k=0;k<22;k++){
+    const yb = 1076 - k*13;
+    for(let x=-40;x<840-k*8;x+=13+Math.random()*6){
+      dots.push({x, y:yb+Math.sin(x*0.006+k*0.55)*14, amp:5+k*0.25, ph:x*0.012+k*0.7,
+                 r:0.7+Math.random()*1.1, t:Math.random(), a:0.13+Math.random()*0.55*(1-k/26)});
+    }
+  }
+  // bottom-right sweep rising toward the right edge
+  for(let k=0;k<26;k++){
+    for(let x=1030;x<1935;x+=12+Math.random()*6){
+      const yb = 1090 - k*15 - (x-1030)*0.17 + Math.sin(x*0.004+k)*15;
+      if(yb<560) continue;
+      dots.push({x, y:yb, amp:6, ph:x*0.01+k*0.5,
+                 r:0.7+Math.random()*1.2, t:Math.random(), a:0.11+Math.random()*0.6*(1-k/30)});
+    }
+  }
+  // faint top-right dotted streak
+  for(let k=0;k<8;k++){
+    for(let x=1350;x<1950;x+=16+Math.random()*8){
+      const yb = 34 + k*12 + (x-1350)*0.16 + Math.sin(x*0.008+k*0.9)*8;
+      dots.push({x, y:yb, amp:3, ph:x*0.01+k, r:0.6+Math.random(), t:Math.random(), a:0.07+Math.random()*0.32});
+    }
+  }
+}
+function paint(){
+  ctx.clearRect(0,0,1920,1080);
+  for(const d of dots){
+    const y = d.y + Math.sin(phase + d.ph) * d.amp;
+    ctx.fillStyle = `rgba(${lerp(26,34,d.t)|0},${lerp(95,211,d.t)|0},${lerp(174,238,d.t)|0},${d.a})`;
+    ctx.beginPath(); ctx.arc(d.x, y, d.r, 0, 6.2832); ctx.fill();
+  }
+}
+function tick(){ phase += 0.016; paint(); raf = requestAnimationFrame(tick); }
+function fxResume(){ if(REDUCED){ paint(); return; } if(!raf) raf = requestAnimationFrame(tick); }
+function fxPause(){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
+seedDots(); paint();
+
+/* ============================================================
+   NAVIGATION / CHROME
+   ============================================================ */
+const stage   = document.getElementById('stage');
+const slides  = [...document.querySelectorAll('.slide')];
+const chrome_ = document.getElementById('chrome');
+const dotsBox = document.getElementById('dots');
+const counter = document.getElementById('counter');
+const hairbar = document.querySelector('#hair i');
+const toast   = document.getElementById('toast');
+let cur = -1, cleanupTimer = null, autoplayTimer = null;
+
+slides.forEach((_,i)=>{
+  const d = document.createElement('span');
+  d.className = 'dot'; d.addEventListener('click', ()=>{ stopAutoplay(); goTo(i); });
+  dotsBox.appendChild(d);
+});
+const dotEls = [...dotsBox.children];
+
+function goTo(i, dir){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  if(i === cur) return;
+  dir = dir || (i > cur ? 1 : -1);
+  stage.style.setProperty('--dir', dir);
+  clearTimeout(cleanupTimer);
+  slides.forEach(s=>s.classList.remove('leaving'));
+  if(cur >= 0){
+    const old = slides[cur];
+    old.classList.remove('active','play');
+    old.classList.add('leaving');
+    cleanupTimer = setTimeout(()=>old.classList.remove('leaving'), 600);
+  }
+  cur = i;
+  const s = slides[cur];
+  s.classList.add('active');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add('play')));
+  // chrome state
+  dotEls.forEach((d,k)=>d.classList.toggle('on', k===cur));
+  counter.textContent = `${cur+1} / ${slides.length}`;
+  hairbar.style.width = `${((cur+1)/slides.length)*100}%`;
+  const light = s.classList.contains('light');
+  chrome_.classList.toggle('lite', light);
+  light ? fxPause() : fxResume();
+}
+const next = ()=>goTo(cur >= slides.length-1 ? (autoplayTimer ? 0 : cur) : cur+1, 1);
+const prev = ()=>goTo(cur-1, -1);
+
+/* keyboard */
+addEventListener('keydown', e=>{
+  const k = e.key;
+  if(k==='ArrowRight' || k===' ' || k==='PageDown'){ stopAutoplay(); next(); }
+  else if(k==='ArrowLeft' || k==='PageUp'){ stopAutoplay(); prev(); }
+  else if(k==='Home'){ stopAutoplay(); goTo(0); }
+  else if(k==='End'){ stopAutoplay(); goTo(slides.length-1); }
+  else if(k>='1' && k<='7'){ stopAutoplay(); goTo(+k-1); }
+  else if(k==='f' || k==='F'){ toggleFullscreen(); }
+  else if(k==='p' || k==='P'){ toggleAutoplay(); }
+  else return;
+  wake();
+});
+/* click zones (outer 20% of screen) */
+addEventListener('click', e=>{
+  if(e.target.closest('#chrome')) return;
+  const x = e.clientX / innerWidth;
+  if(x > 0.8){ stopAutoplay(); next(); }
+  else if(x < 0.2){ stopAutoplay(); prev(); }
+});
+document.getElementById('next').addEventListener('click', e=>{ e.stopPropagation(); stopAutoplay(); next(); });
+document.getElementById('prev').addEventListener('click', e=>{ e.stopPropagation(); stopAutoplay(); prev(); });
+/* touch swipe */
+let tx0 = null;
+addEventListener('touchstart', e=>{ tx0 = e.touches[0].clientX; }, {passive:true});
+addEventListener('touchend', e=>{
+  if(tx0===null) return;
+  const dx = e.changedTouches[0].clientX - tx0; tx0 = null;
+  if(Math.abs(dx) >= 50){ stopAutoplay(); dx < 0 ? next() : prev(); wake(); }
+}, {passive:true});
+
+/* fullscreen + autoplay */
+function toggleFullscreen(){
+  document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+}
+function showToast(msg, ms){
+  toast.innerHTML = msg; toast.classList.add('show');
+  clearTimeout(showToast.t); showToast.t = setTimeout(()=>toast.classList.remove('show'), ms);
+}
+function toggleAutoplay(){
+  if(autoplayTimer){ stopAutoplay(); showToast('Autoplay off', 1600); }
+  else{ autoplayTimer = setInterval(next, 12000); showToast('Autoplay on &nbsp;&middot;&nbsp; every 12s', 1600); }
+}
+function stopAutoplay(){ if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; } }
+
+/* auto-hide chrome after 3s idle */
+let idleTimer = null;
+function wake(){
+  chrome_.classList.remove('hid');
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(()=>chrome_.classList.add('hid'), 3000);
+}
+addEventListener('mousemove', wake);
+wake();
+
+/* scale stage to viewport */
+function fit(){
+  const k = Math.min(innerWidth/1920, innerHeight/1080);
+  stage.style.transform = `translate(-50%,-50%) scale(${k})`;
+}
+addEventListener('resize', fit); fit();
+
+/* pause canvas when tab hidden */
+document.addEventListener('visibilitychange', ()=>{
+  if(document.hidden) fxPause();
+  else if(cur>=0 && !slides[cur].classList.contains('light')) fxResume();
+});
+
+/* boot */
+goTo(0, 1);
+setTimeout(()=>toast.classList.add('show'), 600);
+setTimeout(()=>toast.classList.remove('show'), 4600);
+</script>
+</body>
+</html>
