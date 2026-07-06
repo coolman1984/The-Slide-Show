@@ -1,0 +1,415 @@
+{
+  "meta": {
+    "title": "Orion Factory Control Demo",
+    "theme": "midnight-tech",
+    "transition": "slide",
+    "background": "waves",
+    "footer": "ORION APPLIANCES - DUMMY EXECUTIVE DEMO",
+    "autoplaySeconds": 11,
+    "hint": true,
+    "lang": "en"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "heading": "Factory Control Tower",
+      "subheading": "Monthly Operations Finance Demo - Dummy Data"
+    },
+    {
+      "type": "agenda",
+      "heading": "Agenda",
+      "items": [
+        "Factory scorecard and profitability pulse",
+        "Management structure and decision owners",
+        "Finance control tower operating model",
+        "Implementation roadmap and project gates",
+        "Report source comparison and control gaps",
+        "Main variance drivers and corrective actions",
+        "Decision requests and next month focus"
+      ]
+    },
+    {
+      "type": "kpi-dashboard",
+      "index": "1",
+      "heading": "Factory Scorecard",
+      "subtitle": "Dummy monthly view for a fictional appliance plant",
+      "rows": [
+        {
+          "label": "FINANCE",
+          "tiles": [
+            { "value": "$18.4M", "label": "Net sales", "sub": "+6.1% vs plan", "accent": "a1" },
+            { "value": "12.8%", "label": "Operating margin", "sub": "+0.9ppt vs plan", "accent": "a3" },
+            { "value": "$1.7M", "label": "Cost variance", "sub": "Unfavorable total gap", "accent": "a4" },
+            { "value": "96.2%", "label": "Budget usage", "sub": "Controlled spend level", "accent": "a2" }
+          ]
+        },
+        {
+          "label": "OPERATIONS",
+          "tiles": [
+            { "value": "148K", "label": "Finished units", "sub": "Air care and cooling", "accent": "a1" },
+            { "value": "94.6%", "label": "Line efficiency", "sub": "+2.4ppt vs last month", "accent": "a3" },
+            { "value": "2.1%", "label": "Scrap rate", "sub": "Target is below 1.8%", "accent": "a4" },
+            { "value": "8.4d", "label": "Inventory cover", "sub": "Critical parts only", "accent": "a2" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "org-chart",
+      "index": "2",
+      "heading": "Decision Ownership Map",
+      "leader": { "title": "Factory General Manager", "name": "Karim Youssef" },
+      "left": { "title": "Finance Control", "names": ["Mona Adel", "Yassin Farid"] },
+      "right": { "title": "Operations Council", "names": ["Planning", "Procurement", "Production", "Quality"] },
+      "divisions": [
+        {
+          "name": "FINANCE",
+          "badge": "6 Roles",
+          "accent": "a1",
+          "teamAccent": "a1",
+          "teams": [
+            {
+              "name": "Cost Control",
+              "count": "2",
+              "members": [
+                { "initials": "MA", "name": "Mona Adel", "role": "Factory controller" },
+                { "initials": "RF", "name": "Rami Fouad", "role": "Material variance" }
+              ]
+            },
+            {
+              "name": "FP&A",
+              "count": "2",
+              "members": [
+                { "initials": "YF", "name": "Yassin Farid", "role": "Forecast lead" },
+                { "initials": "NH", "name": "Nour Hassan", "role": "Margin bridge" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SUPPLY CHAIN",
+          "badge": "5 Roles",
+          "accent": "a3",
+          "teamAccent": "a3",
+          "teams": [
+            {
+              "name": "Procurement",
+              "count": "2",
+              "members": [
+                { "initials": "OK", "name": "Omar Khaled", "role": "Supplier pricing" },
+                { "initials": "DL", "name": "Dina Lotfy", "role": "Import tracking" }
+              ]
+            },
+            {
+              "name": "Planning",
+              "count": "2",
+              "members": [
+                { "initials": "SA", "name": "Sara Amin", "role": "Production plan" },
+                { "initials": "MT", "name": "Mostafa Tarek", "role": "Parts coverage" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "OPERATIONS",
+          "badge": "6 Roles",
+          "accent": "a4",
+          "teamAccent": "a4",
+          "teams": [
+            {
+              "name": "Production",
+              "count": "2",
+              "members": [
+                { "initials": "HK", "name": "Hany Kamal", "role": "Line output" },
+                { "initials": "NA", "name": "Nabil Aziz", "role": "Labor efficiency" }
+              ]
+            },
+            {
+              "name": "Quality",
+              "count": "2",
+              "members": [
+                { "initials": "LY", "name": "Laila Younis", "role": "Defect reduction" },
+                { "initials": "FE", "name": "Farah Ezz", "role": "Field claims" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "card-sections",
+      "index": "3",
+      "heading": "Control Tower Operating Model",
+      "bullet": {
+        "text": "The system converts factory signals into management decisions.",
+        "subs": [
+          "Finance owns the truth of numbers.",
+          "Operations owns the action plan."
+        ]
+      },
+      "sections": [
+        {
+          "label": "CONTROLLING WORK",
+          "icon": "chart",
+          "accent": "a1",
+          "grid": 2,
+          "cards": [
+            {
+              "icon": "trend",
+              "badge": "FIN 01",
+              "title": "Margin Bridge",
+              "body": "Explains plan-to-actual movement by price, mix, cost, volume, and exchange impact."
+            },
+            {
+              "icon": "target",
+              "badge": "FIN 02",
+              "title": "Cost Variance",
+              "body": "Separates material, labor, overhead, scrap, and logistics variance for clear ownership."
+            },
+            {
+              "icon": "shield",
+              "badge": "FIN 03",
+              "title": "Budget Guardrail",
+              "body": "Flags spend above approved monthly run-rate before closing pressure starts."
+            },
+            {
+              "icon": "handshake",
+              "badge": "FIN 04",
+              "title": "Pricing Support",
+              "body": "Links component cost movement to product margin and customer transfer pricing."
+            }
+          ]
+        },
+        {
+          "label": "AUTOMATION SUPPORT",
+          "icon": "robot",
+          "accent": "a4",
+          "grid": 1,
+          "cards": [
+            {
+              "icon": "flow",
+              "badge": "AUTO 01",
+              "title": "Data Intake",
+              "body": "Loads SAP exports, planning files, and quality logs into one reviewed working pack."
+            },
+            {
+              "icon": "wand",
+              "badge": "AUTO 02",
+              "title": "Slide Drafting",
+              "body": "Turns approved JSON data into consistent executive slides without manual formatting."
+            },
+            {
+              "icon": "check",
+              "badge": "AUTO 03",
+              "title": "Quality Gate",
+              "body": "Blocks missing fields, crowding risk, broken templates, and unsafe presentation output."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline-matrix",
+      "themeOverride": "corporate-light",
+      "eyebrow": "Factory Control Tower Roadmap",
+      "heading": "IMPLEMENTATION PLAN - JAN-JUN",
+      "cornerLabel": "Month",
+      "sideLabel": "Workstreams",
+      "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "repeatRows": 1,
+      "columns": [
+        [
+          { "name": "Source Map", "status": "completed" },
+          { "name": "KPI Dictionary", "status": "completed" }
+        ],
+        [
+          { "name": "SAP Extract Pack", "status": "completed" },
+          { "name": "Budget Baseline", "status": "completed" }
+        ],
+        [
+          { "name": "Variance Engine", "badge": "prep", "status": "inprogress" },
+          { "name": "Margin Bridge", "status": "inprogress" }
+        ],
+        [
+          { "name": "Dashboard MVP", "badge": "mvp", "status": "inprogress" },
+          { "name": "Owner Review", "status": "planning" }
+        ],
+        [
+          { "name": "Closing Trial", "status": "planning" },
+          { "name": "Action Tracker", "status": "planning" }
+        ],
+        [
+          { "name": "Management Pack", "status": "planning" },
+          { "name": "Handover Manual", "status": "planning" }
+        ]
+      ],
+      "legend": [
+        { "color": "green", "label": "Completed" },
+        { "color": "blue", "label": "In progress" },
+        { "color": "orange", "label": "Planning" },
+        { "color": "prep", "label": "Preparation gate" },
+        { "color": "mvp", "label": "MVP gate" }
+      ],
+      "footer": {
+        "left": "orion control tower",
+        "center": "Dummy roadmap for demo only",
+        "right": "Slide 6"
+      }
+    },
+    {
+      "type": "comparison",
+      "index": "4",
+      "heading": "Reporting Model Comparison",
+      "subtitle": "Same factory, different decision quality",
+      "sectionLabel": { "icon": "sparkle", "text": "Why the control tower changes the conversation" },
+      "cards": [
+        {
+          "icon": "book",
+          "accent": "a2",
+          "name": "ERP Reports",
+          "paragraphs": [
+            "Reliable transaction base, but fragmented by module and hard to read quickly.",
+            "Good for audit trail; weak for executive action without manual explanation."
+          ]
+        },
+        {
+          "icon": "layers",
+          "accent": "a4",
+          "name": "Excel Pack",
+          "paragraphs": [
+            "Flexible and familiar, but version control and late changes create risk.",
+            "Strong analyst tool; fragile as the final management product."
+          ]
+        },
+        {
+          "icon": "diamond",
+          "accent": "a1",
+          "name": "Control Tower",
+          "paragraphs": [
+            "Connects KPI, owner, driver, action, and status into one management view.",
+            "Best for closing meetings where decisions must be clear and fast."
+          ]
+        }
+      ],
+      "banner": {
+        "icon": "shield",
+        "accent": "a1",
+        "title": "Control principle",
+        "lines": [
+          "ERP remains the source of truth.",
+          "The control tower becomes the source of management understanding."
+        ]
+      }
+    },
+    {
+      "type": "bullets",
+      "index": "5",
+      "heading": "Variance Drivers",
+      "subtitle": "Dummy root-cause structure for one monthly close",
+      "columns": 3,
+      "groups": [
+        {
+          "title": "Material",
+          "icon": "gear",
+          "accent": "a1",
+          "items": [
+            "Compressor price increase from supplier reset.",
+            "Higher resin usage after model mix change.",
+            "Emergency freight for late imported parts.",
+            "Purchase price variance not yet reflected in forecast."
+          ]
+        },
+        {
+          "title": "Conversion",
+          "icon": "bolt",
+          "accent": "a3",
+          "items": [
+            "Overtime used to recover two days of downtime.",
+            "Line changeover loss increased on premium models.",
+            "Utility cost above plan during heat wave.",
+            "Maintenance spend pulled forward from next month."
+          ]
+        },
+        {
+          "title": "Commercial Mix",
+          "icon": "globe",
+          "accent": "a4",
+          "items": [
+            "Export orders shifted toward lower-margin SKU.",
+            "Local channel discount increased to clear stock.",
+            "Spare-parts sales improved gross margin rate.",
+            "Transfer price update delayed until next cycle."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kpi",
+      "index": "6",
+      "heading": "Next Month Targets",
+      "subtitle": "Actions selected for the fictional July recovery plan",
+      "tiles": [
+        { "value": "$900K", "label": "Variance recovery", "sub": "Material and freight actions", "accent": "a1" },
+        { "value": "1.6%", "label": "Scrap target", "sub": "Premium cooling line", "accent": "a3" },
+        { "value": "97%", "label": "Budget control", "sub": "Monthly spend guardrail", "accent": "a2" },
+        { "value": "7.5d", "label": "Parts cover", "sub": "Critical imports only", "accent": "a4" }
+      ]
+    },
+    {
+      "type": "section",
+      "index": "07",
+      "heading": "Management Decisions",
+      "subtitle": "The final slides convert the analysis into choices, owners, and timing."
+    },
+    {
+      "type": "bullets",
+      "index": "7",
+      "heading": "Decision Requests",
+      "subtitle": "Dummy asks prepared for executive alignment",
+      "columns": 3,
+      "groups": [
+        {
+          "title": "Approve",
+          "icon": "check",
+          "accent": "a1",
+          "items": [
+            "Fast-track supplier renegotiation for cooling compressor.",
+            "Lock July overtime ceiling before production recovery starts.",
+            "Approve one owner for each high-impact variance line."
+          ]
+        },
+        {
+          "title": "Challenge",
+          "icon": "target",
+          "accent": "a4",
+          "items": [
+            "Review low-margin export mix before accepting extra volume.",
+            "Question premium SKU launch timing if scrap does not improve.",
+            "Reject manual slide changes after final close gate."
+          ]
+        },
+        {
+          "title": "Monitor",
+          "icon": "clock",
+          "accent": "a3",
+          "items": [
+            "Track daily material burn rate against approved forecast.",
+            "Update stock cover every morning for critical parts.",
+            "Escalate margin bridge movement above $150K."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "closing",
+      "heading": "Ready for Review",
+      "subheading": "Dummy data only - built to test Slide Forge capability",
+      "points": [
+        "Finance view",
+        "Operations view",
+        "Roadmap view",
+        "Decision view"
+      ]
+    }
+  ]
+}

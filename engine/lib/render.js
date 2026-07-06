@@ -140,7 +140,7 @@ const RENDERERS = {
           <span style="color:${acc.color};display:flex">${getIcon(sec.icon, ctx.warnings)}</span>
           <span style="color:${acc.color}">${esc(sec.label)}</span><i class="rline"></i>
         </div>
-        <div class="rgrid" style="grid-template-columns:repeat(${sec.grid || 1},1fr)">${cards}</div>
+        <div class="rgrid rgrid-${sec.grid || 1} count-${sec.cards.length}" style="grid-template-columns:repeat(${sec.grid || 1},1fr)">${cards}</div>
       </div>`;
     }).join('\n');
     const bullet = slide.bullet ? `
@@ -307,6 +307,8 @@ function renderSlide(slide, i, ctx) {
   const inner = fn(slide, ctx);
   const mode = slide._mode; // resolved by build.js
   const classes = ['slide', TYPE_CLASS[slide.type]];
+  const surface = slide.surfaceStyle || ctx.deck.meta.surfaceStyle || 'classic';
+  classes.push(`surface-${surface}`);
   if (slide.type === 'timeline-matrix') classes.push('opaque');
   if (slide._ovr) classes.push(`ovr-${slide._ovr}`);
   return `<section class="${classes.join(' ')}" id="slide-${i + 1}" data-mode="${mode}">\n${inner}\n</section>`;

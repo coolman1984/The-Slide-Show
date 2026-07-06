@@ -9,7 +9,9 @@ const { ICONS } = require('./icons');
 
 const VALID_TYPES = ['title', 'closing', 'agenda', 'org-chart', 'card-sections', 'timeline-matrix', 'comparison', 'section', 'bullets', 'kpi', 'kpi-dashboard'];
 const VALID_STATUSES = ['completed', 'inprogress', 'planning'];
-const VALID_TRANSITIONS = ['slide', 'fade', 'zoom'];
+const VALID_TRANSITIONS = ['slide', 'fade', 'zoom', 'vertical', 'flip', 'deck', 'none'];
+const VALID_ANIMATIONS = ['executive', 'editorial', 'kinetic', 'calm', 'none'];
+const VALID_SURFACES = ['classic', 'sharp', 'glass', 'ticket', 'folder', 'paper', 'neon', 'brutalist', 'soft'];
 const VALID_BG = ['waves', 'orbs', 'grid', 'none'];
 
 function isStr(v) { return typeof v === 'string' && v.length > 0; }
@@ -26,6 +28,8 @@ function validate(deck) {
     if (!isStr(deck.meta.title)) err('meta.title', 'required (used for the browser tab).');
     if (deck.meta.theme && !THEMES[deck.meta.theme]) err('meta.theme', `unknown theme "${deck.meta.theme}". Available: ${Object.keys(THEMES).join(', ')}`);
     if (deck.meta.transition && !VALID_TRANSITIONS.includes(deck.meta.transition)) err('meta.transition', `must be one of: ${VALID_TRANSITIONS.join(', ')}`);
+    if (deck.meta.animationProfile && !VALID_ANIMATIONS.includes(deck.meta.animationProfile)) err('meta.animationProfile', `must be one of: ${VALID_ANIMATIONS.join(', ')}`);
+    if (deck.meta.surfaceStyle && !VALID_SURFACES.includes(deck.meta.surfaceStyle)) err('meta.surfaceStyle', `must be one of: ${VALID_SURFACES.join(', ')}`);
     if (deck.meta.background && !VALID_BG.includes(deck.meta.background)) err('meta.background', `must be one of: ${VALID_BG.join(', ')}`);
     if (deck.meta.autoplaySeconds != null && (typeof deck.meta.autoplaySeconds !== 'number' || deck.meta.autoplaySeconds < 3)) err('meta.autoplaySeconds', 'must be a number ≥ 3.');
   }
@@ -37,6 +41,7 @@ function validate(deck) {
     if (!s || typeof s !== 'object') return err(p, 'not an object.');
     if (!VALID_TYPES.includes(s.type)) return err(`${p}.type`, `unknown type "${s.type}". Available types: ${VALID_TYPES.join(', ')}`);
     if (s.themeOverride && !THEMES[s.themeOverride]) err(`${p}.themeOverride`, `unknown theme "${s.themeOverride}". Available: ${Object.keys(THEMES).join(', ')}`);
+    if (s.surfaceStyle && !VALID_SURFACES.includes(s.surfaceStyle)) err(`${p}.surfaceStyle`, `must be one of: ${VALID_SURFACES.join(', ')}`);
 
     switch (s.type) {
       case 'title': case 'closing': case 'section':

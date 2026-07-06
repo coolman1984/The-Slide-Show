@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "title": "Visual Style Showcase",
+    "theme": "aurora-purple",
+    "transition": "flip",
+    "animationProfile": "kinetic",
+    "surfaceStyle": "glass",
+    "background": "orbs",
+    "footer": "SLIDE FORGE - STYLE CAPABILITY DEMO",
+    "autoplaySeconds": 9,
+    "hint": true,
+    "lang": "en"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "surfaceStyle": "glass",
+      "heading": "Style Worlds",
+      "subheading": "Themes, shapes, motion, and layouts from one JSON deck"
+    },
+    {
+      "type": "agenda",
+      "surfaceStyle": "ticket",
+      "heading": "What This Demo Proves",
+      "items": [
+        "One deck can wear different visual identities",
+        "Cards can become glass, tickets, paper, folders, or neon panels",
+        "Animation profiles can feel calm, editorial, or energetic",
+        "Light and purple themes are first-class built-in options",
+        "Agents choose fixed design tokens instead of hand-designing slides",
+        "The output remains one self-contained HTML presentation"
+      ]
+    },
+    {
+      "type": "section",
+      "surfaceStyle": "paper",
+      "index": "A",
+      "heading": "Editorial Mode",
+      "subtitle": "A white magazine-style system with serif headlines, paper cards, and ink-heavy contrast."
+    },
+    {
+      "type": "card-sections",
+      "surfaceStyle": "paper",
+      "index": "1",
+      "heading": "Template Surface Library",
+      "bullet": {
+        "text": "The design is selected by tokens, not by model taste.",
+        "subs": [
+          "A weak agent writes surfaceStyle only.",
+          "The renderer owns the visual result."
+        ]
+      },
+      "sections": [
+        {
+          "label": "STRUCTURED SURFACES",
+          "icon": "layers",
+          "accent": "a1",
+          "grid": 2,
+          "cards": [
+            {
+              "icon": "diamond",
+              "badge": "GLASS",
+              "title": "Glass Panel",
+              "body": "Soft translucent cards with blurred depth and luminous borders."
+            },
+            {
+              "icon": "book",
+              "badge": "PAPER",
+              "title": "Paper Card",
+              "body": "Editorial print style with strong ink lines and offset shadows."
+            },
+            {
+              "icon": "target",
+              "badge": "TICKET",
+              "title": "Ticket Cutout",
+              "body": "Rounded panels with notched edges for agenda and event-style decks."
+            },
+            {
+              "icon": "doc-user",
+              "badge": "FOLDER",
+              "title": "Folder Tab",
+              "body": "Tabbed cards for dossiers, case files, and organized status packs."
+            }
+          ]
+        },
+        {
+          "label": "HIGH-IMPACT SURFACES",
+          "icon": "sparkle",
+          "accent": "a4",
+          "grid": 1,
+          "cards": [
+            {
+              "icon": "bolt",
+              "badge": "NEON",
+              "title": "Neon Frame",
+              "body": "Strong electric outlines for product, AI, and technology demos."
+            },
+            {
+              "icon": "shield",
+              "badge": "SHARP",
+              "title": "Sharp Corporate",
+              "body": "Low-radius executive panels for dense decision rooms."
+            },
+            {
+              "icon": "award",
+              "badge": "SOFT",
+              "title": "Soft Premium",
+              "body": "Large radius, gentle shadows, and calmer boardroom presence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kpi-dashboard",
+      "surfaceStyle": "soft",
+      "index": "2",
+      "heading": "Theme Range",
+      "subtitle": "Same component family, very different visual tone",
+      "rows": [
+        {
+          "label": "LIGHT SYSTEMS",
+          "tiles": [
+            { "value": "INK", "label": "Editorial", "sub": "Serif + paper", "accent": "a1" },
+            { "value": "MINT", "label": "Product lab", "sub": "Fresh + rounded", "accent": "a3" },
+            { "value": "POLAR", "label": "Minimal", "sub": "Clean + quiet", "accent": "a2" },
+            { "value": "CORP", "label": "Executive", "sub": "White + navy", "accent": "a4" }
+          ]
+        },
+        {
+          "label": "DARK SYSTEMS",
+          "tiles": [
+            { "value": "VIO", "label": "Aurora", "sub": "Purple + cyan", "accent": "a1" },
+            { "value": "MONO", "label": "Signal", "sub": "Terminal style", "accent": "a3" },
+            { "value": "TECH", "label": "Midnight", "sub": "Cyan executive", "accent": "a2" },
+            { "value": "EMBER", "label": "Sunset", "sub": "Warm launch", "accent": "a4" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "surfaceStyle": "neon",
+      "index": "3",
+      "heading": "Motion Profiles",
+      "subtitle": "Different decks need different rhythm",
+      "sectionLabel": { "icon": "sparkle", "text": "Animation is a controlled deck token" },
+      "cards": [
+        {
+          "icon": "clock",
+          "accent": "a2",
+          "name": "Calm",
+          "paragraphs": [
+            "Slow fade-and-blur entrance for serious reports.",
+            "Best for CFO, board, audit, and governance decks."
+          ]
+        },
+        {
+          "icon": "book",
+          "accent": "a4",
+          "name": "Editorial",
+          "paragraphs": [
+            "Paper-like movement with subtle rotation and type-led rhythm.",
+            "Best for strategy stories, education, and thought leadership."
+          ]
+        },
+        {
+          "icon": "bolt",
+          "accent": "a1",
+          "name": "Kinetic",
+          "paragraphs": [
+            "Fast energetic movement with stronger entrance and bounce.",
+            "Best for product demos, AI showcases, and launch moments."
+          ]
+        }
+      ],
+      "banner": {
+        "icon": "wand",
+        "accent": "a1",
+        "title": "Rule for agents",
+        "lines": [
+          "Do not describe animation in prose.",
+          "Choose animationProfile: executive, editorial, kinetic, calm, or none."
+        ]
+      }
+    },
+    {
+      "type": "timeline-matrix",
+      "surfaceStyle": "sharp",
+      "themeOverride": "mint-lab",
+      "eyebrow": "Design Factory Expansion",
+      "heading": "STYLE SYSTEM ROADMAP",
+      "cornerLabel": "Phase",
+      "sideLabel": "Design layers",
+      "months": ["Now", "Next", "Soon", "Later"],
+      "repeatRows": 1,
+      "columns": [
+        [
+          { "name": "Theme Tokens", "status": "completed" },
+          { "name": "Surface Styles", "status": "completed" }
+        ],
+        [
+          { "name": "Motion Profiles", "badge": "prep", "status": "inprogress" },
+          { "name": "Showcase Decks", "status": "inprogress" }
+        ],
+        [
+          { "name": "Chart Templates", "badge": "mvp", "status": "planning" },
+          { "name": "Theme Gallery", "status": "planning" }
+        ],
+        [
+          { "name": "PPTX Export", "status": "planning" },
+          { "name": "Visual Regression", "status": "planning" }
+        ]
+      ],
+      "legend": [
+        { "color": "green", "label": "Built" },
+        { "color": "blue", "label": "In progress" },
+        { "color": "orange", "label": "Planned" },
+        { "color": "prep", "label": "Design gate" },
+        { "color": "mvp", "label": "Product gate" }
+      ],
+      "footer": {
+        "left": "slide forge",
+        "center": "Deterministic design vocabulary",
+        "right": "Style roadmap"
+      }
+    },
+    {
+      "type": "bullets",
+      "surfaceStyle": "brutalist",
+      "index": "4",
+      "heading": "Agent-Safe Design Controls",
+      "subtitle": "The weaker agent chooses from short lists",
+      "columns": 3,
+      "groups": [
+        {
+          "title": "Theme",
+          "icon": "diamond",
+          "accent": "a1",
+          "items": [
+            "editorial-ink",
+            "aurora-purple",
+            "mint-lab",
+            "mono-signal",
+            "midnight-tech"
+          ]
+        },
+        {
+          "title": "Surface",
+          "icon": "layers",
+          "accent": "a2",
+          "items": [
+            "glass",
+            "paper",
+            "ticket",
+            "folder",
+            "neon"
+          ]
+        },
+        {
+          "title": "Motion",
+          "icon": "flow",
+          "accent": "a4",
+          "items": [
+            "flip",
+            "vertical",
+            "deck",
+            "editorial",
+            "kinetic"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "closing",
+      "surfaceStyle": "ticket",
+      "heading": "Different by Design",
+      "subheading": "One engine. Many visual systems. No internet. No guessing.",
+      "points": ["Light themes", "Purple themes", "Shape styles", "Motion profiles"]
+    }
+  ]
+}

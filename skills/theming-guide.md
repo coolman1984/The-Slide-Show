@@ -6,8 +6,10 @@ Themes live in `engine/lib/themes.js`. A theme is a complete visual identity; de
 ## Fastest paths (no code)
 
 - **Try a different look:** `node engine/build.js decks/x.json --theme royal-violet -o dist/preview.html`
-- **Different transition:** `--transition fade`
+- **Different transition:** `--transition fade`, `vertical`, `flip`, `deck`, or `none`
 - **Different background:** set `"background": "orbs"` in the deck's `meta`.
+- **Different motion rhythm:** set `"animationProfile": "editorial"`, `"kinetic"`, `"calm"`, or `"none"`.
+- **Different card shape:** set `"surfaceStyle": "paper"`, `"glass"`, `"ticket"`, `"folder"`, `"neon"`, `"brutalist"`, `"soft"`, or `"sharp"`.
 - **Exact brand color on one element:** use a raw hex accent in the deck, e.g. `"accent": "#e11d48"`.
 
 ## Anatomy of a theme (edit `engine/lib/themes.js`)
@@ -64,13 +66,33 @@ variant (team names, KPI values); `grad` paints avatar circles; `pillBg` fills m
 
 Only system stacks (decks must work offline): `FONT_STACKS.modern` (Segoe UI family),
 `FONT_STACKS.elegant` (Georgia serif — good for headings in formal decks),
-`FONT_STACKS.mono` (Cascadia/Consolas — technical flavor). Mix: serif headings + modern body
-is the classic "annual report" look. Add new stacks to `FONT_STACKS`; never link webfonts.
+`FONT_STACKS.mono` (Cascadia/Consolas — technical flavor). Newer stacks include
+`editorial`, `humanist`, `condensed`, and `geometric`. Mix: serif headings + modern body
+for an annual-report look. Add new stacks to `FONT_STACKS`; never link webfonts.
 
 ## Shapes
 
 `radius` is the shape language: `14/16/18px` = the flagship soft look; `4/6/8px` = sharp
 corporate; `22/26/30px` = friendly rounded. Change all three together to keep hierarchy.
+
+Runtime surface styles give much stronger shape variation without editing CSS:
+
+`classic`, `sharp`, `glass`, `ticket`, `folder`, `paper`, `neon`, `brutalist`, `soft`.
+
+Example:
+
+```json
+{
+  "meta": {
+    "surfaceStyle": "glass",
+    "animationProfile": "kinetic",
+    "transition": "flip"
+  },
+  "slides": [
+    { "type": "comparison", "surfaceStyle": "neon", "heading": "..." }
+  ]
+}
+```
 
 ## Timeline palette inside a deck (`light`)
 

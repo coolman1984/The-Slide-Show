@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T18:45:24.567Z",
+  "generatedAt": "2026-07-06T19:10:24.247Z",
   "files": [
     {
       "path": "AGENTS.md",
@@ -19,19 +19,34 @@
       "sha256": "9c426e286ca7573af33c2af2672f8401488d63c39c1e5d67c5bd1df2a03e7ae3"
     },
     {
+      "path": "decks/orion-factory-control-demo.json",
+      "bytes": 14191,
+      "sha256": "eeb685f0edd2cd37c271546db78c99418726432d2e4f06b6c5722ba2630f980c"
+    },
+    {
       "path": "decks/seegp-ax-monthly.json",
       "bytes": 11920,
       "sha256": "1dfb72e322cae2dca935f48953a60dfce489f72019d970034a3a153c2c1fabf6"
     },
     {
+      "path": "decks/visual-style-showcase.json",
+      "bytes": 8825,
+      "sha256": "0f538457a7f3f202d2dd41487c78ad221dfb65b637b67da83259b0d2803733f0"
+    },
+    {
       "path": "dist/demo.html",
-      "bytes": 44791,
-      "sha256": "4dd20db68c6e60da71eff4478011af2a95910978c14e7980aff0eabe674fbd72"
+      "bytes": 51484,
+      "sha256": "cf7f58ee9c74a68d77c6fb449f7f53b97b461808cf70499ade67867503259e53"
     },
     {
       "path": "dist/kpi-dashboard-sample.html",
-      "bytes": 30790,
-      "sha256": "7e8eca338e8efac4c5f771c49d07b7644965c04b3f9bdc361dcffff836b7f599"
+      "bytes": 37387,
+      "sha256": "24cbb2113fd58cb3a2d1272a93e28f7042b04e82de2cc8174cc14333cd0db9eb"
+    },
+    {
+      "path": "dist/orion-factory-control-demo.html",
+      "bytes": 75009,
+      "sha256": "6f125b1c56c099eb49067a5e60190f64586ae35cd71752baf0f37c1d41a8ce91"
     },
     {
       "path": "dist/seegp-ax-monthly.html",
@@ -42,6 +57,26 @@
       "path": "dist/seegp-emerald.html",
       "bytes": 65575,
       "sha256": "ae730e5bf234141b6c6a24bba35c9446ebc1da6cf41fea2bc6cff82b8b64adf3"
+    },
+    {
+      "path": "dist/visual-style-showcase-aurora.html",
+      "bytes": 62380,
+      "sha256": "5cdd68f8fbc1c50b558860752235769a04410f3091a2c5e59ea719840e339a01"
+    },
+    {
+      "path": "dist/visual-style-showcase-editorial.html",
+      "bytes": 62000,
+      "sha256": "fc64639f5f8687c133afb21579a911475448475d12dafce005f570fa5fdcdcb4"
+    },
+    {
+      "path": "dist/visual-style-showcase-mint.html",
+      "bytes": 61954,
+      "sha256": "01a1d40072b1cb47ec5459be9b0d4986433b3b122b2ab187d83f809a6c35dd2f"
+    },
+    {
+      "path": "dist/visual-style-showcase-mono.html",
+      "bytes": 62118,
+      "sha256": "f058f86a62f44a64a3a57cd2955ad5ad4ac722f359a861261109d45b57e1de5b"
     },
     {
       "path": "docs/ARCHITECTURE_BLUEPRINT.md",
@@ -90,8 +125,8 @@
     },
     {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 4592,
-      "sha256": "4f1a2542fe99c3f5143b7c2f1df326c0a67e7a0a8ee77983672f6ebee9f8983a"
+      "bytes": 5424,
+      "sha256": "215ee1e311887c54cc9357d3bad47e87a356e7447690f91851c574852e619c91"
     },
     {
       "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
@@ -110,13 +145,13 @@
     },
     {
       "path": "engine/build.js",
-      "bytes": 6683,
-      "sha256": "fbfbbffb1f3f1c6975cedf8b1a1e0c88714e215d3eb4c2489a7f2fae945faa08"
+      "bytes": 6997,
+      "sha256": "d1758d514c6da9b1971bc06240f2fae1d7729a28a59824b19cfe42cf2b701c0c"
     },
     {
       "path": "engine/lib/css.js",
-      "bytes": 22378,
-      "sha256": "f4e934e3cbdef48f12b3c04dc14d9c4fef6865c770cc3e0836d136f6bb7d1326"
+      "bytes": 29617,
+      "sha256": "13ec668eb5401e511a20c3d24626f0a040e405d49d4fa67ef3764923e22d9efd"
     },
     {
       "path": "engine/lib/icons.js",
@@ -125,8 +160,8 @@
     },
     {
       "path": "engine/lib/render.js",
-      "bytes": 17452,
-      "sha256": "359fc61d79dd4c0e99dba0f48badc4931da441a15098037aba64fcc09126f497"
+      "bytes": 17615,
+      "sha256": "a67ddcef2d2639309af00395def4104ea66fecf33253dcc0129bfb643da5e673"
     },
     {
       "path": "engine/lib/runtime.js",
@@ -135,13 +170,13 @@
     },
     {
       "path": "engine/lib/themes.js",
-      "bytes": 12338,
-      "sha256": "a0e62829896c4b92f03f60365e4976330df94361344a440711f67dea93a9e6cd"
+      "bytes": 19401,
+      "sha256": "0e6af7db68054cac49e294a85f7394e8c2cde587f7c14d0de973860a5a7c3873"
     },
     {
       "path": "engine/lib/validate.js",
-      "bytes": 10460,
-      "sha256": "13ba7367f8224ef6b449df1aca7629d5d8f53b872a75eb2d6f981ce8273aad43"
+      "bytes": 11153,
+      "sha256": "ee9ba21f3e57321a849f531d2dc69508e236d7ec0b926ced2f9553a159df0216"
     },
     {
       "path": "engine/prompt_compiler/prompts/extract-agenda.md",
@@ -260,8 +295,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 65584,
-      "sha256": "2bd373a85c5782dd30a25459f9520ff62fd443f79a50b210be57e93df7c1e8fb"
+      "bytes": 72277,
+      "sha256": "f0539e903bcd525914661b6df27fe755041786ac51709aa83a26975a69c1d658"
     },
     {
       "path": "package.json",
@@ -290,8 +325,8 @@
     },
     {
       "path": "skills/deck-schema.md",
-      "bytes": 7312,
-      "sha256": "a4a6031c99e994ac96bf7bde2894630b688257e6c16ec0948c2b073676abeb68"
+      "bytes": 8155,
+      "sha256": "f37ee81d7e789603e08b907b58a9abf0e8dd587c3697210c002cf5e9e46a5f13"
     },
     {
       "path": "skills/design-guide.md",
@@ -305,8 +340,8 @@
     },
     {
       "path": "skills/theming-guide.md",
-      "bytes": 4280,
-      "sha256": "990c6f6a5d7ff36e1f7f541d6fa63774a056e8faebeac88440bd0a7c427e503d"
+      "bytes": 5018,
+      "sha256": "2d7473c0ec311d52cff248224eba870ed180c38ea348b7ba48d8077195603398"
     },
     {
       "path": "skills/troubleshooting.md",
@@ -340,8 +375,8 @@
     },
     {
       "path": "themes/catalog.json",
-      "bytes": 568,
-      "sha256": "a62090cb7dfe2bb022982e8098335789afbb87aa348cc95002b4716e433c6123"
+      "bytes": 1311,
+      "sha256": "f0722953e3fc9026b8743b43885e746f7893c71aeeac94fb1a0bb9f275825aa1"
     },
     {
       "path": "themes/corporate-light.json",
@@ -350,8 +385,8 @@
     },
     {
       "path": "themes/surface-styles.json",
-      "bytes": 1666,
-      "sha256": "2321eae1b4a87d2641ef5851cbade10bb7eee1e3282fba0c1df70748b42c4d5f"
+      "bytes": 4358,
+      "sha256": "0bf25555252ddb846bf389c3a0a12dd84b1a178b968ffd3cd47b277c7cb4270a"
     },
     {
       "path": "themes/theme-token.schema.json",

@@ -1,52 +1,117 @@
 {
-  "version": "1.0",
-  "note": "Surface styles are controlled shape variations. Only approved styles may be referenced by templates.",
+  "version": "1.1",
+  "note": "Surface styles are controlled shape variations. Runtime decks use the short styleId values. Legacy contract aliases are kept so older template registry entries still validate.",
+  "runtimeStyles": [
+    "classic",
+    "sharp",
+    "glass",
+    "ticket",
+    "folder",
+    "paper",
+    "neon",
+    "brutalist",
+    "soft"
+  ],
   "styles": [
     {
-      "styleId": "rounded-card",
-      "label": "Rounded card",
+      "styleId": "classic",
+      "label": "Classic rounded card",
       "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
       "implementationStatus": "implemented"
     },
     {
+      "styleId": "sharp",
+      "label": "Sharp corporate",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "glass",
+      "label": "Frosted glass",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "ticket",
+      "label": "Ticket cutout",
+      "allowedUse": ["agenda", "section", "card-sections", "comparison", "bullets", "kpi", "kpi-dashboard", "closing"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "folder",
+      "label": "Folder tab",
+      "allowedUse": ["card-sections", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "paper",
+      "label": "Editorial paper",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "neon",
+      "label": "Neon frame",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "brutalist",
+      "label": "Brutalist heavy border",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "soft",
+      "label": "Soft premium rounded",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "rounded-card",
+      "label": "Legacy alias for classic",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "legacy-alias"
+    },
+    {
       "styleId": "sharp-card",
-      "label": "Sharp-corner card",
+      "label": "Legacy alias for sharp",
       "allowedUse": ["card-sections", "comparison", "kpi"],
-      "implementationStatus": "contract-only"
+      "implementationStatus": "legacy-alias"
     },
     {
       "styleId": "glass-card",
-      "label": "Frosted glass card",
+      "label": "Legacy alias for glass",
       "allowedUse": ["card-sections", "comparison", "kpi"],
-      "implementationStatus": "contract-only"
+      "implementationStatus": "legacy-alias"
     },
     {
       "styleId": "ticket-cutout",
-      "label": "Ticket cutout",
+      "label": "Legacy alias for ticket",
       "allowedUse": ["agenda", "section"],
-      "implementationStatus": "contract-only"
+      "implementationStatus": "legacy-alias"
     },
     {
       "styleId": "folder-tab",
-      "label": "Folder tab",
+      "label": "Legacy alias for folder",
       "allowedUse": ["org-chart", "section"],
-      "implementationStatus": "contract-only"
+      "implementationStatus": "legacy-alias"
     },
     {
       "styleId": "split-panel",
-      "label": "Split panel",
+      "label": "Legacy contract style",
       "allowedUse": ["comparison", "timeline-matrix"],
       "implementationStatus": "contract-only"
     },
     {
       "styleId": "badge-stack",
-      "label": "Badge stack",
+      "label": "Legacy contract style",
       "allowedUse": ["kpi", "kpi-dashboard", "bullets"],
       "implementationStatus": "contract-only"
     },
     {
       "styleId": "memo-panel",
-      "label": "Memo panel",
+      "label": "Legacy contract style",
       "allowedUse": ["bullets", "card-sections"],
       "implementationStatus": "contract-only"
     }

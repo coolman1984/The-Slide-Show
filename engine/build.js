@@ -29,7 +29,9 @@ function listEverything() {
   console.log('  ' + VALID_TYPES.join(', '));
   console.log('\nICONS');
   console.log('  ' + Object.keys(ICONS).join(', '));
-  console.log('\nTRANSITIONS\n  slide, fade, zoom');
+  console.log('\nTRANSITIONS\n  slide, fade, zoom, vertical, flip, deck, none');
+  console.log('\nANIMATION PROFILES\n  executive, editorial, kinetic, calm, none');
+  console.log('\nSURFACE STYLES\n  classic, sharp, glass, ticket, folder, paper, neon, brutalist, soft');
   console.log('\nBACKGROUNDS\n  waves, orbs, grid, none (defaults to the theme\'s own)\n');
 }
 
@@ -110,6 +112,7 @@ function main(argv) {
   };
 
   const transition = deck.meta.transition || 'slide';
+  const animationProfile = deck.meta.animationProfile || 'executive';
   const css = buildCss(theme, overridesUsed);
   const js = buildRuntime(config);
   const hint = deck.meta.hint !== false
@@ -127,7 +130,7 @@ function main(argv) {
 ${css}
 </style>
 </head>
-<body class="trans-${esc(transition)}">
+<body class="trans-${esc(transition)} anim-${esc(animationProfile)}">
 <div id="stage" style="--dir:1">
   <canvas id="fx" width="1920" height="1080"></canvas>${orbs}
 

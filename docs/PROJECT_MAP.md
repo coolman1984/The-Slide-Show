@@ -46,6 +46,9 @@
 |---|---|
 | `decks/seegp-ax-monthly.json` | Flagship SEEG-P AX monthly deck |
 | `decks/demo-product-launch.json` | Demo deck showing extra slide types |
+| `decks/orion-factory-control-demo.json` | Full dummy factory finance and operations demo deck |
+| `decks/visual-style-showcase.json` | Visual capability demo for themes, shapes, and animation profiles |
+| `decks/kpi-dashboard-sample.json` | Single-slide KPI dashboard sample |
 
 ## Built Outputs
 
@@ -53,6 +56,12 @@
 |---|---|
 | `index.html` | `decks/seegp-ax-monthly.json` via `npm run build` |
 | `dist/demo.html` | `decks/demo-product-launch.json` via `npm run demo` |
+| `dist/orion-factory-control-demo.html` | Full dummy factory control demo |
+| `dist/visual-style-showcase-aurora.html` | Style showcase using aurora-purple, glass surfaces, and flip transition |
+| `dist/visual-style-showcase-editorial.html` | Style showcase rendered as white editorial ink style |
+| `dist/visual-style-showcase-mint.html` | Style showcase rendered as light mint product-lab style |
+| `dist/visual-style-showcase-mono.html` | Style showcase rendered as mono technical style |
+| `dist/kpi-dashboard-sample.html` | KPI dashboard sample |
 | `dist/seegp-ax-monthly.html` | Built flagship copy |
 | `dist/seegp-emerald.html` | Flagship deck rendered in emerald theme |
 

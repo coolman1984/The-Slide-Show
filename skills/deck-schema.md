@@ -9,7 +9,9 @@ Everything below is copy-paste ready. Fields marked *(opt)* are optional.
 "meta": {
   "title": "Browser tab title — required",
   "theme": "midnight-tech",          // opt, default midnight-tech. --list shows all
-  "transition": "slide",             // opt: slide | fade | zoom
+  "transition": "slide",             // opt: slide | fade | zoom | vertical | flip | deck | none
+  "animationProfile": "executive",   // opt: executive | editorial | kinetic | calm | none
+  "surfaceStyle": "classic",         // opt: classic | sharp | glass | ticket | folder | paper | neon | brutalist | soft
   "background": "waves",             // opt: waves | orbs | grid | none (default = theme's own)
   "footer": "CONFIDENTIAL & PROPRIETARY",  // opt; false hides footers entirely
   "autoplaySeconds": 12,             // opt, ≥ 3; used when presenter presses P
@@ -22,6 +24,18 @@ Everything below is copy-paste ready. Fields marked *(opt)* are optional.
 
 `"accent"` fields take a slot — `"a1"` (primary), `"a2"`, `"a3"`, `"a4"` — or a raw hex like
 `"#c084fc"` for exact brand colors. Slots re-map automatically when the theme changes; hex does not.
+
+## Style controls
+
+Use fixed tokens so weak agents do not invent design language:
+
+- `theme`: `midnight-tech`, `corporate-light`, `emerald-night`, `royal-violet`,
+  `sunset-ember`, `polar-light`, `editorial-ink`, `aurora-purple`, `mint-lab`, `mono-signal`
+- `transition`: `slide`, `fade`, `zoom`, `vertical`, `flip`, `deck`, `none`
+- `animationProfile`: `executive`, `editorial`, `kinetic`, `calm`, `none`
+- `surfaceStyle`: `classic`, `sharp`, `glass`, `ticket`, `folder`, `paper`, `neon`, `brutalist`, `soft`
+
+Set `meta.surfaceStyle` for the full deck, or `slide.surfaceStyle` to override one slide.
 
 ## Slide types
 

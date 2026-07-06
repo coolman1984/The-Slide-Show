@@ -1,0 +1,23 @@
+{
+  "packageType": "slide-forge-meeting-package",
+  "deckName": "orion-factory-control-demo",
+  "sourceDeck": "decks/orion-factory-control-demo.json",
+  "generatedAt": "2026-07-06T18:51:51.211Z",
+  "files": [
+    {
+      "path": "presentation.html",
+      "bytes": 68236,
+      "sha256": "8b2878afef54dd9c4427c51bbf432234c44e0bfce67e10f8b302c0418baac48b"
+    },
+    {
+      "path": "source-deck.json",
+      "bytes": 14191,
+      "sha256": "eeb685f0edd2cd37c271546db78c99418726432d2e4f06b6c5722ba2630f980c"
+    },
+    {
+      "path": "README-open-this-file.txt",
+      "bytes": 379,
+      "sha256": "af91303ff865cb91be186962ffc05d1a27754a441d46f3b45c0422f71f903ea8"
+    }
+  ]
+}

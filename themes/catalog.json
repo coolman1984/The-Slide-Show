@@ -15,6 +15,34 @@
       "path": "themes/corporate-light.json",
       "status": "draft",
       "mapsToEngineTheme": "corporate-light"
+    },
+    {
+      "themeId": "editorial-ink",
+      "label": "Editorial Ink",
+      "path": "engine/lib/themes.js",
+      "status": "implemented",
+      "mapsToEngineTheme": "editorial-ink"
+    },
+    {
+      "themeId": "aurora-purple",
+      "label": "Aurora Purple",
+      "path": "engine/lib/themes.js",
+      "status": "implemented",
+      "mapsToEngineTheme": "aurora-purple"
+    },
+    {
+      "themeId": "mint-lab",
+      "label": "Mint Lab",
+      "path": "engine/lib/themes.js",
+      "status": "implemented",
+      "mapsToEngineTheme": "mint-lab"
+    },
+    {
+      "themeId": "mono-signal",
+      "label": "Mono Signal",
+      "path": "engine/lib/themes.js",
+      "status": "implemented",
+      "mapsToEngineTheme": "mono-signal"
     }
   ]
 }
