@@ -1,5 +1,12 @@
 # Implementation Backlog For Coding Agents
 
+STOP: This file is not for the routine slide work agent.
+
+Use this file only if Mohamed explicitly says you are the coding agent, engine
+agent, architecture agent, or implementation agent. If the request is to create
+or edit slides, ignore this file and use `docs/WORK_AGENT_OPERATING_MANUAL.md`
+instead.
+
 This backlog is the task source for cheap-token coding agents. Work in order.
 Do not skip phases. Keep tasks small.
 
@@ -435,3 +442,134 @@ Files likely touched:
 
 Dependencies: Meeting package or current workflow, whichever exists.
 
+## Future Phase 9: Control Board Agent Pack MVP
+
+STOP: This phase is for coding agents only. The routine slide work agent should
+not follow this phase.
+
+Goal: Build the first offline visual control board that records human choices
+as a weak-agent-safe Agent Pack.
+
+Reference:
+
+- `docs/SLIDEFORGE_STUDIO_CONTROL_BOARD_PLAN.md`
+- `docs/WEAK_AGENT_HANDOFF_PROTOCOL.md`
+
+### Task 9.1: Add Control Board Catalogs
+
+Description: Add JSON catalogs for choices shown in the control board.
+
+Acceptance:
+
+- [ ] Catalog exists for templates.
+- [ ] Catalog exists for themes.
+- [ ] Catalog exists for font profiles.
+- [ ] Catalog exists for surface styles.
+- [ ] Catalog exists for animation profiles and transitions.
+- [ ] Catalog values map to existing renderer-supported values.
+
+Verification:
+
+- [ ] Catalog JSON parses.
+- [ ] `npm run verify`.
+
+### Task 9.2: Add Static Control Board Prototype
+
+Description: Create a local one-page prototype that lets the user choose deck
+settings from catalogs and preview the selected choices with sample data.
+
+Acceptance:
+
+- [ ] Page works offline.
+- [ ] User can choose theme, template, font profile, surface style, transition,
+      animation profile, and density.
+- [ ] Page shows a small preview area.
+- [ ] Page does not require internet.
+
+Verification:
+
+- [ ] Browser inspection on Windows.
+- [ ] `npm run verify`.
+
+### Task 9.3: Generate Agent Pack Files
+
+Description: Add a local tool that writes `agent_task.md`, `slide_job.json`,
+`locked_choices.json`, and `render_config.json` from selected choices.
+
+Acceptance:
+
+- [ ] Generated `slide_job.json` follows the handoff protocol.
+- [ ] Locked choices are explicit.
+- [ ] Agent permissions are explicit.
+- [ ] Output folder is versioned and does not overwrite silently.
+
+Verification:
+
+- [ ] Generate sample Agent Pack.
+- [ ] Validate JSON.
+- [ ] `npm run verify`.
+
+## Future Phase 10: DataForge Local Data MVP
+
+STOP: This phase is for coding agents only. The routine slide work agent should
+not follow this phase.
+
+Goal: Convert Excel, Word, PDF, and PPTX files into local DB, Markdown, and
+slide-ready facts that weak agents can understand.
+
+Reference:
+
+- `docs/DATAFORGE_LOCAL_DATA_PIPELINE_PLAN.md`
+- `docs/WEAK_AGENT_HANDOFF_PROTOCOL.md`
+
+### Task 10.1: Add DataForge Folder Structure
+
+Description: Add the project folder shape for source intake, extracted data,
+Markdown summaries, logs, and slide jobs.
+
+Acceptance:
+
+- [ ] Folder template matches the DataForge plan.
+- [ ] Original source files are separated from working copies.
+- [ ] Logs have plain-English names.
+
+Verification:
+
+- [ ] Sample project folder can be generated.
+- [ ] `npm run verify`.
+
+### Task 10.2: Add Excel Intake And Inventory MVP
+
+Description: Extract workbook metadata, sheets, tables, used ranges, and saved
+values from a workbook without modifying the original.
+
+Acceptance:
+
+- [ ] Original workbook remains unchanged.
+- [ ] Sheet inventory Markdown is created.
+- [ ] Table inventory Markdown is created.
+- [ ] Data warnings Markdown is created.
+- [ ] Extraction log is created.
+
+Verification:
+
+- [ ] Run on a dummy workbook.
+- [ ] Inspect generated Markdown.
+- [ ] `npm run verify`.
+
+### Task 10.3: Add Slide-Ready Fact Pack MVP
+
+Description: Generate `05_slide_ready_facts.md` from selected extracted data.
+
+Acceptance:
+
+- [ ] Facts include source references.
+- [ ] Warnings are included or linked.
+- [ ] No invented metrics are generated.
+- [ ] Weak agent can use facts without opening the workbook.
+
+Verification:
+
+- [ ] Run on dummy workbook.
+- [ ] Inspect `05_slide_ready_facts.md`.
+- [ ] `npm run verify`.

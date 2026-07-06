@@ -74,7 +74,22 @@ Start with `skills/SKILL.md`. It routes the agent through:
 - `skills/theming-guide.md` for theme work
 - `skills/troubleshooting.md` for known failure modes
 
+## Work Agent Docs
+
+These are the only docs a routine slide work agent needs for normal slide
+production.
+
+| Path | Purpose |
+|---|---|
+| `docs/WORK_AGENT_START_HERE.md` | First simple slide-only instruction file for the routine work agent |
+| `docs/WORK_AGENT_OPERATING_MANUAL.md` | Simple routine operating manual for the final work agent |
+| `docs/CHANGE_ON_THE_FLY.md` | Safe process for fast live-meeting edits |
+
 ## Creator Planning Docs
+
+Routine slide agents should not use this section. These documents are for
+creator/coding work only. A slide work agent should focus on `decks/`,
+`skills/`, and `docs/WORK_AGENT_START_HERE.md`.
 
 | Path | Purpose |
 |---|---|
@@ -83,9 +98,11 @@ Start with `skills/SKILL.md`. It routes the agent through:
 | `docs/ARCHITECTURE_BLUEPRINT.md` | Module boundaries, interfaces, testing, packaging |
 | `docs/QUALITY_AND_GOVERNANCE_GATES.md` | Readiness gates for decks, themes, templates, and releases |
 | `docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md` | Rules for weak-model compatible workflows |
+| `docs/SLIDEFORGE_STUDIO_CONTROL_BOARD_PLAN.md` | Offline Windows control board plan for visual choices and Agent Pack creation |
+| `docs/DATAFORGE_LOCAL_DATA_PIPELINE_PLAN.md` | Local Excel, Word, PDF, PPTX, database, and Markdown extraction plan |
+| `docs/WEAK_AGENT_HANDOFF_PROTOCOL.md` | Simple handoff contract between Control Board, DataForge, and the work agent |
 | `docs/IDEA_INTAKE_DECISIONS.md` | Which external/raw planning ideas were adopted, reframed, deferred, or rejected |
 | `docs/CODING_AGENT_EXECUTION_MANUAL.md` | Exact implementation manual for coding agents |
-| `docs/WORK_AGENT_OPERATING_MANUAL.md` | Simple routine operating manual for the final work agent |
 | `tasks/plan.md` | Implementable phase plan |
 | `tasks/todo.md` | Current task checklist |
 | `tasks/implementation_backlog.md` | Granular ordered task backlog for coding agents |

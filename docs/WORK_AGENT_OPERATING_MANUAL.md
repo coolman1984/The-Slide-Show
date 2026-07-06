@@ -5,11 +5,39 @@
 This manual is for the routine work agent. It explains how to operate the
 project after the creator has built the system.
 
-Do not redesign the system. Do not add setup steps. Use the wired commands.
+You are here to make slides, not to build the software.
+
+Do not redesign the system. Do not add setup steps. Do not follow coding
+plans. Use the wired commands.
 
 ## Basic Rule
 
 Edit deck data. Build output. Verify. Inspect. Deliver.
+
+## Your Job
+
+Do:
+
+- create a new deck JSON in `decks/`
+- edit an existing deck JSON when asked
+- choose a theme, transition, animation profile, and surface style from the
+  allowed lists
+- build HTML output in `dist/`
+- export a meeting package in `packages/`
+- run verification and inspect the slides
+
+Do not:
+
+- write code
+- edit the engine
+- edit tools
+- edit schemas
+- edit templates
+- follow `tasks/implementation_backlog.md`
+- follow `docs/CODING_AGENT_EXECUTION_MANUAL.md`
+
+If Mohamed asks for a feature the current deck JSON cannot express, stop and
+say: "This needs a coding-agent change." Then explain the missing capability.
 
 ## Current Default Deck
 
@@ -17,6 +45,23 @@ Edit deck data. Build output. Verify. Inspect. Deliver.
 - Output: `index.html`
 
 ## Common Tasks
+
+### Use A Control Board Agent Pack
+
+If Mohamed gives you an Agent Pack folder, do this first:
+
+1. Read `00_control/agent_task.md`.
+2. Read `00_control/slide_job.json`.
+3. Read `00_control/locked_choices.json`.
+4. If data is included, read `02_extracted/markdown/00_data_index.md`.
+5. If data is included, read `02_extracted/markdown/05_slide_ready_facts.md`.
+6. If data is included, read `02_extracted/markdown/06_data_warnings.md`.
+
+Follow locked choices exactly. Do not change theme, template, font, shape,
+layout, color, or data source if locked.
+
+Do not analyze raw Excel, Word, PDF, or PPTX files unless Mohamed explicitly
+asks for that.
 
 ### Rebuild The Default Deck
 
@@ -45,6 +90,24 @@ npm run verify
 
 Then inspect the preview.
 
+### Preview Style Options
+
+Use only values from:
+
+```powershell
+node engine/build.js --list
+```
+
+Then build a preview:
+
+```powershell
+node engine/build.js decks/<deck-name>.json --theme <theme-id> --transition <transition> -o dist/<preview-name>.html
+npm run verify
+```
+
+For `animationProfile` and `surfaceStyle`, edit the deck JSON `meta` fields,
+then build.
+
 ### Export A Meeting Package
 
 ```powershell
@@ -67,6 +130,10 @@ Then inspect `packages/<folder-name>/presentation.html`.
 - Do not hand-edit generated HTML.
 - Do not invent numbers, names, dates, or statuses.
 - Do not change `engine/` for a simple deck edit.
+- Do not open or execute coding plans unless Mohamed explicitly says you are
+  the coding agent.
+- Do not mark task checkboxes in `tasks/`.
+- Do not modify `OFFLINE_MANIFEST.json` manually.
 - Do not say ready before verification and visual inspection.
 
 ## If Something Fails

@@ -1,12 +1,17 @@
 # Implementation Plan: SlideForge OS Expansion
 
+STOP: This file is not for the routine slide work agent.
+
+If Mohamed asked you to create or edit slides, ignore this file and use
+`docs/WORK_AGENT_START_HERE.md`.
+
 ## Overview
 
 Expand Slide Forge from a single strong slideshow engine into a complete
 presentation production system. The current deck remains the default and safe
 for immediate presentation. New work builds around it in controlled layers:
 SlideSpec, template registry, theme tokens, weak-agent pipeline, validation,
-repair, exports, and eventually a local control panel.
+repair, exports, Control Board Agent Packs, and DataForge local extraction.
 
 ## Architecture Decisions
 
@@ -17,6 +22,12 @@ repair, exports, and eventually a local control panel.
 - Prefer deterministic code for layout, validation, rendering, and export.
 - Add dependencies only when the creator can bundle or vendor them so routine
   work remains pre-wired.
+- The future Windows control board should turn human visual choices into
+  `slide_job.json`, `agent_task.md`, and locked render settings.
+- DataForge should convert Excel, Word, PDF, PPTX, and screenshots into local
+  DB files plus Markdown before any weak agent reads the task.
+- Weak agents should receive Agent Packs, not architecture plans or raw source
+  files.
 
 ## Task List
 
@@ -97,19 +108,29 @@ repair, exports, and eventually a local control panel.
 
 ### Phase 9: Product-Grade Control Panel
 
-- [ ] Task 9.1: Design local control panel wireframe and information architecture.
-- [ ] Task 9.2: Build deck browser and slide list.
-- [ ] Task 9.3: Build structured slide editor from template schema.
-- [ ] Task 9.4: Build validation and issue panel.
-- [ ] Task 9.5: Build variant comparison and approval flow.
+- [ ] Task 9.1: Build the Control Board catalog system.
+- [ ] Task 9.2: Build one-page offline Control Board prototype.
+- [ ] Task 9.3: Generate Agent Pack files from user choices.
+- [ ] Task 9.4: Build local preview from selected theme, template, font,
+      shape, transition, and animation options.
+- [ ] Task 9.5: Log locked choices and block weak-agent design changes.
 
-### Phase 10: Governance And Release System
+### Phase 10: DataForge Local Data Pipeline
 
-- [ ] Task 10.1: Add artifact export manifest.
-- [ ] Task 10.2: Add draft/approved output folders.
-- [ ] Task 10.3: Add rollback meeting package.
-- [ ] Task 10.4: Add template/theme versioning rules.
-- [ ] Task 10.5: Add release notes process for engine changes.
+- [ ] Task 10.1: Add project source intake folders and logs.
+- [ ] Task 10.2: Add Excel intake, sheet inventory, table inventory, and
+      visible pivot output extraction.
+- [ ] Task 10.3: Generate Markdown data index, warnings, and slide-ready facts.
+- [ ] Task 10.4: Add local DB storage for metadata and analytics tables.
+- [ ] Task 10.5: Add Word, PDF, PPTX, and screenshot extraction roadmaps.
+
+### Phase 11: Governance And Release System
+
+- [ ] Task 11.1: Add artifact export manifest.
+- [ ] Task 11.2: Add draft/approved output folders.
+- [ ] Task 11.3: Add rollback meeting package.
+- [ ] Task 11.4: Add template/theme versioning rules.
+- [ ] Task 11.5: Add release notes process for engine changes.
 
 ## Risks And Mitigations
 
@@ -124,11 +145,14 @@ repair, exports, and eventually a local control panel.
 | Visual QA skipped | High | Keep visual inspection in Definition of Done |
 | Big plan becomes too large to execute | High | Build in vertical phases; protect current deck |
 | Control panel becomes decorative instead of useful | Medium | Follow operations UI principles; prioritize workflow |
+| Weak agent reads raw Excel and invents conclusions | High | DataForge prepares Markdown fact packs and the Agent Pack forbids raw-source analysis |
+| User choices are lost between preview and build | High | Control Board writes locked choices to `slide_job.json` and `locked_choices.json` |
 
 ## Open Questions
 
 - Which export format is most important after HTML: PNG, PDF, or PPTX?
-- Should the local control panel be plain HTML/JS or a bundled app runtime?
+- Should the first Control Board MVP be static HTML or a Tauri/Electron Windows app?
 - What Samsung visual boundaries are allowed for internal decks?
 - Which first three new templates should be built after the current family?
 - What exact source-tracking level is required for management decks?
+- Which first file type should DataForge implement deeply: Excel or PDF?

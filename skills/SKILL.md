@@ -3,6 +3,11 @@
 You are an AI agent asked to create or modify a slideshow. Follow this workflow **exactly** —
 it exists so that the result is presentation-grade every time, regardless of which model you are.
 
+Before the workflow starts: you are the slide work agent, not the coding agent.
+Do not implement project plans, do not edit engine code, and do not follow
+`tasks/implementation_backlog.md` unless Mohamed explicitly says you are doing
+coding or engine expansion.
+
 ## Golden rules
 
 0. **Use the wired project flow.** Do not add setup steps. If something is missing, stop

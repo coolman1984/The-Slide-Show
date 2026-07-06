@@ -8,10 +8,11 @@ feature.
 
 1. Use the project exactly as it is wired. Do not add setup steps.
 2. Use only the commands listed in this file.
-3. For normal deck changes, edit JSON in `decks/` only. Do not patch built
-   HTML by hand.
-4. Do not edit `engine/` unless the user explicitly asks for a new engine
-   capability or a verified engine bug fix.
+3. Your normal job is to make or change slides. For normal work, edit JSON in
+   `decks/` only. Do not patch built HTML by hand.
+4. You are not the coding agent. Do not edit `engine/`, `tools/`, `schemas/`,
+   `templates/`, `themes/`, or `tasks/` unless Mohamed explicitly says:
+   "you are the coding agent" or "change the engine".
 5. Never invent real names, numbers, dates, statuses, or management messages.
    Use clear placeholders like `[Insert exact KPI]` when content is missing.
 6. Before saying a deck is ready, run the verification command and visually
@@ -34,33 +35,47 @@ The default presentation is:
 
 Generated alternative outputs live in `dist/`.
 
-## Required Reading Order
+## Routine Work Agent Reading Order
 
-Read these files before changing anything:
+If you are here to create or edit slides, read only these files before working:
 
 1. `AGENTS.md`
-2. `docs/PROJECT_MAP.md`
-3. `skills/SKILL.md`
-4. `skills/deck-schema.md`
-5. `skills/design-guide.md`
-6. `skills/troubleshooting.md`
+2. `docs/WORK_AGENT_START_HERE.md`
+3. `docs/WORK_AGENT_OPERATING_MANUAL.md`
+4. `skills/SKILL.md`
+5. `skills/deck-schema.md`
+6. `skills/design-guide.md`
+7. `skills/troubleshooting.md`
 
 Read `skills/theming-guide.md` only when changing or previewing themes.
 Read `docs/CHANGE_ON_THE_FLY.md` when the user needs a fast live-meeting edit.
-`docs/OFFLINE_OPERATING_MODEL.md` is for the creator/architect, not routine
-deck editing.
-For architecture expansion work, read `docs/SLIDEFORGE_OS_MASTER_PLAN.md`,
-`docs/PRODUCT_AND_EXPERIENCE_SPEC.md`, `docs/ARCHITECTURE_BLUEPRINT.md`,
-`docs/QUALITY_AND_GOVERNANCE_GATES.md`,
-`docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md`,
-`docs/IDEA_INTAKE_DECISIONS.md`,
-`docs/CODING_AGENT_EXECUTION_MANUAL.md`, and `tasks/implementation_backlog.md`.
+Do not read or follow coding plans for routine slide work. They are not your
+task.
+
+## Coding-Agent Documents
+
+The following files are for creator/coding work only:
+
+- `docs/SLIDEFORGE_OS_MASTER_PLAN.md`
+- `docs/PRODUCT_AND_EXPERIENCE_SPEC.md`
+- `docs/ARCHITECTURE_BLUEPRINT.md`
+- `docs/QUALITY_AND_GOVERNANCE_GATES.md`
+- `docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md`
+- `docs/IDEA_INTAKE_DECISIONS.md`
+- `docs/CODING_AGENT_EXECUTION_MANUAL.md`
+- `docs/OFFLINE_OPERATING_MODEL.md`
+- `tasks/plan.md`
+- `tasks/todo.md`
+- `tasks/implementation_backlog.md`
+
+Ignore those files unless Mohamed explicitly says you are doing project
+architecture, coding, or engine expansion.
 
 ## Standard Workflow
 
 1. Understand the request.
-2. Identify whether it is a deck-content change or an engine-capability change.
-3. For deck content, copy the closest deck in `decks/` or edit the requested
+2. Assume it is a deck-content change unless Mohamed clearly says otherwise.
+3. Copy the closest deck in `decks/` or edit the requested
    deck directly.
 4. Build to `dist/<deck-name>.html` unless the user explicitly says to update
    the default `index.html`.

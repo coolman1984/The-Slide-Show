@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T19:10:24.247Z",
+  "generatedAt": "2026-07-06T19:24:49.103Z",
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 3698,
-      "sha256": "3c5d2969b768f0eda4cf7e14667c2f4101dc02594b1b04db9dbc6a0707f472c3"
+      "bytes": 4128,
+      "sha256": "9c29e4d04fa717fbce180fc7f47a8a3dbe68c0867c2c672a8d8ebbe8bf4216e7"
     },
     {
       "path": "decks/demo-product-launch.json",
@@ -94,6 +94,11 @@
       "sha256": "46ce696599261a80d4812b9a48bdf58673346edc581180c3c64c1fa9c6519836"
     },
     {
+      "path": "docs/DATAFORGE_LOCAL_DATA_PIPELINE_PLAN.md",
+      "bytes": 9915,
+      "sha256": "6e3e1b1387db53acccf9f9dd0443804f34c286e8f4e7f2878941a6833b2b383a"
+    },
+    {
       "path": "docs/decisions/ADR-001-offline-first-self-contained-presentations.md",
       "bytes": 1735,
       "sha256": "ba51f8579ac85ba38e88b67ce253e34bce9e72cc5ad5b40474516656e11d9f64"
@@ -125,8 +130,8 @@
     },
     {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 5424,
-      "sha256": "215ee1e311887c54cc9357d3bad47e87a356e7447690f91851c574852e619c91"
+      "bytes": 6308,
+      "sha256": "0bfffd5d12e481056aafc044f261218388dd43a964ae55e8c4f4aabc30c0c2aa"
     },
     {
       "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
@@ -139,9 +144,24 @@
       "sha256": "12adb2f2d177209e5c18074b6dc7c82dbff2a7770b18a531ba50b4a812f79f9b"
     },
     {
+      "path": "docs/SLIDEFORGE_STUDIO_CONTROL_BOARD_PLAN.md",
+      "bytes": 9154,
+      "sha256": "5a186edd84e1cfbc9f4155d16dcc1785f35f4e0ead0c449586fcb2d6af5afeca"
+    },
+    {
+      "path": "docs/WEAK_AGENT_HANDOFF_PROTOCOL.md",
+      "bytes": 4018,
+      "sha256": "6c58afb2bb867b160091fa426e24bcc0e430108436b9e2036d7a033f07a2b397"
+    },
+    {
       "path": "docs/WORK_AGENT_OPERATING_MANUAL.md",
-      "bytes": 1854,
-      "sha256": "ec66b5939b6fbbe67b8338f3bd9faf044caca8596c03542fd346eef80a37fc30"
+      "bytes": 3771,
+      "sha256": "083c2bb9af2bbd7b96a23c08fd0628626b6d11358197ab359e74d2ef50887240"
+    },
+    {
+      "path": "docs/WORK_AGENT_START_HERE.md",
+      "bytes": 2604,
+      "sha256": "9f273288e31f4c7141dd525b41d9e1f44e0abed6d897ecc71ea9ff7f49a434a1"
     },
     {
       "path": "engine/build.js",
@@ -335,8 +355,8 @@
     },
     {
       "path": "skills/SKILL.md",
-      "bytes": 5031,
-      "sha256": "9c544d94bf236ac137757208525d08fc420c0dcb8e5fc604b171aa9fc7453966"
+      "bytes": 5294,
+      "sha256": "ba7aa686fb0af361758dae4b4617e68a58d1bb71badbfb5213d940050bf2b357"
     },
     {
       "path": "skills/theming-guide.md",
@@ -350,18 +370,18 @@
     },
     {
       "path": "tasks/implementation_backlog.md",
-      "bytes": 9261,
-      "sha256": "3a6bd4c6bdc8746450c87273d8b49dae42015173a3ae828a84a5e274bf1a7ea9"
+      "bytes": 13151,
+      "sha256": "00f8d531c9ae940b04a861ac20579f93b631a0ec705fbc245ab2d0798c98947b"
     },
     {
       "path": "tasks/plan.md",
-      "bytes": 5852,
-      "sha256": "bcb94568630e9be89eb571cbf5a3a4747291ec50f61f9a984950335e16b4da3e"
+      "bytes": 7287,
+      "sha256": "929842c3e460237fd33874f8975dc3734671d73d4cbf8e92923e6efc8f68f9ad"
     },
     {
       "path": "tasks/todo.md",
-      "bytes": 1201,
-      "sha256": "0dde192d2e0e2e63c5419404695132f7484e59819256f80b18a757ffbb8ca8a4"
+      "bytes": 1602,
+      "sha256": "ea855f5eeb0b2dc5518a914856010624e269d8e6367bd92edbb99300f6cdbbd9"
     },
     {
       "path": "templates/registry.json",
