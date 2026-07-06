@@ -1,0 +1,83 @@
+# Slide Forge
+
+A layered slideshow factory. It turns a simple **JSON deck file** into a single, self-contained,
+animated HTML presentation — the kind you can present to top management, built by *any* AI agent
+or human, because all of the hard parts (design, layout, animation, theming, edge cases) live in
+the engine and the written skills, not in the head of whoever is writing the deck.
+
+**The default deck** (`decks/seegp-ax-monthly.json` → `index.html`) is the SEEG-P AX monthly
+meeting presentation. It is always kept buildable and presentable. Open `index.html`, press `F`
+for fullscreen, present with the arrow keys.
+
+## The three layers
+
+| Layer | Where | Who touches it |
+|---|---|---|
+| **1. Engine** (code) | `engine/` | Nobody, normally. It renders slide types, themes, animation, navigation, and validates decks with friendly errors. |
+| **2. Skills** (instructions) | `skills/` | Read by AI agents before building a deck. Schema reference, design rules, theming guide, troubleshooting. |
+| **3. Decks** (data) | `decks/` | This is what you create or edit — pure JSON content. One file per presentation. |
+
+## Quickstart
+
+```bash
+# Rebuild the default presentation (writes index.html at the repo root)
+npm run build
+
+# Build any deck
+node engine/build.js decks/my-deck.json -o dist/my-deck.html
+
+# Try the same deck in a different look, without editing anything
+node engine/build.js decks/my-deck.json --theme emerald-night --transition fade -o dist/preview.html
+
+# See every available theme, slide type, icon, transition, background
+node engine/build.js --list
+```
+
+The output HTML has **zero external dependencies** — no internet, no server, no fonts to install.
+Double-click it anywhere and it works. Keyboard: `←/→` navigate, `1–9` jump, `F` fullscreen,
+`P` autoplay. Click screen edges or swipe on tablets. Controls auto-hide while presenting.
+
+## What a deck file looks like
+
+```json
+{
+  "meta": { "title": "My Deck", "theme": "midnight-tech", "transition": "slide",
+            "footer": "CONFIDENTIAL & PROPRIETARY" },
+  "slides": [
+    { "type": "title",  "heading": "Quarterly Review", "subheading": "[Q3 2026]" },
+    { "type": "agenda", "items": ["1. Results", "2. Roadmap", "3. Asks"] },
+    { "type": "kpi",    "index": "1", "heading": "Results",
+      "tiles": [ { "value": "38%", "label": "Growth", "accent": "a1" } ] }
+  ]
+}
+```
+
+10 slide types: `title, agenda, org-chart, card-sections, timeline-matrix, comparison,
+section, bullets, kpi, closing`. 6 themes. 3 transitions. 4 background effects. 30 icons.
+4 accent slots per theme plus raw-hex accents for exact brand colors. Everything is listed by
+`--list` and documented in `skills/deck-schema.md`.
+
+## For AI agents
+
+**Start at `skills/SKILL.md`** — it is the step-by-step workflow. Then keep
+`skills/deck-schema.md` open as the reference while writing the deck. The builder validates
+your file and tells you exactly what is wrong and where; warnings tell you when content will
+overflow before you ever open a browser.
+
+## Repository map
+
+```
+index.html                    ← the built default presentation (always presentable)
+decks/seegp-ax-monthly.json   ← the default deck (source of index.html)
+decks/demo-product-launch.json← demo showing other types/theme/transition
+engine/build.js               ← CLI entry
+engine/lib/themes.js          ← theme registry (add new themes here)
+engine/lib/icons.js           ← icon library (add new icons here)
+engine/lib/css.js             ← design system stylesheet
+engine/lib/render.js          ← slide-type renderers
+engine/lib/runtime.js         ← in-browser navigation/animation runtime
+engine/lib/validate.js        ← deck validation + density warnings
+skills/                       ← instructions for agents (start with SKILL.md)
+dist/                         ← built decks (generated, safe to delete)
+PLAN.md                       ← the original design spec of the flagship deck
+```

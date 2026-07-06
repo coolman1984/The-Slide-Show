@@ -1,0 +1,296 @@
+{
+  "meta": {
+    "title": "SEEG-P AX Monthly Meeting",
+    "theme": "midnight-tech",
+    "transition": "slide",
+    "footer": "CONFIDENTIAL & PROPRIETARY",
+    "autoplaySeconds": 12
+  },
+  "slides": [
+    {
+      "type": "title",
+      "heading": "[SEEG-P AX monthly meeting]",
+      "subheading": "[10/7/2026]"
+    },
+    {
+      "type": "agenda",
+      "heading": "Agenda",
+      "items": [
+        "1. AI Crew Org. update",
+        "2. AI Crew Role",
+        "3. Process map example (To update projects)",
+        "4. Gauss agent case study (Q&A chatbot / OTD report automation)",
+        "5. Training courses update",
+        "6. AI Award Introduction"
+      ]
+    },
+    {
+      "type": "org-chart",
+      "index": "1",
+      "heading": "AI Crew Org.",
+      "leader": { "title": "AX G Leader", "name": "Abdullah Selim" },
+      "left": {
+        "title": "AI Part",
+        "names": ["Ahmed Ramadan", "Eslam Matrawy", "Ahmed Ashraf"]
+      },
+      "right": {
+        "title": "Development part",
+        "names": ["Abdelrahman Rabea", "Abdelkereem Salah", "Abdelrahman Taha", "Albaraa Galal", "Doaa Khairat"]
+      },
+      "divisions": [
+        {
+          "name": "VD DIVISION",
+          "badge": "7 Members",
+          "accent": "a2",
+          "teamAccent": "a1",
+          "teams": [
+            {
+              "name": "VD Droduction T",
+              "count": "3",
+              "members": [
+                { "initials": "SA", "name": "Sara Ahmed Fouad", "role": "Main/LCM" },
+                { "initials": "NA", "name": "Nada Ahmed Abdel Raouf Abdelaziz", "role": "SMD/PBA" },
+                { "initials": "AW", "name": "Abdelrahman Walid Sayed Gomaa", "role": "Inhouse" }
+              ]
+            },
+            {
+              "name": "Engineering T",
+              "count": "1",
+              "members": [{ "initials": "ST", "name": "Seif Tarek Mohsen Ismail", "role": "Mecha Solution P" }]
+            },
+            {
+              "name": "CS T",
+              "count": "1",
+              "members": [{ "initials": "OM", "name": "Osama Mohamed Ashour", "role": "LCM OQC P" }]
+            },
+            {
+              "name": "Procurement T",
+              "count": "1",
+              "members": [{ "initials": "MN", "name": "Mohamed Nabil Reyad", "role": "Mecha. Import Purc. P" }]
+            },
+            {
+              "name": "SCM G",
+              "count": "1",
+              "members": [{ "initials": "KN", "name": "Khalid Nagy Abdelgaleel Ahmed", "role": "Main Planning P" }]
+            }
+          ]
+        },
+        {
+          "name": "MX DIVISION",
+          "badge": "3 Members",
+          "accent": "a3",
+          "airy": true,
+          "teams": [
+            {
+              "name": "MX Production T",
+              "count": "1",
+              "members": [{ "initials": "MK", "name": "Mina Kamel", "role": "Innovation P (MX)" }]
+            },
+            {
+              "name": "SCM G (MX)",
+              "count": "1",
+              "members": [{ "initials": "HO", "name": "Hisham Omar El-Farouk", "role": "SCM P (MX)" }]
+            },
+            {
+              "name": "CS & Eng. G (MX)",
+              "count": "1",
+              "members": [{ "initials": "MM", "name": "Mohamed Maged", "role": "PE P (MX)" }]
+            }
+          ]
+        },
+        {
+          "name": "COMMON DIVISION",
+          "badge": "5 Members",
+          "accent": "a4",
+          "teams": [
+            {
+              "name": "People T",
+              "count": "2",
+              "members": [
+                { "initials": "FS", "name": "Farah Sameh Mohamed Abdelmoneam", "role": "People" },
+                { "initials": "AG", "name": "Ayman Gamal Sayed Ewais", "role": "Work Solution" }
+              ]
+            },
+            {
+              "name": "Business Mgmt T",
+              "count": "2",
+              "members": [
+                { "initials": "MF", "name": "Mohamed Fawzy", "role": "Finance" },
+                { "initials": "AA", "name": "Ahmed Mohamed Abdelwahed", "role": "Gov. Relation" }
+              ]
+            },
+            {
+              "name": "EHS G",
+              "count": "1",
+              "members": [{ "initials": "MA", "name": "Mohamed Abdallah Abdelmohsen Ali", "role": "EHS Officer" }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "card-sections",
+      "index": "2",
+      "heading": "AI Crew Role",
+      "bullet": {
+        "text": "As start, Focus on process automation",
+        "subs": ["Find process, Automate using AI.", "Support is available for programming area."]
+      },
+      "sections": [
+        {
+          "label": "BUSINESS & STRATEGY ROLES",
+          "icon": "bulb",
+          "accent": "a1",
+          "grid": 2,
+          "cards": [
+            {
+              "icon": "compass",
+              "badge": "LEAD 01",
+              "title": "Opportunity Finder",
+              "body": "Identify process bottlenecks and evaluate potential automation ROI. [Insert custom objectives or scoping KPI parameters here]."
+            },
+            {
+              "icon": "flow",
+              "badge": "LEAD 02",
+              "title": "Process Map",
+              "body": "Design and document comprehensive \"AS-WAS\" and \"AS-IS\" workflows. [Insert standard notation tool or mapping guidelines here]."
+            },
+            {
+              "icon": "wand",
+              "badge": "LEAD 03",
+              "title": "Innovation Leader",
+              "body": "Champion digital culture and lead change management efforts. [Insert operational transition milestones or training goals here]."
+            },
+            {
+              "icon": "robot",
+              "badge": "LEAD 04",
+              "title": "Agent Builder",
+              "body": "Configure autonomous agents, system prompts, and operational rules. [Insert LLM engine or safety framework bounds here]."
+            }
+          ]
+        },
+        {
+          "label": "TECHNICAL SUPPORT ROLES",
+          "icon": "code",
+          "accent": "#c084fc",
+          "grid": 1,
+          "cards": [
+            {
+              "icon": "code-simple",
+              "badge": "TECH 01",
+              "title": "Programmer",
+              "body": "Write robust integration logic, database queries, and secure API bridges. [Insert backend environment or language specs here]."
+            },
+            {
+              "icon": "brain",
+              "badge": "TECH 02",
+              "title": "Data Scientist",
+              "body": "Govern analytical models, parse pipeline outputs, and refine algorithms. [Insert data cleansing protocols or target precision bounds here]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline-matrix",
+      "themeOverride": "corporate-light",
+      "eyebrow": "Enterprise AI Monthly Implementation Plan",
+      "heading": "MASTER TIMELINE MATRIX — JAN–JUN",
+      "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "repeatRows": 2,
+      "columns": [
+        [{ "name": "Data Pipeline Audit", "status": "completed" }, { "name": "Infrastructure Setup", "status": "completed" }],
+        [{ "name": "AI Governance Charter", "status": "completed" }, { "name": "Model Sandbox Dev", "status": "completed" }],
+        [{ "name": "Finance OCR Engine", "status": "completed" }, { "name": "Inventory Forecasting", "status": "completed" }],
+        [{ "name": "HR Resume Screener", "status": "completed" }, { "name": "Predictive Maintenance", "status": "inprogress" }],
+        [{ "name": "Log Anomaly Detection", "status": "inprogress" }, { "name": "Marketing Copy Gen", "status": "inprogress" }],
+        [{ "name": "Executive Dashboard", "status": "inprogress" }, { "name": "Fraud Classifier API", "status": "planning" }]
+      ],
+      "legend": [
+        { "color": "green", "label": "Completed" },
+        { "color": "blue", "label": "In Progress" },
+        { "color": "orange", "label": "Planning" },
+        { "color": "prep", "label": "Jul Preparation for External AI change" },
+        { "color": "augred", "label": "August External AI change" }
+      ],
+      "footer": {
+        "left": "enterprise ai",
+        "center": "Continuous Allocation: 2 Projects Per Month Master Plan",
+        "right": "Slide 5"
+      }
+    },
+    {
+      "type": "timeline-matrix",
+      "themeOverride": "corporate-light",
+      "eyebrow": "Enterprise AI Monthly Implementation Plan",
+      "heading": "MASTER TIMELINE MATRIX — JUL–DEC",
+      "months": ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "repeatRows": 2,
+      "columns": [
+        [{ "name": "Org Change Readiness", "badge": "prep", "status": "completed" }, { "name": "Data Schema Refactor", "badge": "prep", "status": "inprogress" }],
+        [{ "name": "Intelligent CX Chatbot", "badge": "mvp", "status": "inprogress" }, { "name": "Demand Forecasting v2", "badge": "mvp", "status": "inprogress" }],
+        [{ "name": "Procurement Model", "status": "planning" }, { "name": "Support Auto-Route", "status": "planning" }],
+        [{ "name": "Strategic Pricing Bot", "status": "planning" }, { "name": "Retail Recommender", "status": "planning" }],
+        [{ "name": "Supply Chain Optimizer", "status": "planning" }, { "name": "Legal Contract Analyzer", "status": "planning" }],
+        [{ "name": "Federated Learning Sys", "status": "planning" }, { "name": "Annual Program Review", "status": "planning" }]
+      ],
+      "legend": [
+        { "color": "green", "label": "Completed" },
+        { "color": "blue", "label": "In Progress" },
+        { "color": "orange", "label": "Planning" },
+        { "color": "prep", "label": "Jul Preparation for External AI change" },
+        { "color": "augred", "label": "August External AI change" }
+      ],
+      "footer": {
+        "left": "enterprise ai",
+        "center": "Continuous Allocation: 2 Projects Per Month Master Plan",
+        "right": "Slide 6"
+      }
+    },
+    {
+      "type": "comparison",
+      "index": "3",
+      "heading": "AI Capability Expansion",
+      "subtitle": "Generative AI Comparison & Gauss Access Update",
+      "sectionLabel": { "icon": "sparkle", "text": "How the 3 Generative AI Models Differ" },
+      "cards": [
+        {
+          "icon": "star4",
+          "accent": "a1",
+          "name": "Gemini",
+          "paragraphs": [
+            "Best for Google-connected workflows and real-time information lookup.",
+            "Strong for web research and tasks linked with Gmail, Sheets, and Workspace."
+          ]
+        },
+        {
+          "icon": "share",
+          "accent": "#2dd4d4",
+          "name": "ChatGPT",
+          "paragraphs": [
+            "Best for flexible content creation, ideation, and coding support.",
+            "Useful for brainstorming, drafting, debugging, and prompt-driven productivity."
+          ]
+        },
+        {
+          "icon": "sparkle",
+          "accent": "a4",
+          "name": "Claude",
+          "paragraphs": [
+            "Best for long-document review and higher-reasoning work.",
+            "Strong for structured analysis, consistency, and handling complex instructions at scale."
+          ]
+        }
+      ],
+      "banner": {
+        "icon": "doc-user",
+        "title": "Gauss Portal Permission Update",
+        "lines": [
+          "From July 3, the Lab Creator role can be granted even if the required training is not completed.",
+          "Inactive users are excluded, new users start with Advanced access, and Lab Creator is assigned every",
+          "Friday to reactivated and new users until full automation is ready."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "slide-forge",
+  "version": "1.0.0",
+  "description": "A layered engine that turns simple JSON deck files into elegant, animated, single-file HTML slideshows. Built so any AI agent (or human) can produce presentation-grade decks by editing data, never code.",
+  "scripts": {
+    "build": "node engine/build.js decks/seegp-ax-monthly.json -o index.html",
+    "demo": "node engine/build.js decks/demo-product-launch.json -o dist/demo.html",
+    "list": "node engine/build.js --list"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
