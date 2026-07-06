@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Orion Factory Control",
+    "theme": "mint-lab",
+    "transition": "vertical",
+    "animationProfile": "calm",
+    "surfaceStyle": "soft",
+    "lang": "en"
+  },
+  "preview": {
+    "templateId": "family-001-kpi-dashboard",
+    "slideTitle": "Factory signal snapshot",
+    "slideSubtitle": "Prepared through the offline Control Board workflow",
+    "density": "comfortable",
+    "fontProfile": "geometric_display"
+  }
+}

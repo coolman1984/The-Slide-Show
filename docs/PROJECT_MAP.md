@@ -62,6 +62,7 @@
 | `dist/visual-style-showcase-mint.html` | Style showcase rendered as light mint product-lab style |
 | `dist/visual-style-showcase-mono.html` | Style showcase rendered as mono technical style |
 | `dist/kpi-dashboard-sample.html` | KPI dashboard sample |
+| `dist/control-board.html` | Offline Control Board for choosing slide options and downloading Agent Pack files |
 | `dist/seegp-ax-monthly.html` | Built flagship copy |
 | `dist/seegp-emerald.html` | Flagship deck rendered in emerald theme |
 
@@ -83,6 +84,7 @@ production.
 |---|---|
 | `docs/WORK_AGENT_START_HERE.md` | First simple slide-only instruction file for the routine work agent |
 | `docs/WORK_AGENT_OPERATING_MANUAL.md` | Simple routine operating manual for the final work agent |
+| `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md` | Short step-by-step playbook for weak slide work agents |
 | `docs/CHANGE_ON_THE_FLY.md` | Safe process for fast live-meeting edits |
 
 ## Creator Planning Docs

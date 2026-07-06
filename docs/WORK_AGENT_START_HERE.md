@@ -28,9 +28,10 @@ Do not edit:
 1. `AGENTS.md`
 2. `docs/WORK_AGENT_START_HERE.md`
 3. `docs/WORK_AGENT_OPERATING_MANUAL.md`
-4. `skills/SKILL.md`
-5. `skills/deck-schema.md`
-6. `skills/design-guide.md`
+4. `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`
+5. `skills/SKILL.md`
+6. `skills/deck-schema.md`
+7. `skills/design-guide.md`
 
 Read `skills/theming-guide.md` only when the user asks for style, theme,
 animation, color, font, or shape changes.

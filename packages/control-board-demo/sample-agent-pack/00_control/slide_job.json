@@ -1,0 +1,57 @@
+{
+  "job_id": "orion-factory-control-weekly-executive-factory-review-kpi-dashboard",
+  "job_mode": "weak_agent_safe",
+  "project_name": "Orion Factory Control",
+  "meeting_name": "Weekly Executive Factory Review",
+  "requested_output": "single_slide",
+  "slide_size": "16:9",
+  "language": "en",
+  "confidentiality": "management_only",
+  "slide_type": "kpi-dashboard",
+  "template_id": "family-001-kpi-dashboard",
+  "theme_id": "mint-lab",
+  "font_profile": "geometric_display",
+  "surface_style": "soft",
+  "animation_profile": "calm",
+  "transition": "vertical",
+  "density": "comfortable",
+  "locked_design": true,
+  "data_inputs": [
+    {
+      "kind": "fact_pack",
+      "path": "02_extracted/markdown/05_slide_ready_facts.md"
+    },
+    {
+      "kind": "data_index",
+      "path": "02_extracted/markdown/00_data_index.md"
+    },
+    {
+      "kind": "warnings",
+      "path": "02_extracted/markdown/06_data_warnings.md"
+    }
+  ],
+  "source_files": [
+    {
+      "name": "orion-monthly-control.xlsx",
+      "kind": "excel"
+    },
+    {
+      "name": "orion-automation-notes.docx",
+      "kind": "word"
+    },
+    {
+      "name": "orion-capacity-risk.pdf",
+      "kind": "pdf"
+    }
+  ],
+  "agent_permissions": {
+    "can_rewrite_text": true,
+    "can_select_facts_from_fact_pack": true,
+    "can_change_template": false,
+    "can_change_theme": false,
+    "can_change_colors": false,
+    "can_change_layout": false,
+    "can_read_raw_sources": false,
+    "can_invent_data": false
+  }
+}

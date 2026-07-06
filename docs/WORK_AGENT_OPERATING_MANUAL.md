@@ -63,6 +63,9 @@ layout, color, or data source if locked.
 Do not analyze raw Excel, Word, PDF, or PPTX files unless Mohamed explicitly
 asks for that.
 
+For the shortest version of this workflow, use
+`docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`.
+
 ### Rebuild The Default Deck
 
 ```powershell

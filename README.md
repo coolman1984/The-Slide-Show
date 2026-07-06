@@ -38,9 +38,26 @@ node engine/build.js decks/my-deck.json --theme emerald-night --transition fade 
 
 # See every available theme, slide type, icon, transition, background
 node engine/build.js --list
+
+# Build the offline Control Board
+npm run control-board:build
+
+# Create a demo Agent Pack for a weak work agent
+npm run agent-pack:demo
 ```
 
 For AI agents, start at `AGENTS.md`, then follow `skills/SKILL.md`.
+
+## Offline Control Board
+
+The Control Board is the simple Windows-friendly front door for future slide
+work. Open `dist/control-board.html` or
+`packages/control-board-demo/control-board.html`, choose template, theme, font,
+surface, animation, transition, source files, and prepared facts, then download
+the Agent Pack files.
+
+The work agent reads the Agent Pack. It does not choose design freely and does
+not analyze raw Excel, Word, PDF, or PPTX files by default.
 
 The output HTML has **zero external dependencies** — no internet, no server, no fonts to install.
 Double-click it anywhere and it works. Keyboard: `←/→` navigate, `1–9` jump, `F` fullscreen,

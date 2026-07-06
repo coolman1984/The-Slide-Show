@@ -1,0 +1,35 @@
+{
+  "projectName": "Orion Factory Control",
+  "meetingName": "Weekly Executive Factory Review",
+  "requestedOutput": "single_slide",
+  "slideSize": "16:9",
+  "language": "en",
+  "confidentiality": "management_only",
+  "templateId": "family-001-kpi-dashboard",
+  "themeId": "mint-lab",
+  "surfaceStyle": "soft",
+  "animationProfile": "calm",
+  "transition": "vertical",
+  "density": "comfortable",
+  "fontProfile": "geometric_display",
+  "slideTitle": "Factory signal snapshot",
+  "slideSubtitle": "Prepared through the offline Control Board workflow",
+  "factsText": "Output attainment: 96.4 percent versus 95.0 target\nScrap ratio improved to 1.9 percent from 2.4 percent last month\nAutomation savings reached 38,500 USD this month\nMain risk: two reporting workflows still require manual SAP checks\nTop gain area: SMT line changeover discipline",
+  "warningsText": "Pivot table refresh was not confirmed in the source workbook.\nOne source note mixes Arabic owner names with English department labels.",
+  "notesText": "Summarize the prepared facts into one KPI slide and preserve the risk note.",
+  "sourceFiles": [
+    {
+      "name": "orion-monthly-control.xlsx",
+      "kind": "excel"
+    },
+    {
+      "name": "orion-automation-notes.docx",
+      "kind": "word"
+    },
+    {
+      "name": "orion-capacity-risk.pdf",
+      "kind": "pdf"
+    }
+  ],
+  "jobId": "orion-factory-control-weekly-executive-factory-review-kpi-dashboard"
+}

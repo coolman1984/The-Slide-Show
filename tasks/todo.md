@@ -16,18 +16,31 @@ If Mohamed asked you to create or edit slides, ignore this file and use
 
 ## Next Build Sequence
 
-1. [ ] Add Control Board choice catalogs.
-2. [ ] Build one-page offline Control Board prototype.
-3. [ ] Generate sample Agent Pack from selected choices.
-4. [ ] Teach the work agent to consume the sample Agent Pack.
+1. [x] Add Control Board choice catalogs.
+2. [x] Build one-page offline Control Board prototype.
+3. [x] Generate sample Agent Pack from selected choices.
+4. [x] Teach the work agent to consume the sample Agent Pack.
 5. [ ] Add DataForge project folder generator.
 6. [ ] Add Excel intake and workbook inventory MVP.
 7. [ ] Generate Markdown data index and slide-ready facts.
 8. [ ] Connect selected facts to `slide_job.json`.
-9. [ ] Build preview from Agent Pack choices.
-10. [ ] Add validation messages for missing data, bad choices, and locked choices.
+9. [x] Build preview from Agent Pack choices.
+10. [x] Add validation messages for missing data, bad choices, and locked choices.
 11. [ ] Package the workflow for offline Windows use.
 12. [ ] Add a dummy full demo project using the Control Board and DataForge shape.
+
+## Next Low-Level Coding Agent Plan
+
+Use this order. Do not jump ahead.
+
+1. [ ] Create a `dataforge/` folder with only folder-generation code.
+2. [ ] Add one dummy Excel-like CSV fixture first, before real Excel parsing.
+3. [ ] Generate `00_data_index.md`, `05_slide_ready_facts.md`, and
+       `06_data_warnings.md` from the fixture.
+4. [ ] Write a sample Agent Pack that uses those generated Markdown files.
+5. [ ] Build one deck from that Agent Pack.
+6. [ ] Run `npm run verify`.
+7. [ ] Only after this works, add real `.xlsx` extraction.
 
 ## Definition Of Done For Each Task
 

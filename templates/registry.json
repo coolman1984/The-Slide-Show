@@ -13,8 +13,8 @@
         "heading": { "maxLength": 46 },
         "subheading": { "maxLength": 80 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Shorten the heading to 46 characters or the subheading to 80 characters.",
         "MISSING_REQUIRED_FIELD": "Add the required heading field."
@@ -30,8 +30,8 @@
         "items": { "maxItems": 8, "idealItems": 6 },
         "itemText": { "maxLength": 60 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "ticket", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Split the agenda into two slides or shorten each item.",
         "MISSING_REQUIRED_FIELD": "Add the heading and items array."
@@ -47,8 +47,8 @@
         "divisions": { "maxItems": 3 },
         "rowsPerDivision": { "maxItems": 13 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card", "folder-tab"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Reduce division, team, or member counts to fit the slide.",
         "MISSING_REQUIRED_FIELD": "Add the heading, leader, and divisions fields."
@@ -65,8 +65,8 @@
         "cardsPerSection": { "maxItems": 4 },
         "cardBody": { "maxLength": 160 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card", "sharp-card", "glass-card"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "ticket", "folder", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Shorten card bodies or split into more card-sections slides.",
         "MISSING_REQUIRED_FIELD": "Add the heading and sections array."
@@ -82,8 +82,8 @@
         "months": { "maxItems": 6 },
         "projectsPerColumn": { "maxItems": 4 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card", "split-panel"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Reduce months or projects per column.",
         "MISSING_REQUIRED_FIELD": "Add the heading, months, and columns arrays."
@@ -99,8 +99,8 @@
         "cards": { "maxItems": 4, "idealItems": 3 },
         "paragraphsPerCard": { "maxItems": 4 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card", "split-panel"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "ticket", "folder", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Use 3 cards or fewer, and shorten paragraphs.",
         "MISSING_REQUIRED_FIELD": "Add the heading and cards array."
@@ -117,8 +117,8 @@
         "tilesPerRow": { "maxItems": 4 },
         "value": { "maxLength": 7 }
       },
-      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
-      "allowedSurfaceStyles": ["rounded-card", "badge-stack"],
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light", "editorial-ink", "aurora-purple", "mint-lab", "mono-signal"],
+      "allowedSurfaceStyles": ["classic", "sharp", "glass", "ticket", "folder", "paper", "neon", "brutalist", "soft"],
       "repairRules": {
         "TEXT_TOO_LONG": "Reduce rows or tiles per row, or shorten values.",
         "MISSING_REQUIRED_FIELD": "Add the heading and rows array."

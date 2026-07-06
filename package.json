@@ -6,6 +6,8 @@
     "build": "node engine/build.js decks/seegp-ax-monthly.json -o index.html",
     "demo": "node engine/build.js decks/demo-product-launch.json -o dist/demo.html",
     "list": "node engine/build.js --list",
+    "control-board:build": "node tools/build_control_board.js",
+    "agent-pack:demo": "node tools/create_agent_pack.js --demo --out packages/control-board-cli-demo",
     "verify": "node tools/offline_verify.js",
     "package": "node tools/build_meeting_package.js",
     "architect:manifest": "node tools/offline_manifest.js"

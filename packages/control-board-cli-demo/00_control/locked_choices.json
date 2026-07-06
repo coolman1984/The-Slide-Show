@@ -1,0 +1,13 @@
+{
+  "template_id": "family-001-kpi-dashboard",
+  "slide_type": "kpi-dashboard",
+  "theme_id": "mint-lab",
+  "font_profile": "geometric_display",
+  "surface_style": "soft",
+  "animation_profile": "calm",
+  "transition": "vertical",
+  "density": "comfortable",
+  "slide_size": "16:9",
+  "language": "en",
+  "confidentiality": "management_only"
+}

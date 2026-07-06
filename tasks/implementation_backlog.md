@@ -461,17 +461,17 @@ Description: Add JSON catalogs for choices shown in the control board.
 
 Acceptance:
 
-- [ ] Catalog exists for templates.
-- [ ] Catalog exists for themes.
-- [ ] Catalog exists for font profiles.
-- [ ] Catalog exists for surface styles.
-- [ ] Catalog exists for animation profiles and transitions.
-- [ ] Catalog values map to existing renderer-supported values.
+- [x] Catalog exists for templates.
+- [x] Catalog exists for themes.
+- [x] Catalog exists for font profiles.
+- [x] Catalog exists for surface styles.
+- [x] Catalog exists for animation profiles and transitions.
+- [x] Catalog values map to existing renderer-supported values.
 
 Verification:
 
-- [ ] Catalog JSON parses.
-- [ ] `npm run verify`.
+- [x] `node tools/validate_templates.js`.
+- [x] `npm run verify`.
 
 ### Task 9.2: Add Static Control Board Prototype
 
@@ -480,16 +480,16 @@ settings from catalogs and preview the selected choices with sample data.
 
 Acceptance:
 
-- [ ] Page works offline.
-- [ ] User can choose theme, template, font profile, surface style, transition,
+- [x] Page works offline.
+- [x] User can choose theme, template, font profile, surface style, transition,
       animation profile, and density.
-- [ ] Page shows a small preview area.
-- [ ] Page does not require internet.
+- [x] Page shows a small preview area.
+- [x] Page does not require internet.
 
 Verification:
 
-- [ ] Browser inspection on Windows.
-- [ ] `npm run verify`.
+- [x] Browser inspection on Windows.
+- [x] `npm run verify`.
 
 ### Task 9.3: Generate Agent Pack Files
 
@@ -498,16 +498,19 @@ Description: Add a local tool that writes `agent_task.md`, `slide_job.json`,
 
 Acceptance:
 
-- [ ] Generated `slide_job.json` follows the handoff protocol.
-- [ ] Locked choices are explicit.
-- [ ] Agent permissions are explicit.
+- [x] Generated `slide_job.json` follows the handoff protocol.
+- [x] Locked choices are explicit.
+- [x] Agent permissions are explicit.
 - [ ] Output folder is versioned and does not overwrite silently.
 
 Verification:
 
-- [ ] Generate sample Agent Pack.
-- [ ] Validate JSON.
-- [ ] `npm run verify`.
+- [x] Generate sample Agent Pack.
+- [x] Validate JSON.
+- [x] `npm run verify`.
+
+Remaining note: output folder versioning still needs a future polish task before
+the desktop app phase.
 
 ## Future Phase 10: DataForge Local Data MVP
 

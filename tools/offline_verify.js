@@ -160,9 +160,30 @@ function checkTemplateRegistry() {
   runNode(['tools/validate_templates.js'], 'Validate template registry');
 }
 
+function checkControlBoard() {
+  runNode(['tools/build_control_board.js'], 'Build Control Board');
+  checkHtmlOffline(path.join(ROOT, 'dist', 'control-board.html'));
+  const pack = path.join(ROOT, 'packages', 'control-board-demo', 'sample-agent-pack');
+  const required = [
+    '00_control/agent_task.md',
+    '00_control/slide_job.json',
+    '00_control/locked_choices.json',
+    '00_control/render_config.json',
+    '02_extracted/markdown/00_data_index.md',
+    '02_extracted/markdown/05_slide_ready_facts.md',
+    '02_extracted/markdown/06_data_warnings.md',
+  ];
+  for (const item of required) {
+    const file = path.join(pack, item);
+    if (!fs.existsSync(file)) fail(`Control Board sample Agent Pack is missing ${item}`);
+    else if (item.endsWith('.json')) readJson(file);
+  }
+}
+
 checkNoPackageDependencies();
 checkSlideSpecValidation();
 checkTemplateRegistry();
+checkControlBoard();
 checkDeckValidation();
 checkBuiltOutputs();
 checkManifest();
