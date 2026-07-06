@@ -89,10 +89,15 @@ function checkHtmlOffline(file) {
     return;
   }
   const html = fs.readFileSync(file, 'utf8');
+  const attrPattern = /\b(?:src|href)\s*=\s*["']([^"']+)["']/gi;
+  let match;
+  while ((match = attrPattern.exec(html)) !== null) {
+    const value = match[1].trim();
+    if (/^(https?:|\/\/|file:)/i.test(value)) {
+      fail(`${rel(file)} contains an external asset reference: ${value}`);
+    }
+  }
   const externalPatterns = [
-    /<script\b[^>]*\bsrc\s*=/i,
-    /<link\b[^>]*\bhref\s*=/i,
-    /<img\b[^>]*\bsrc\s*=/i,
     /<iframe\b/i,
     /https?:\/\//i,
     /@import\s+url/i,
@@ -133,7 +138,31 @@ function checkManifest() {
   }
 }
 
+function checkSlideSpecValidation() {
+  const golden = path.join(ROOT, 'examples', 'golden', 'slidespec-cover.json');
+  const bad = path.join(ROOT, 'examples', 'bad', 'slidespec-extra-field.json');
+  if (fs.existsSync(golden)) {
+    runNode(['tools/validate_slidespec.js', 'examples/golden/slidespec-cover.json'], 'Validate golden SlideSpec example');
+  }
+  if (fs.existsSync(bad)) {
+    const result = childProcess.spawnSync(process.execPath, ['tools/validate_slidespec.js', 'examples/bad/slidespec-extra-field.json'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      windowsHide: true,
+    });
+    if (result.status === 0) {
+      fail('Bad SlideSpec example should have failed validation.');
+    }
+  }
+}
+
+function checkTemplateRegistry() {
+  runNode(['tools/validate_templates.js'], 'Validate template registry');
+}
+
 checkNoPackageDependencies();
+checkSlideSpecValidation();
+checkTemplateRegistry();
 checkDeckValidation();
 checkBuiltOutputs();
 checkManifest();

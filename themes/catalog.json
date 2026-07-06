@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "note": "The JS theme registry in engine/lib/themes.js remains the runtime source of truth until migration.",
+  "themes": [
+    {
+      "themeId": "ai-executive-dark-tech",
+      "label": "AI Executive Dark Tech",
+      "path": "themes/ai-executive-dark-tech.json",
+      "status": "draft",
+      "mapsToEngineTheme": "midnight-tech"
+    },
+    {
+      "themeId": "corporate-light",
+      "label": "Corporate Light",
+      "path": "themes/corporate-light.json",
+      "status": "draft",
+      "mapsToEngineTheme": "corporate-light"
+    }
+  ]
+}

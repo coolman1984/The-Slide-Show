@@ -1,0 +1,8 @@
+{
+  "templateId": "family-001-timeline-matrix",
+  "heading": "Master Timeline Matrix",
+  "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+  "columns": [
+    [], [], [], [], [], [], [], []
+  ]
+}

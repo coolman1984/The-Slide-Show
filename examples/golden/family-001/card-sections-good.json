@@ -1,0 +1,15 @@
+{
+  "templateId": "family-001-card-sections",
+  "heading": "AI Crew Role",
+  "sections": [
+    {
+      "label": "BUSINESS & STRATEGY ROLES",
+      "icon": "bulb",
+      "accent": "a1",
+      "grid": 2,
+      "cards": [
+        { "icon": "compass", "badge": "LEAD 01", "title": "Opportunity Finder", "body": "Discovers and prioritizes new opportunities." }
+      ]
+    }
+  ]
+}

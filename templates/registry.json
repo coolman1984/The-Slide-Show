@@ -1,0 +1,128 @@
+{
+  "familyId": "family-001",
+  "label": "AI Executive Dark Tech",
+  "description": "Current SlideForge slide types expressed as explicit template contracts.",
+  "templates": [
+    {
+      "templateId": "family-001-title",
+      "label": "Cover / Title",
+      "slideType": "title",
+      "requiredFields": ["heading"],
+      "optionalFields": ["subheading"],
+      "densityLimits": {
+        "heading": { "maxLength": 46 },
+        "subheading": { "maxLength": 80 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Shorten the heading to 46 characters or the subheading to 80 characters.",
+        "MISSING_REQUIRED_FIELD": "Add the required heading field."
+      }
+    },
+    {
+      "templateId": "family-001-agenda",
+      "label": "Agenda",
+      "slideType": "agenda",
+      "requiredFields": ["heading", "items"],
+      "optionalFields": [],
+      "densityLimits": {
+        "items": { "maxItems": 8, "idealItems": 6 },
+        "itemText": { "maxLength": 60 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Split the agenda into two slides or shorten each item.",
+        "MISSING_REQUIRED_FIELD": "Add the heading and items array."
+      }
+    },
+    {
+      "templateId": "family-001-org-chart",
+      "label": "Org Chart",
+      "slideType": "org-chart",
+      "requiredFields": ["heading", "leader", "divisions"],
+      "optionalFields": ["left", "right", "index"],
+      "densityLimits": {
+        "divisions": { "maxItems": 3 },
+        "rowsPerDivision": { "maxItems": 13 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card", "folder-tab"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Reduce division, team, or member counts to fit the slide.",
+        "MISSING_REQUIRED_FIELD": "Add the heading, leader, and divisions fields."
+      }
+    },
+    {
+      "templateId": "family-001-card-sections",
+      "label": "Role Cards",
+      "slideType": "card-sections",
+      "requiredFields": ["heading", "sections"],
+      "optionalFields": ["bullet", "index"],
+      "densityLimits": {
+        "sections": { "maxItems": 2 },
+        "cardsPerSection": { "maxItems": 4 },
+        "cardBody": { "maxLength": 160 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card", "sharp-card", "glass-card"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Shorten card bodies or split into more card-sections slides.",
+        "MISSING_REQUIRED_FIELD": "Add the heading and sections array."
+      }
+    },
+    {
+      "templateId": "family-001-timeline-matrix",
+      "label": "Timeline Matrix",
+      "slideType": "timeline-matrix",
+      "requiredFields": ["heading", "months", "columns"],
+      "optionalFields": ["eyebrow", "cornerLabel", "sideLabel", "repeatRows", "legend", "footer", "themeOverride"],
+      "densityLimits": {
+        "months": { "maxItems": 6 },
+        "projectsPerColumn": { "maxItems": 4 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card", "split-panel"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Reduce months or projects per column.",
+        "MISSING_REQUIRED_FIELD": "Add the heading, months, and columns arrays."
+      }
+    },
+    {
+      "templateId": "family-001-comparison",
+      "label": "Comparison",
+      "slideType": "comparison",
+      "requiredFields": ["heading", "cards"],
+      "optionalFields": ["subtitle", "sectionLabel", "banner", "index"],
+      "densityLimits": {
+        "cards": { "maxItems": 4, "idealItems": 3 },
+        "paragraphsPerCard": { "maxItems": 4 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card", "split-panel"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Use 3 cards or fewer, and shorten paragraphs.",
+        "MISSING_REQUIRED_FIELD": "Add the heading and cards array."
+      }
+    },
+    {
+      "templateId": "family-001-kpi-dashboard",
+      "label": "KPI Dashboard",
+      "slideType": "kpi-dashboard",
+      "requiredFields": ["heading", "rows"],
+      "optionalFields": ["subtitle", "index"],
+      "densityLimits": {
+        "rows": { "maxItems": 2 },
+        "tilesPerRow": { "maxItems": 4 },
+        "value": { "maxLength": 7 }
+      },
+      "allowedThemeIds": ["midnight-tech", "corporate-light", "emerald-night", "royal-violet", "sunset-ember", "polar-light"],
+      "allowedSurfaceStyles": ["rounded-card", "badge-stack"],
+      "repairRules": {
+        "TEXT_TOO_LONG": "Reduce rows or tiles per row, or shorten values.",
+        "MISSING_REQUIRED_FIELD": "Add the heading and rows array."
+      }
+    }
+  ]
+}

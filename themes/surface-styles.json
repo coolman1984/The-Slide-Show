@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "note": "Surface styles are controlled shape variations. Only approved styles may be referenced by templates.",
+  "styles": [
+    {
+      "styleId": "rounded-card",
+      "label": "Rounded card",
+      "allowedUse": ["title", "closing", "section", "agenda", "org-chart", "card-sections", "timeline-matrix", "comparison", "bullets", "kpi", "kpi-dashboard"],
+      "implementationStatus": "implemented"
+    },
+    {
+      "styleId": "sharp-card",
+      "label": "Sharp-corner card",
+      "allowedUse": ["card-sections", "comparison", "kpi"],
+      "implementationStatus": "contract-only"
+    },
+    {
+      "styleId": "glass-card",
+      "label": "Frosted glass card",
+      "allowedUse": ["card-sections", "comparison", "kpi"],
+      "implementationStatus": "contract-only"
+    },
+    {
+      "styleId": "ticket-cutout",
+      "label": "Ticket cutout",
+      "allowedUse": ["agenda", "section"],
+      "implementationStatus": "contract-only"
+    },
+    {
+      "styleId": "folder-tab",
+      "label": "Folder tab",
+      "allowedUse": ["org-chart", "section"],
+      "implementationStatus": "contract-only"
+    },
+    {
+      "styleId": "split-panel",
+      "label": "Split panel",
+      "allowedUse": ["comparison", "timeline-matrix"],
+      "implementationStatus": "contract-only"
+    },
+    {
+      "styleId": "badge-stack",
+      "label": "Badge stack",
+      "allowedUse": ["kpi", "kpi-dashboard", "bullets"],
+      "implementationStatus": "contract-only"
+    },
+    {
+      "styleId": "memo-panel",
+      "label": "Memo panel",
+      "allowedUse": ["bullets", "card-sections"],
+      "implementationStatus": "contract-only"
+    }
+  ]
+}

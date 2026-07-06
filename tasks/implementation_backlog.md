@@ -11,13 +11,13 @@ Description: Confirm the current repo builds and verifies before changes.
 
 Acceptance:
 
-- [ ] `npm run build` succeeds.
-- [ ] `npm run demo` succeeds.
-- [ ] `npm run verify` succeeds.
+- [x] `npm run build` succeeds.
+- [x] `npm run demo` succeeds.
+- [x] `npm run verify` succeeds.
 
 Verification:
 
-- [ ] Paste command results into the task handoff.
+- [x] Paste command results into the task handoff.
 
 Files likely touched:
 
@@ -31,13 +31,13 @@ Description: Add a short note documenting that current deck is protected.
 
 Acceptance:
 
-- [ ] Note points to `decks/seegp-ax-monthly.json`.
-- [ ] Note says default output is `index.html`.
-- [ ] Note says current deck content changes require explicit user request.
+- [x] Note points to `decks/seegp-ax-monthly.json`.
+- [x] Note says default output is `index.html`.
+- [x] Note says current deck content changes require explicit user request.
 
 Verification:
 
-- [ ] `npm run verify`.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -54,13 +54,13 @@ future public contract and current deck JSON remains supported.
 
 Acceptance:
 
-- [ ] `schemas/README.md` exists.
-- [ ] README explains current-vs-future relationship.
-- [ ] No engine behavior changes.
+- [x] `schemas/README.md` exists.
+- [x] README explains current-vs-future relationship.
+- [x] No engine behavior changes.
 
 Verification:
 
-- [ ] `npm run verify`.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -75,16 +75,16 @@ structure.
 
 Acceptance:
 
-- [ ] Schema has `specVersion`.
-- [ ] Schema has `deck`.
-- [ ] Schema has `slides`.
-- [ ] Slide requires `slideId`, `templateId`, `themeId`, and `content`.
-- [ ] Schema disallows unknown top-level fields.
+- [x] Schema has `specVersion`.
+- [x] Schema has `deck`.
+- [x] Schema has `slides`.
+- [x] Slide requires `slideId`, `templateId`, `themeId`, and `content`.
+- [x] Schema disallows unknown top-level fields.
 
 Verification:
 
-- [ ] JSON parses with Node.
-- [ ] `npm run verify`.
+- [x] JSON parses with Node.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -99,14 +99,14 @@ Description: Add one valid and one invalid SlideSpec example.
 
 Acceptance:
 
-- [ ] `examples/golden/slidespec-cover.json` exists.
-- [ ] `examples/bad/slidespec-extra-field.json` exists.
-- [ ] Examples are small and readable.
+- [x] `examples/golden/slidespec-cover.json` exists.
+- [x] `examples/bad/slidespec-extra-field.json` exists.
+- [x] Examples are small and readable.
 
 Verification:
 
-- [ ] JSON parses for valid example.
-- [ ] `npm run verify`.
+- [x] JSON parses for valid example.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -121,16 +121,16 @@ Description: Add a no-dependency validator script for the initial schema.
 
 Acceptance:
 
-- [ ] `tools/validate_slidespec.js` exists.
-- [ ] Valid example passes.
-- [ ] Invalid example fails.
-- [ ] Errors include field path and code.
+- [x] `tools/validate_slidespec.js` exists.
+- [x] Valid example passes.
+- [x] Invalid example fails.
+- [x] Errors include field path and code.
 
 Verification:
 
-- [ ] `node tools/validate_slidespec.js examples/golden/slidespec-cover.json`
-- [ ] `node tools/validate_slidespec.js examples/bad/slidespec-extra-field.json` fails.
-- [ ] `npm run verify`.
+- [x] `node tools/validate_slidespec.js examples/golden/slidespec-cover.json`
+- [x] `node tools/validate_slidespec.js examples/bad/slidespec-extra-field.json` fails.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -148,17 +148,17 @@ future template IDs.
 
 Acceptance:
 
-- [ ] Cover/title template registered.
-- [ ] Agenda template registered.
-- [ ] Org chart template registered.
-- [ ] Role cards template registered.
-- [ ] Timeline matrix template registered.
-- [ ] Comparison template registered.
+- [x] Cover/title template registered.
+- [x] Agenda template registered.
+- [x] Org chart template registered.
+- [x] Role cards template registered.
+- [x] Timeline matrix template registered.
+- [x] Comparison template registered.
 
 Verification:
 
-- [ ] Registry JSON parses.
-- [ ] `npm run verify`.
+- [x] Registry JSON parses.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -173,16 +173,16 @@ Description: Add script that verifies every template has required metadata.
 
 Acceptance:
 
-- [ ] Script checks `templateId`.
-- [ ] Script checks `slideType`.
-- [ ] Script checks `requiredFields`.
-- [ ] Script checks `densityLimits`.
-- [ ] `npm run verify` calls it or a documented command exists.
+- [x] Script checks `templateId`.
+- [x] Script checks `slideType`.
+- [x] Script checks `requiredFields`.
+- [x] Script checks `densityLimits`.
+- [x] `npm run verify` calls it or a documented command exists.
 
 Verification:
 
-- [ ] Registry validator passes.
-- [ ] `npm run verify`.
+- [x] Registry validator passes.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -198,14 +198,14 @@ template.
 
 Acceptance:
 
-- [ ] Examples are in `examples/golden/family-001/`.
-- [ ] Bad examples are in `examples/bad/family-001/`.
-- [ ] Each example references a template ID.
+- [x] Examples are in `examples/golden/family-001/`.
+- [x] Bad examples are in `examples/bad/family-001/`.
+- [x] Each example references a template ID.
 
 Verification:
 
-- [ ] Example JSON parses.
-- [ ] `npm run verify`.
+- [x] Example JSON parses.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -222,14 +222,14 @@ Description: Add `themes/theme-token.schema.json` and initial catalog.
 
 Acceptance:
 
-- [ ] Schema has colors, typography, surfaces, footer, semantic status colors.
-- [ ] Catalog includes `ai-executive-dark-tech`.
-- [ ] Catalog includes `corporate-light`.
+- [x] Schema has colors, typography, surfaces, footer, semantic status colors.
+- [x] Catalog includes `ai-executive-dark-tech`.
+- [x] Catalog includes `corporate-light`.
 
 Verification:
 
-- [ ] JSON parses.
-- [ ] `npm run verify`.
+- [x] JSON parses.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -244,15 +244,15 @@ Description: Add approved surface styles for controlled shape variations.
 
 Acceptance:
 
-- [ ] `themes/surface-styles.json` exists.
-- [ ] Includes `rounded-card`, `sharp-card`, `glass-card`, `ticket-cutout`,
+- [x] `themes/surface-styles.json` exists.
+- [x] Includes `rounded-card`, `sharp-card`, `glass-card`, `ticket-cutout`,
       `folder-tab`, `split-panel`, `badge-stack`, `memo-panel`.
-- [ ] Each style has label, allowedUse, and implementationStatus.
+- [x] Each style has label, allowedUse, and implementationStatus.
 
 Verification:
 
-- [ ] JSON parses.
-- [ ] `npm run verify`.
+- [x] JSON parses.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -268,13 +268,13 @@ Description: Add prompt compiler docs and template format.
 
 Acceptance:
 
-- [ ] `engine/prompt_compiler/README.md` exists.
-- [ ] Explains one-task prompt rule.
-- [ ] Explains JSON-only outputs.
+- [x] `engine/prompt_compiler/README.md` exists.
+- [x] Explains one-task prompt rule.
+- [x] Explains JSON-only outputs.
 
 Verification:
 
-- [ ] `npm run verify`.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -289,16 +289,16 @@ repair.
 
 Acceptance:
 
-- [ ] `extract-agenda.md`
-- [ ] `rewrite-card-body.md`
-- [ ] `fill-slidespec.md`
-- [ ] `repair-json.md`
-- [ ] Each prompt has objective, input, output JSON shape, and failure behavior.
+- [x] `extract-agenda.md`
+- [x] `rewrite-card-body.md`
+- [x] `fill-slidespec.md`
+- [x] `repair-json.md`
+- [x] Each prompt has objective, input, output JSON shape, and failure behavior.
 
 Verification:
 
-- [ ] prompts are readable and small.
-- [ ] `npm run verify`.
+- [x] prompts are readable and small.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -314,15 +314,15 @@ Description: Add repair mapping from validator codes to exact instructions.
 
 Acceptance:
 
-- [ ] Registry includes `TEXT_TOO_LONG`.
-- [ ] Registry includes `MISSING_REQUIRED_FIELD`.
-- [ ] Registry includes `INVALID_ENUM`.
-- [ ] Registry includes `UNKNOWN_TEMPLATE_ID`.
-- [ ] Registry does not invent missing facts.
+- [x] Registry includes `TEXT_TOO_LONG`.
+- [x] Registry includes `MISSING_REQUIRED_FIELD`.
+- [x] Registry includes `INVALID_ENUM`.
+- [x] Registry includes `UNKNOWN_TEMPLATE_ID`.
+- [x] Registry does not invent missing facts.
 
 Verification:
 
-- [ ] `npm run verify`.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -339,14 +339,14 @@ Description: Add contract and examples for a KPI dashboard template.
 
 Acceptance:
 
-- [ ] Template registered.
-- [ ] Good example exists.
-- [ ] Bad over-density example exists.
-- [ ] Validation rules exist.
+- [x] Template registered.
+- [x] Good example exists.
+- [x] Bad over-density example exists.
+- [x] Validation rules exist.
 
 Verification:
 
-- [ ] `npm run verify`.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -363,16 +363,16 @@ current `kpi` slide type.
 
 Acceptance:
 
-- [ ] Deck with KPI dashboard builds.
-- [ ] Slide is visually inspected.
-- [ ] Existing default deck unchanged.
+- [x] Deck with KPI dashboard builds.
+- [x] Slide is visually inspected.
+- [x] Existing default deck unchanged.
 
 Verification:
 
-- [ ] `npm run build`.
-- [ ] `npm run demo`.
-- [ ] `npm run verify`.
-- [ ] Browser screenshot or manual inspection note.
+- [x] `npm run build`.
+- [x] `npm run demo`.
+- [x] `npm run verify`.
+- [x] Browser screenshot or manual inspection note.
 
 Files likely touched:
 
@@ -391,17 +391,17 @@ Description: Package final HTML with a simple instruction file and manifest.
 
 Acceptance:
 
-- [ ] `tools/build_meeting_package.js` exists.
-- [ ] Package includes presentation HTML.
-- [ ] Package includes source deck JSON.
-- [ ] Package includes README-open-this-file.txt.
-- [ ] Package includes export manifest JSON.
+- [x] `tools/build_meeting_package.js` exists.
+- [x] Package includes presentation HTML.
+- [x] Package includes source deck JSON.
+- [x] Package includes README-open-this-file.txt.
+- [x] Package includes export manifest JSON.
 
 Verification:
 
-- [ ] package command creates folder.
-- [ ] output HTML opens locally.
-- [ ] `npm run verify`.
+- [x] package command creates folder.
+- [x] output HTML opens locally.
+- [x] `npm run verify`.
 
 Files likely touched:
 
@@ -419,14 +419,14 @@ Description: Write the simple manual for the routine offline work agent.
 
 Acceptance:
 
-- [ ] `docs/WORK_AGENT_OPERATING_MANUAL.md` exists.
-- [ ] Uses simple language.
-- [ ] Does not expose architect complexity.
-- [ ] Explains create deck, edit deck, verify, inspect, export package.
+- [x] `docs/WORK_AGENT_OPERATING_MANUAL.md` exists.
+- [x] Uses simple language.
+- [x] Does not expose architect complexity.
+- [x] Explains create deck, edit deck, verify, inspect, export package.
 
 Verification:
 
-- [ ] `npm run verify`.
+- [x] `npm run verify`.
 
 Files likely touched:
 

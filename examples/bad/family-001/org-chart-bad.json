@@ -1,0 +1,10 @@
+{
+  "templateId": "family-001-org-chart",
+  "heading": "AI Crew Org.",
+  "divisions": [
+    { "name": "DIV A", "teams": [] },
+    { "name": "DIV B", "teams": [] },
+    { "name": "DIV C", "teams": [] },
+    { "name": "DIV D", "teams": [] }
+  ]
+}

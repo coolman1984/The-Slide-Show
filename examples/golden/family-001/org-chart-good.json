@@ -1,0 +1,15 @@
+{
+  "templateId": "family-001-org-chart",
+  "heading": "AI Crew Org.",
+  "leader": { "title": "AX G Leader", "name": "[Insert name]" },
+  "divisions": [
+    {
+      "name": "VD DIVISION",
+      "badge": "7 Members",
+      "accent": "a2",
+      "teams": [
+        { "name": "Team Name", "members": [{ "initials": "AB", "name": "[Insert name]", "role": "[Insert role]" }] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "templateId": "family-001-comparison",
+  "heading": "AI Capability Expansion",
+  "cards": [
+    { "icon": "star4", "accent": "a1", "name": "Gemini", "paragraphs": ["Reasoning."] },
+    { "icon": "robot", "accent": "a2", "name": "Claude", "paragraphs": ["Context."] },
+    { "icon": "brain", "accent": "a4", "name": "GPT", "paragraphs": ["Knowledge."] },
+    { "icon": "bolt", "accent": "a3", "name": "Mistral", "paragraphs": ["Speed."] },
+    { "icon": "sparkle", "accent": "a1", "name": "Cohere", "paragraphs": ["Embedding."] }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "templateId": "family-001-kpi-dashboard",
+  "heading": "Quarterly KPI Dashboard",
+  "rows": [
+    {
+      "label": "Customer",
+      "tiles": [
+        { "value": "12.5K", "label": "Active users", "accent": "a1" },
+        { "value": "94%", "label": "Retention", "accent": "a2" }
+      ]
+    },
+    {
+      "label": "Operations",
+      "tiles": [
+        { "value": "99.9%", "label": "Uptime", "accent": "a3" },
+        { "value": "<2h", "label": "Response time", "accent": "a4" }
+      ]
+    }
+  ]
+}

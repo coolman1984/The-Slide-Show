@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "themeId": "ai-executive-dark-tech",
+  "label": "AI Executive Dark Tech — deep navy, cyan & purple glows",
+  "mode": "dark",
+  "background": {
+    "type": "waves",
+    "stage": "radial-gradient(600px 240px at 88% 4%, rgba(60,130,220,.16), transparent 70%), radial-gradient(120% 90% at 78% 8%, #0e2c52 0%, rgba(14,44,82,0) 55%), radial-gradient(100% 80% at 10% 100%, #0a1f3d 0%, rgba(10,31,61,0) 50%), linear-gradient(155deg,#071127 0%,#050d20 45%,#03081a 100%)",
+    "page": "#04091a"
+  },
+  "particles": {
+    "from": [26, 95, 174],
+    "to": [34, 211, 238]
+  },
+  "typography": {
+    "heading": "\"Segoe UI\",\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif",
+    "body": "\"Segoe UI\",\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif"
+  },
+  "colors": {
+    "textHi": "#f4f8ff",
+    "textMid": "#c7d5ea",
+    "textLow": "#8fa3c0",
+    "cardBg": "linear-gradient(180deg,rgba(20,42,78,.55),rgba(9,20,42,.65))",
+    "cardBorder": "rgba(56,130,220,.35)",
+    "chipBg": "rgba(10,24,50,.75)",
+    "badgeBg": "rgba(15,30,60,.5)",
+    "badgeBorder": "rgba(150,180,220,.4)",
+    "rule": "rgba(120,160,210,.25)",
+    "ruleSoft": "rgba(120,160,210,.22)",
+    "connector": "rgba(140,180,230,.5)",
+    "glow": "34,211,238"
+  },
+  "surfaces": {
+    "cardRadius": "14px",
+    "cardLgRadius": "16px",
+    "cardXlRadius": "18px"
+  },
+  "accents": {
+    "a1": { "color": "#22d3ee", "bright": "#4ff5ff", "grad": ["#2563eb", "#22d3ee"], "glow": "34,211,238", "pillBg": "rgba(20,90,110,.35)" },
+    "a2": { "color": "#4da3ff", "bright": "#7cc0ff", "grad": ["#2563eb", "#22d3ee"], "glow": "77,163,255", "pillBg": "rgba(30,80,160,.35)" },
+    "a3": { "color": "#2dd4a8", "bright": "#2dd4a8", "grad": ["#0d9488", "#34d399"], "glow": "45,212,168", "pillBg": "rgba(16,90,70,.35)" },
+    "a4": { "color": "#a78bfa", "bright": "#c4b5fd", "grad": ["#7c3aed", "#a78bfa"], "glow": "167,139,250", "pillBg": "rgba(88,60,160,.35)" }
+  },
+  "semantic": {
+    "green": { "fg": "#22a453", "bg": "#e4f6ea" },
+    "blue": { "fg": "#1d7fd6", "bg": "#e3f0fc" },
+    "orange": { "fg": "#e8940a", "bg": "#fdf0d7" },
+    "prep": "#7c3aed",
+    "mvp": "#e2492f",
+    "augred": "#c2410c"
+  },
+  "footer": {
+    "text": "rgba(143,163,192,.7)",
+    "rule": "rgba(120,160,210,.25)"
+  }
+}

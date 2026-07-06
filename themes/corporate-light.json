@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "themeId": "corporate-light",
+  "label": "Corporate Light — clean white, navy headers, blue titles",
+  "mode": "light",
+  "background": {
+    "type": "none",
+    "stage": "#f4f6f9",
+    "page": "#e7eaef"
+  },
+  "particles": {
+    "from": [160, 190, 225],
+    "to": [110, 160, 215]
+  },
+  "typography": {
+    "heading": "\"Segoe UI\",\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif",
+    "body": "\"Segoe UI\",\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif"
+  },
+  "colors": {
+    "textHi": "#1b2a41",
+    "textMid": "#3d4c63",
+    "textLow": "#7c8aa0",
+    "cardBg": "#ffffff",
+    "cardBorder": "#e3e8ee",
+    "chipBg": "#eef2f7",
+    "badgeBg": "#eef2f7",
+    "badgeBorder": "#d4dce6",
+    "rule": "#dfe3e9",
+    "ruleSoft": "#e6eaef",
+    "connector": "#b9c5d4",
+    "glow": "23,133,199"
+  },
+  "surfaces": {
+    "cardRadius": "10px",
+    "cardLgRadius": "12px",
+    "cardXlRadius": "14px"
+  },
+  "accents": {
+    "a1": { "color": "#1785c7", "bright": "#1785c7", "grad": ["#1785c7", "#22d3ee"], "glow": "23,133,199", "pillBg": "rgba(23,133,199,.15)" },
+    "a2": { "color": "#2563eb", "bright": "#2563eb", "grad": ["#2563eb", "#60a5fa"], "glow": "37,99,235", "pillBg": "rgba(37,99,235,.15)" },
+    "a3": { "color": "#0d9488", "bright": "#0d9488", "grad": ["#0d9488", "#34d399"], "glow": "13,148,136", "pillBg": "rgba(13,148,136,.15)" },
+    "a4": { "color": "#7c3aed", "bright": "#7c3aed", "grad": ["#7c3aed", "#a78bfa"], "glow": "124,58,237", "pillBg": "rgba(124,58,237,.15)" }
+  },
+  "semantic": {
+    "green": { "fg": "#22a453", "bg": "#e4f6ea" },
+    "blue": { "fg": "#1d7fd6", "bg": "#e3f0fc" },
+    "orange": { "fg": "#e8940a", "bg": "#fdf0d7" },
+    "prep": "#7c3aed",
+    "mvp": "#e2492f",
+    "augred": "#c2410c"
+  },
+  "footer": {
+    "text": "#8a94a6",
+    "rule": "#dfe3e9"
+  }
+}

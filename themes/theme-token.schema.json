@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "theme-token.schema.json",
+  "title": "SlideForge Theme Token",
+  "description": "Tokenized visual identity for a SlideForge theme.",
+  "type": "object",
+  "required": ["version", "themeId", "label", "mode", "typography", "colors", "surfaces", "accents", "semantic", "footer"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "enum": ["1.0"] },
+    "themeId": { "type": "string", "minLength": 1 },
+    "label": { "type": "string", "minLength": 1 },
+    "mode": { "type": "string", "enum": ["dark", "light"] },
+    "background": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["waves", "orbs", "grid", "none"] },
+        "stage": { "type": "string" },
+        "page": { "type": "string" }
+      }
+    },
+    "particles": {
+      "type": "object",
+      "required": ["from", "to"],
+      "properties": {
+        "from": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } },
+        "to": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["heading", "body"],
+      "properties": {
+        "heading": { "type": "string" },
+        "body": { "type": "string" }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "required": ["textHi", "textMid", "textLow", "cardBg", "cardBorder", "chipBg", "badgeBg", "badgeBorder", "rule", "ruleSoft", "connector", "glow"],
+      "additionalProperties": false,
+      "properties": {
+        "textHi": { "type": "string" },
+        "textMid": { "type": "string" },
+        "textLow": { "type": "string" },
+        "cardBg": { "type": "string" },
+        "cardBorder": { "type": "string" },
+        "chipBg": { "type": "string" },
+        "badgeBg": { "type": "string" },
+        "badgeBorder": { "type": "string" },
+        "rule": { "type": "string" },
+        "ruleSoft": { "type": "string" },
+        "connector": { "type": "string" },
+        "glow": { "type": "string" }
+      }
+    },
+    "surfaces": {
+      "type": "object",
+      "required": ["cardRadius", "cardLgRadius", "cardXlRadius"],
+      "properties": {
+        "cardRadius": { "type": "string" },
+        "cardLgRadius": { "type": "string" },
+        "cardXlRadius": { "type": "string" }
+      }
+    },
+    "accents": {
+      "type": "object",
+      "required": ["a1", "a2", "a3", "a4"],
+      "additionalProperties": false,
+      "properties": {
+        "a1": { "$ref": "#/definitions/accent" },
+        "a2": { "$ref": "#/definitions/accent" },
+        "a3": { "$ref": "#/definitions/accent" },
+        "a4": { "$ref": "#/definitions/accent" }
+      }
+    },
+    "semantic": {
+      "type": "object",
+      "required": ["green", "blue", "orange"],
+      "additionalProperties": true,
+      "properties": {
+        "green": { "$ref": "#/definitions/statusColor" },
+        "blue": { "$ref": "#/definitions/statusColor" },
+        "orange": { "$ref": "#/definitions/statusColor" }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "required": ["text", "rule"],
+      "properties": {
+        "text": { "type": "string" },
+        "rule": { "type": "string" }
+      }
+    }
+  },
+  "definitions": {
+    "accent": {
+      "type": "object",
+      "required": ["color", "bright", "grad", "glow", "pillBg"],
+      "properties": {
+        "color": { "type": "string" },
+        "bright": { "type": "string" },
+        "grad": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "string" } },
+        "glow": { "type": "string" },
+        "pillBg": { "type": "string" }
+      }
+    },
+    "statusColor": {
+      "type": "object",
+      "required": ["fg", "bg"],
+      "properties": {
+        "fg": { "type": "string" },
+        "bg": { "type": "string" }
+      }
+    }
+  }
+}

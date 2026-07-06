@@ -1,0 +1,23 @@
+{
+  "packageType": "slide-forge-meeting-package",
+  "deckName": "demo-product-launch",
+  "sourceDeck": "decks/demo-product-launch.json",
+  "generatedAt": "2026-07-06T18:44:51.490Z",
+  "files": [
+    {
+      "path": "presentation.html",
+      "bytes": 44791,
+      "sha256": "4dd20db68c6e60da71eff4478011af2a95910978c14e7980aff0eabe674fbd72"
+    },
+    {
+      "path": "source-deck.json",
+      "bytes": 5587,
+      "sha256": "b00e8103114a23cd614045b42455e746bcc0e1ad362053c19fafb8c5ea8385ba"
+    },
+    {
+      "path": "README-open-this-file.txt",
+      "bytes": 379,
+      "sha256": "af91303ff865cb91be186962ffc05d1a27754a441d46f3b45c0422f71f903ea8"
+    }
+  ]
+}

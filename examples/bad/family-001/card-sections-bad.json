@@ -1,0 +1,15 @@
+{
+  "templateId": "family-001-card-sections",
+  "heading": "AI Crew Role",
+  "sections": [
+    {
+      "label": "ROLES",
+      "icon": "bulb",
+      "accent": "a1",
+      "grid": 1,
+      "cards": [
+        { "icon": "compass", "badge": "LEAD 01", "title": "Opportunity Finder", "body": "This body text is intentionally written to be far longer than the recommended one hundred and sixty character limit so that it overflows the card surface during a real meeting and forces the repair system to shorten it." }
+      ]
+    }
+  ]
+}

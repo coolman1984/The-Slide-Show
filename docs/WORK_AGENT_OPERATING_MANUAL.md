@@ -45,6 +45,14 @@ npm run verify
 
 Then inspect the preview.
 
+### Export A Meeting Package
+
+```powershell
+npm run package -- decks/<deck-name>.json packages/<folder-name>
+```
+
+Then inspect `packages/<folder-name>/presentation.html`.
+
 ### Make A Fast Text Change
 
 1. Edit only the source JSON.
@@ -91,4 +99,3 @@ Verified:
 Remaining risk:
 - [none / exact issue]
 ```
-

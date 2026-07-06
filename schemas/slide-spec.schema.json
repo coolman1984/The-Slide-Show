@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "slide-spec.schema.json",
+  "title": "SlideSpec Deck",
+  "description": "Forward-facing JSON contract for a SlideForge presentation.",
+  "type": "object",
+  "required": ["specVersion", "deck", "slides"],
+  "additionalProperties": false,
+  "properties": {
+    "specVersion": {
+      "type": "string",
+      "description": "SlideSpec version this deck conforms to.",
+      "enum": ["1.0"]
+    },
+    "deck": {
+      "type": "object",
+      "required": ["id", "title", "themeId"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "themeId": { "type": "string", "minLength": 1 },
+        "transition": { "type": "string", "enum": ["slide", "fade", "zoom"] },
+        "background": { "type": "string", "enum": ["waves", "orbs", "grid", "none"] },
+        "footer": { "type": "string" },
+        "autoplaySeconds": { "type": "number", "minimum": 3 },
+        "hint": { "type": "boolean" },
+        "lang": { "type": "string", "minLength": 2 }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/slide" }
+    }
+  },
+  "definitions": {
+    "slide": {
+      "type": "object",
+      "required": ["slideId", "templateId", "themeId", "content"],
+      "additionalProperties": false,
+      "properties": {
+        "slideId": { "type": "string", "minLength": 1 },
+        "templateId": { "type": "string", "minLength": 1 },
+        "themeId": { "type": "string", "minLength": 1 },
+        "surfaceStyle": { "type": "string", "minLength": 1 },
+        "content": { "type": "object" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

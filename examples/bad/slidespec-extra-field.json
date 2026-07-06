@@ -1,0 +1,10 @@
+{
+  "specVersion": "1.0",
+  "deck": {
+    "id": "bad-example",
+    "title": "Bad Example",
+    "themeId": "midnight-tech"
+  },
+  "slides": [],
+  "extraField": "this should fail validation"
+}

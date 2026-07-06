@@ -1,0 +1,9 @@
+{
+  "templateId": "family-001-comparison",
+  "heading": "AI Capability Expansion",
+  "cards": [
+    { "icon": "star4", "accent": "a1", "name": "Gemini", "paragraphs": ["Multimodal reasoning.", "Google Cloud integration."] },
+    { "icon": "robot", "accent": "a2", "name": "Claude", "paragraphs": ["Long context window.", "Careful reasoning."] },
+    { "icon": "brain", "accent": "a4", "name": "GPT", "paragraphs": ["Broad knowledge.", "Plugin ecosystem."] }
+  ]
+}

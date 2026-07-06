@@ -38,6 +38,17 @@ npm run verify
 
 Then inspect `dist/<deck>.html`.
 
+## Fast Path For A Meeting Package
+
+To export a self-contained folder with the presentation, source deck, readme, and manifest:
+
+```powershell
+npm run package -- decks/<deck>.json -o packages/<name>
+```
+
+Then inspect `packages/<name>/presentation.html`.
+
+
 ## Do Not Do Live Unless Forced
 
 Avoid these changes during a meeting:

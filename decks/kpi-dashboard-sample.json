@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "title": "KPI Dashboard Sample",
+    "theme": "midnight-tech",
+    "transition": "slide",
+    "footer": "CONFIDENTIAL"
+  },
+  "slides": [
+    {
+      "type": "kpi-dashboard",
+      "index": "1",
+      "heading": "Quarterly KPI Dashboard",
+      "subtitle": "Key metrics at a glance",
+      "rows": [
+        {
+          "label": "Customer",
+          "tiles": [
+            { "value": "12.5K", "label": "Active users", "sub": "+8% vs last quarter", "accent": "a1" },
+            { "value": "94%", "label": "Retention", "accent": "a2" }
+          ]
+        },
+        {
+          "label": "Operations",
+          "tiles": [
+            { "value": "99.9%", "label": "Uptime", "accent": "a3" },
+            { "value": "<2h", "label": "Response time", "accent": "a4" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "packageType": "slide-forge-meeting-package",
+  "deckName": "seegp-ax-monthly",
+  "sourceDeck": "decks/seegp-ax-monthly.json",
+  "generatedAt": "2026-07-06T18:32:12.002Z",
+  "files": [
+    {
+      "path": "presentation.html",
+      "bytes": 65552,
+      "sha256": "00297eab79bb803ff145aa366bb3a024193cab6c0fcac85b3800137fb4442928"
+    },
+    {
+      "path": "source-deck.json",
+      "bytes": 11920,
+      "sha256": "1dfb72e322cae2dca935f48953a60dfce489f72019d970034a3a153c2c1fabf6"
+    },
+    {
+      "path": "README-open-this-file.txt",
+      "bytes": 379,
+      "sha256": "af91303ff865cb91be186962ffc05d1a27754a441d46f3b45c0422f71f903ea8"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Atlas AI — Product Launch Demo Deck",
+    "theme": "sunset-ember",
+    "transition": "zoom",
+    "footer": "INTERNAL — DEMO DECK",
+    "autoplaySeconds": 10
+  },
+  "slides": [
+    {
+      "type": "title",
+      "heading": "Atlas AI Launch Plan",
+      "subheading": "Q3 2026 — Demo of Slide Forge variety"
+    },
+    {
+      "type": "section",
+      "index": "01",
+      "heading": "Why now",
+      "subtitle": "This slide proves the engine renders section dividers, alternate themes, orbs/waves backgrounds, and zoom transitions from pure JSON."
+    },
+    {
+      "type": "bullets",
+      "index": "1",
+      "heading": "Launch Pillars",
+      "subtitle": "Three workstreams, one date",
+      "groups": [
+        {
+          "title": "Product",
+          "icon": "rocket",
+          "accent": "a1",
+          "items": [
+            "Freeze scope by Jul 20 — no new surface area after gate review.",
+            "Ship the onboarding flow with 3-step activation.",
+            "Load-test inference at 5x expected launch traffic."
+          ]
+        },
+        {
+          "title": "Go-to-market",
+          "icon": "globe",
+          "accent": "a2",
+          "items": [
+            "Tiered pricing page live 2 weeks before launch.",
+            "Partner webinar series booked with 4 anchor customers.",
+            "Press briefing under embargo on launch morning."
+          ]
+        },
+        {
+          "title": "Enablement",
+          "icon": "book",
+          "accent": "a4",
+          "items": [
+            "Support playbooks and escalation matrix signed off.",
+            "Internal demo certification for all field teams.",
+            "Docs, quickstarts, and API reference frozen at RC1."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kpi",
+      "index": "2",
+      "heading": "Targets at +90 Days",
+      "subtitle": "What success looks like",
+      "tiles": [
+        { "value": "2,500", "label": "Active workspaces", "sub": "Paid + trial combined", "accent": "a1" },
+        { "value": "38%", "label": "Trial → paid conversion", "sub": "vs 24% category median", "accent": "a3" },
+        { "value": "<400ms", "label": "P95 response latency", "sub": "Measured at the edge", "accent": "a2" },
+        { "value": "4.6★", "label": "Marketplace rating", "sub": "Across first 200 reviews", "accent": "a4" }
+      ]
+    },
+    {
+      "type": "timeline-matrix",
+      "themeOverride": "sunset-ember",
+      "eyebrow": "Atlas AI Launch Runway",
+      "heading": "LAUNCH TIMELINE — MAY–OCT",
+      "months": ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+      "repeatRows": 1,
+      "columns": [
+        [{ "name": "Architecture Freeze", "status": "completed" }, { "name": "Security Review", "status": "completed" }],
+        [{ "name": "Private Beta", "status": "completed" }, { "name": "Pricing Research", "status": "inprogress" }],
+        [{ "name": "Scope Gate", "badge": "prep", "status": "inprogress" }, { "name": "Load Testing", "status": "inprogress" }],
+        [{ "name": "Launch Candidate", "badge": "mvp", "status": "planning" }, { "name": "Field Certification", "status": "planning" }],
+        [{ "name": "Public Launch", "status": "planning" }, { "name": "Press & Webinars", "status": "planning" }],
+        [{ "name": "+30d Review", "status": "planning" }, { "name": "Roadmap Reset", "status": "planning" }]
+      ],
+      "legend": [
+        { "color": "green", "label": "Completed" },
+        { "color": "blue", "label": "In Progress" },
+        { "color": "orange", "label": "Planning" },
+        { "color": "prep", "label": "Gate" },
+        { "color": "mvp", "label": "Launch candidate" }
+      ],
+      "footer": { "left": "atlas ai", "center": "One team, one date", "right": "Slide 5" }
+    },
+    {
+      "type": "comparison",
+      "index": "3",
+      "heading": "Positioning",
+      "subtitle": "Where Atlas wins",
+      "sectionLabel": { "icon": "diamond", "text": "Against the two incumbents" },
+      "cards": [
+        {
+          "icon": "bolt",
+          "accent": "a1",
+          "name": "Atlas AI",
+          "paragraphs": [
+            "Purpose-built agents with your data connected in minutes, not weeks.",
+            "Transparent per-task pricing that finance teams can actually forecast."
+          ]
+        },
+        {
+          "icon": "layers",
+          "accent": "a2",
+          "name": "LegacySuite",
+          "paragraphs": [
+            "Deep install base but 6-month deployment cycles and per-seat pricing.",
+            "Strong compliance story; weak on extensibility and API depth."
+          ]
+        },
+        {
+          "icon": "gear",
+          "accent": "a4",
+          "name": "DIY Stack",
+          "paragraphs": [
+            "Maximum flexibility for teams with dedicated ML engineers.",
+            "Total cost of ownership 3–5x higher once maintenance is priced in."
+          ]
+        }
+      ],
+      "banner": {
+        "icon": "shield",
+        "title": "One-line pitch",
+        "lines": [
+          "Atlas AI is the fastest path from \"we should use agents\" to agents in production —",
+          "with pricing, security, and observability that enterprises can sign off on."
+        ]
+      }
+    },
+    {
+      "type": "closing",
+      "heading": "Ship it together",
+      "subheading": "Questions → #atlas-launch",
+      "points": ["Scope freeze Jul 20", "RC1 Aug 15", "Launch Sep 9"]
+    }
+  ]
+}

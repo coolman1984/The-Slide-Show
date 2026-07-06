@@ -1,0 +1,17 @@
+{
+  "templateId": "family-001-kpi-dashboard",
+  "heading": "Quarterly KPI Dashboard",
+  "rows": [
+    {
+      "label": "Customer",
+      "tiles": [
+        { "value": "12.5K", "label": "Active users" },
+        { "value": "94%", "label": "Retention" },
+        { "value": "8.2", "label": "NPS" },
+        { "value": "3", "label": "Churn" },
+        { "value": "1.2K", "label": "New signups" },
+        { "value": "67%", "label": "Activation" }
+      ]
+    }
+  ]
+}

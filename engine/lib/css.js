@@ -248,6 +248,18 @@ const COMPONENT_CSS = `
 .ktile .klabel{font-size:28px;font-weight:700;color:var(--text-hi);margin-top:18px}
 .ktile .ksub{font-size:21px;color:var(--text-low);margin-top:10px;line-height:1.45}
 
+/* ---- kpi dashboard ---- */
+.sl-kpi-dashboard{display:flex;flex-direction:column}
+.sl-kpi-dashboard .sub{padding:10px 0 0 122px;font-size:28px;color:var(--text-mid)}
+.sl-kpi-dashboard .kpi-rows{display:flex;flex-direction:column;gap:30px;padding:0 66px;margin:auto 0;transform:translateY(-20px)}
+.sl-kpi-dashboard .krow{display:flex;flex-direction:column;gap:18px}
+.sl-kpi-dashboard .krow-label{font-size:24px;font-weight:700;color:var(--text-mid);letter-spacing:.04em}
+.sl-kpi-dashboard .tiles-sm{grid-template-columns:repeat(4,1fr)}
+.sl-kpi-dashboard .ktile-sm{padding:32px 28px}
+.sl-kpi-dashboard .ktile-sm .kval{font-size:68px}
+.sl-kpi-dashboard .ktile-sm .klabel{font-size:24px}
+.sl-kpi-dashboard .ktile-sm .ksub{font-size:18px}
+
 /* ---- chrome ---- */
 #chrome{position:absolute;inset:0;z-index:50;pointer-events:none}
 #chrome>*{pointer-events:auto;transition:opacity .4s ease}

@@ -18,6 +18,11 @@
 | `decks/` | JSON deck source files |
 | `dist/` | Built HTML outputs for non-default decks and previews |
 | `engine/` | HTML slideshow engine |
+| `schemas/` | Future-facing SlideSpec JSON contracts |
+| `templates/` | Template registry and example fixtures |
+| `themes/` | Tokenized theme definitions and surface styles |
+| `examples/` | Golden and bad examples for schemas and templates |
+| `packages/` | Exported meeting packages |
 | `skills/` | Project-local instructions for AI deck authors |
 | `tools/` | Local verification and manifest scripts |
 | `docs/` | Operating model, maps, decisions, and procedures |
@@ -87,6 +92,15 @@ Start with `skills/SKILL.md`. It routes the agent through:
 | Add new slide type | `validate.js`, `render.js`, `css.js`, docs | New validated deck |
 | Fix navigation/animation | `engine/lib/runtime.js` | Full browser QA |
 | Harden self-contained process | `tools/`, docs, manifest | `npm run verify` passes |
+
+## Current Deck Protection
+
+The repository is baselined around the current flagship presentation. Do not change
+its content unless explicitly requested.
+
+- Source deck: `decks/seegp-ax-monthly.json`
+- Default output: `index.html`
+- Current deck content changes require an explicit user request.
 
 ## Do Not Touch Casually
 

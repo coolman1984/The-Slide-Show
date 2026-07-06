@@ -82,6 +82,7 @@ npm run list
 npm run build
 npm run demo
 npm run verify
+npm run package
 ```
 
 Creator-only command:

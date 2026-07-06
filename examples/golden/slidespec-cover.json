@@ -1,0 +1,21 @@
+{
+  "specVersion": "1.0",
+  "deck": {
+    "id": "monthly-review",
+    "title": "Monthly Review",
+    "themeId": "midnight-tech",
+    "transition": "slide",
+    "footer": "CONFIDENTIAL"
+  },
+  "slides": [
+    {
+      "slideId": "cover",
+      "templateId": "family-001-title",
+      "themeId": "midnight-tech",
+      "content": {
+        "heading": "Monthly Review",
+        "subheading": "July 2026"
+      }
+    }
+  ]
+}

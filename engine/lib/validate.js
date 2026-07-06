@@ -7,7 +7,7 @@
 const { THEMES } = require('./themes');
 const { ICONS } = require('./icons');
 
-const VALID_TYPES = ['title', 'closing', 'agenda', 'org-chart', 'card-sections', 'timeline-matrix', 'comparison', 'section', 'bullets', 'kpi'];
+const VALID_TYPES = ['title', 'closing', 'agenda', 'org-chart', 'card-sections', 'timeline-matrix', 'comparison', 'section', 'bullets', 'kpi', 'kpi-dashboard'];
 const VALID_STATUSES = ['completed', 'inprogress', 'planning'];
 const VALID_TRANSITIONS = ['slide', 'fade', 'zoom'];
 const VALID_BG = ['waves', 'orbs', 'grid', 'none'];
@@ -134,6 +134,25 @@ function validate(deck) {
           s.tiles.forEach((t, j) => {
             if (!isStr(String(t.value))) err(`${p}.tiles[${j}].value`, 'required.');
             if (!isStr(t.label)) err(`${p}.tiles[${j}].label`, 'required.');
+          });
+        }
+        break;
+      case 'kpi-dashboard':
+        if (!isStr(s.heading)) err(`${p}.heading`, 'required.');
+        if (!isArr(s.rows)) err(`${p}.rows`, 'required — array of {label, tiles[]}.');
+        else {
+          if (s.rows.length > 2) warn(`${p}.rows`, `${s.rows.length} rows — more than 2 rows may overflow.`);
+          s.rows.forEach((r, j) => {
+            const rp = `${p}.rows[${j}]`;
+            if (!isStr(r.label)) err(`${rp}.label`, 'required.');
+            if (!isArr(r.tiles)) err(`${rp}.tiles`, 'required — array of {value, label, sub?, accent?}.');
+            else {
+              if (r.tiles.length > 4) warn(`${rp}.tiles`, `${r.tiles.length} tiles — 4 max fit in one row.`);
+              r.tiles.forEach((t, k) => {
+                if (!isStr(String(t.value))) err(`${rp}.tiles[${k}].value`, 'required.');
+                if (!isStr(t.label)) err(`${rp}.tiles[${k}].label`, 'required.');
+              });
+            }
           });
         }
         break;

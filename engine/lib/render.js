@@ -271,12 +271,35 @@ const RENDERERS = {
     <div class="tiles" style="grid-template-columns:repeat(${Math.min(slide.tiles.length, 4)},1fr)">${tiles}</div>
     ${footer(ctx.deck, 1.2)}`;
   },
+
+  /* --------------------------- kpi dashboard ------------------------- */
+  'kpi-dashboard'(slide, ctx) {
+    const T = ctx.theme;
+    const rows = slide.rows.map((r, ri) => {
+      const tiles = r.tiles.map((t, ti) => {
+        const acc = resolveAccent(T, t.accent, ['a1', 'a3', 'a4', 'a2'][ti % 4]);
+        return `<div class="ktile ktile-sm a a-up" style="${d(0.55 + ri * 0.18 + ti * 0.09)};border-top-color:${acc.color};box-shadow:0 -6px 24px -10px rgba(${acc.glow},.5)">
+          <div class="kval" style="color:${acc.bright};text-shadow:0 0 24px rgba(${acc.glow},.35)">${esc(t.value)}</div>
+          <div class="klabel">${esc(t.label)}</div>
+          ${t.sub ? `<div class="ksub">${esc(t.sub)}</div>` : ''}
+        </div>`;
+      }).join('\n');
+      return `<div class="krow a a-up" style="${d(0.45 + ri * 0.18)}">
+        <div class="krow-label">${esc(r.label)}</div>
+        <div class="tiles tiles-sm" style="grid-template-columns:repeat(${Math.min(r.tiles.length, 4)},1fr)">${tiles}</div>
+      </div>`;
+    }).join('\n');
+    return `${shead(slide)}
+    ${slide.subtitle ? `<div class="sub a a-left" style="${d(0.3)}">${esc(slide.subtitle)}</div>` : ''}
+    <div class="kpi-rows">${rows}</div>
+    ${footer(ctx.deck, 1.2)}`;
+  },
 };
 
 const TYPE_CLASS = {
   title: 'sl-title', closing: 'sl-closing', agenda: 'sl-agenda', 'org-chart': 'sl-org',
   'card-sections': 'sl-cards', 'timeline-matrix': 'sl-tl', comparison: 'sl-compare',
-  section: 'sl-section', bullets: 'sl-bullets', kpi: 'sl-kpi',
+  section: 'sl-section', bullets: 'sl-bullets', kpi: 'sl-kpi', 'kpi-dashboard': 'sl-kpi-dashboard',
 };
 
 function renderSlide(slide, i, ctx) {
