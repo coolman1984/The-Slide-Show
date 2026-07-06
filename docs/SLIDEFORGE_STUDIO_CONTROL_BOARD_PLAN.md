@@ -15,6 +15,27 @@ The weak agent should not decide theme, shape, font, layout, or data source by
 guessing. The human chooses from safe controls. The app records those choices
 as strict JSON.
 
+## Current Implementation Status
+
+MVP implemented:
+
+- `dist/control-board.html`
+- `packages/control-board-demo/control-board.html`
+- `packages/control-board-demo/sample-agent-pack/`
+- `tools/build_control_board.js`
+- `tools/create_agent_pack.js`
+- `tools/lib/agent_pack.js`
+
+Current command:
+
+```powershell
+npm run control-board:build
+```
+
+The current MVP supports visual choices, a live preview, prepared facts, source
+file names, validation warnings, and Agent Pack generation. DataForge
+extraction from real Excel, Word, PDF, and PPTX files is still the next phase.
+
 ## Product Principle
 
 User chooses visually.

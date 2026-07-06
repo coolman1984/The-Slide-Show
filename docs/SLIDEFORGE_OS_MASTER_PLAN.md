@@ -510,7 +510,12 @@ These are architecture options, not current routine setup requirements.
 
 ### 13. Local Control Panel
 
-Future UI:
+Current status: the Control Board MVP exists at `dist/control-board.html`
+and `packages/control-board-demo/control-board.html`. It can create a sample
+Agent Pack and preview locked design choices. The later product-grade app still
+needs DataForge integration, project history, and richer export controls.
+
+MVP and future UI:
 
 - choose deck
 - choose template
@@ -584,7 +589,7 @@ Required capabilities:
 
 ### 17. Local UI/UX Layer
 
-The future control panel must be designed as an operations cockpit. It should
+The Control Board should keep evolving as an operations cockpit. It should
 reduce decisions, show risks, and keep the user in control.
 
 Required screens:
@@ -867,6 +872,9 @@ Deliverables:
 
 Goal: user can control templates, themes, variants, and exports visually.
 
+Current status: partially complete through the offline Control Board MVP and
+Agent Pack demo.
+
 Deliverables:
 
 - local UI
@@ -892,6 +900,9 @@ Deliverables:
 ### Phase 9 - Product-Grade Control Panel
 
 Goal: make the system usable by Mohamed without technical thinking.
+
+Current status: MVP complete; next work is DataForge connection, folder
+versioning, and desktop-grade controls.
 
 Deliverables:
 

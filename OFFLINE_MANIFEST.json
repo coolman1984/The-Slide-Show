@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T19:39:09.239Z",
+  "generatedAt": "2026-07-06T19:46:22.667Z",
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 4128,
-      "sha256": "9c29e4d04fa717fbce180fc7f47a8a3dbe68c0867c2c672a8d8ebbe8bf4216e7"
+      "bytes": 4359,
+      "sha256": "36e4fe34aced0b0c7a5d09147fd1c638c1dde7ee0d090a3a09cca2fa72bfcb39"
     },
     {
       "path": "decks/demo-product-launch.json",
@@ -95,8 +95,8 @@
     },
     {
       "path": "docs/CODING_AGENT_EXECUTION_MANUAL.md",
-      "bytes": 12065,
-      "sha256": "46ce696599261a80d4812b9a48bdf58673346edc581180c3c64c1fa9c6519836"
+      "bytes": 12959,
+      "sha256": "527e4c26f42bae3a5488ff096e8ccc89f6ccf48f1136dbd6db9a9b6dc327a45c"
     },
     {
       "path": "docs/DATAFORGE_LOCAL_DATA_PIPELINE_PLAN.md",
@@ -120,8 +120,8 @@
     },
     {
       "path": "docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md",
-      "bytes": 3292,
-      "sha256": "cbc41cd598aa977d286584325e8d7a4d83559102c3263a7446c34709c9b5aa84"
+      "bytes": 3785,
+      "sha256": "f6ed924c6a173ab1ff70fd39536c8f2cd3329d227dc50ed71788e007279471d5"
     },
     {
       "path": "docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md",
@@ -135,13 +135,13 @@
     },
     {
       "path": "docs/PRODUCT_AND_EXPERIENCE_SPEC.md",
-      "bytes": 8963,
-      "sha256": "10d6b122320842b5c9c0e1ceb7afa8b4ab9ece14ae7ae426bfb2d13fc475846b"
+      "bytes": 9147,
+      "sha256": "d0b1365876f8aefe50a4079872c69228630e78e1f467e8a07968383d5a8278d5"
     },
     {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 6523,
-      "sha256": "f0197679108e6c8617c7c7913bc0725e792ca41e916bba1a7da332a54c543aca"
+      "bytes": 7117,
+      "sha256": "f12d78d5799a7f166df3cd5b103c224e9edfe1d71ddfa153a43286debfa567b1"
     },
     {
       "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
@@ -150,13 +150,13 @@
     },
     {
       "path": "docs/SLIDEFORGE_OS_MASTER_PLAN.md",
-      "bytes": 22895,
-      "sha256": "12adb2f2d177209e5c18074b6dc7c82dbff2a7770b18a531ba50b4a812f79f9b"
+      "bytes": 23414,
+      "sha256": "0ee883ab91f2d4bca96b97e77613a9c86098eb4404f483077e9305558a50f1bd"
     },
     {
       "path": "docs/SLIDEFORGE_STUDIO_CONTROL_BOARD_PLAN.md",
-      "bytes": 9154,
-      "sha256": "5a186edd84e1cfbc9f4155d16dcc1785f35f4e0ead0c449586fcb2d6af5afeca"
+      "bytes": 9724,
+      "sha256": "548498acf8692f6cadc23c1e309f675d870f29de779b20b37a6b7061569f0954"
     },
     {
       "path": "docs/WEAK_AGENT_HANDOFF_PROTOCOL.md",
@@ -340,8 +340,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4937,
-      "sha256": "d20474b57d88b4b2499c428986be3bab07326538d86c49d7a7e776a752505c3e"
+      "bytes": 4942,
+      "sha256": "7c4b46dde1d81e65edb6b5543dc4db1f6999564737ebb1736abc327385145818"
     },
     {
       "path": "schemas/README.md",
@@ -355,8 +355,8 @@
     },
     {
       "path": "skills/deck-schema.md",
-      "bytes": 8155,
-      "sha256": "f37ee81d7e789603e08b907b58a9abf0e8dd587c3697210c002cf5e9e46a5f13"
+      "bytes": 8545,
+      "sha256": "b2c5c58ac720c6b2936f1597920a4d2f06bdbca7b01565be6bc881ca87955b4a"
     },
     {
       "path": "skills/design-guide.md",
@@ -365,8 +365,8 @@
     },
     {
       "path": "skills/SKILL.md",
-      "bytes": 5294,
-      "sha256": "ba7aa686fb0af361758dae4b4617e68a58d1bb71badbfb5213d940050bf2b357"
+      "bytes": 5699,
+      "sha256": "57beb8eb2c9a535106d58b4b109bd8bf6dbbf964fb8bc76b948d37b392af2a18"
     },
     {
       "path": "skills/theming-guide.md",
@@ -380,13 +380,13 @@
     },
     {
       "path": "tasks/implementation_backlog.md",
-      "bytes": 13271,
-      "sha256": "7320d19785f985f42916a243eaf99cbc49c18e819949b3f8fd0cc8758cad0db3"
+      "bytes": 13264,
+      "sha256": "8334dabe40b9b979f0c67fa92e986e6651772b4c9dc4af4103eb15f3a00aef2c"
     },
     {
       "path": "tasks/plan.md",
-      "bytes": 7287,
-      "sha256": "929842c3e460237fd33874f8975dc3734671d73d4cbf8e92923e6efc8f68f9ad"
+      "bytes": 7286,
+      "sha256": "4331298ed0bce5ca760a5cadc86b737c0255049f37f5959ede9d279b0ba4b162"
     },
     {
       "path": "tasks/todo.md",
@@ -450,8 +450,8 @@
     },
     {
       "path": "tools/offline_verify.js",
-      "bytes": 6025,
-      "sha256": "909eba3b215691d2aefdbb4a64d222989c57d8f31762086b0104c7b7b5385d23"
+      "bytes": 7850,
+      "sha256": "f1a982a7cd182270a3aaae40f4610e8eea2594f376f49a94d3ab612512ac985e"
     },
     {
       "path": "tools/validate_slidespec.js",

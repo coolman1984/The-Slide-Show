@@ -10,6 +10,23 @@ the agent's job smaller.
 
 The agent fills forms. The system designs.
 
+## Current Safe Interface
+
+The current weak-agent interface is the Agent Pack produced by the Control
+Board.
+
+The weak agent should start with:
+
+1. `00_control/agent_task.md`
+2. `00_control/slide_job.json`
+3. `00_control/locked_choices.json`
+4. `02_extracted/markdown/00_data_index.md`
+5. `02_extracted/markdown/05_slide_ready_facts.md`
+6. `02_extracted/markdown/06_data_warnings.md`
+
+The weak agent should not read raw Excel, Word, PDF, or PPTX files unless
+Mohamed explicitly asks for that.
+
 ## What Weak Agents Should Do
 
 Weak agents are useful for:
@@ -141,4 +158,3 @@ A weak-agent workflow is acceptable only if:
 - repair prompt is exact
 - no design freedom is required
 - final slide quality does not depend on model taste
-

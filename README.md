@@ -50,7 +50,7 @@ For AI agents, start at `AGENTS.md`, then follow `skills/SKILL.md`.
 
 ## Offline Control Board
 
-The Control Board is the simple Windows-friendly front door for future slide
+The Control Board is the simple Windows-friendly front door for slide
 work. Open `dist/control-board.html` or
 `packages/control-board-demo/control-board.html`, choose template, theme, font,
 surface, animation, transition, source files, and prepared facts, then download
@@ -78,8 +78,9 @@ Double-click it anywhere and it works. Keyboard: `←/→` navigate, `1–9` jum
 }
 ```
 
-10 slide types: `title, agenda, org-chart, card-sections, timeline-matrix, comparison,
-section, bullets, kpi, closing`. 6 themes. 3 transitions. 4 background effects. 30 icons.
+11 slide types: `title, closing, agenda, org-chart, card-sections,
+timeline-matrix, comparison, section, bullets, kpi, kpi-dashboard`. 10 themes.
+7 transitions. 4 background modes. 30 icons.
 4 accent slots per theme plus raw-hex accents for exact brand colors. Everything is listed by
 `--list` and documented in `skills/deck-schema.md`.
 

@@ -22,7 +22,7 @@ repair, exports, Control Board Agent Packs, and DataForge local extraction.
 - Prefer deterministic code for layout, validation, rendering, and export.
 - Add dependencies only when the creator can bundle or vendor them so routine
   work remains pre-wired.
-- The future Windows control board should turn human visual choices into
+- The current Control Board MVP turns human visual choices into
   `slide_job.json`, `agent_task.md`, and locked render settings.
 - DataForge should convert Excel, Word, PDF, PPTX, and screenshots into local
   DB files plus Markdown before any weak agent reads the task.
@@ -45,36 +45,36 @@ repair, exports, Control Board Agent Packs, and DataForge local extraction.
 
 ### Phase 1: SlideSpec Core
 
-- [ ] Task 1.1: Define `schemas/slide-spec.schema.json`.
-- [ ] Task 1.2: Add a SlideSpec validator that reports exact field paths.
+- [x] Task 1.1: Define `schemas/slide-spec.schema.json`.
+- [x] Task 1.2: Add a SlideSpec validator that reports exact field paths.
 - [ ] Task 1.3: Add compatibility adapter from current deck JSON to SlideSpec.
-- [ ] Task 1.4: Document the SlideSpec format with good and bad examples.
+- [x] Task 1.4: Document the SlideSpec format with good and bad examples.
 
 ### Phase 2: Template Registry
 
-- [ ] Task 2.1: Create `templates/registry.json`.
-- [ ] Task 2.2: Register current slide types as Template Family 001.
-- [ ] Task 2.3: Add per-template density limits.
+- [x] Task 2.1: Create `templates/registry.json`.
+- [x] Task 2.2: Register current slide types as Template Family 001.
+- [x] Task 2.3: Add per-template density limits.
 - [ ] Task 2.4: Add preview decks for each template.
-- [ ] Task 2.5: Add bad-example fixtures that must fail validation.
+- [x] Task 2.5: Add bad-example fixtures that must fail validation.
 
 ### Phase 3: Theme Token Engine
 
-- [ ] Task 3.1: Define a theme token schema.
+- [x] Task 3.1: Define a theme token schema.
 - [ ] Task 3.2: Convert existing themes to the token schema.
 - [ ] Task 3.3: Add Samsung-inspired, finance executive, factory operations,
       and high-contrast projector themes.
 - [ ] Task 3.4: Add theme preview generation.
-- [ ] Task 3.5: Add controlled surface style registry for cards, tickets,
+- [x] Task 3.5: Add controlled surface style registry for cards, tickets,
       folder tabs, split panels, badges, and memo panels.
 
 ### Phase 4: Weak-Agent Pipeline
 
-- [ ] Task 4.1: Create prompt compiler contracts for extraction, rewriting,
+- [x] Task 4.1: Create prompt compiler contracts for extraction, rewriting,
       template selection, and repair.
 - [ ] Task 4.2: Add model profile configs.
-- [ ] Task 4.3: Add strict JSON repair prompts.
-- [ ] Task 4.4: Add golden examples for each template.
+- [x] Task 4.3: Add strict JSON repair prompts.
+- [x] Task 4.4: Add golden examples for each template.
 
 ### Phase 5: Quality Validation And Repair
 
@@ -89,7 +89,7 @@ repair, exports, Control Board Agent Packs, and DataForge local extraction.
 - [ ] Task 6.1: Add PNG export if a local rendering path is bundled.
 - [ ] Task 6.2: Add PDF export if it can stay self-contained.
 - [ ] Task 6.3: Evaluate PPTX export with bundled local dependencies.
-- [ ] Task 6.4: Add export verification and meeting package output.
+- [x] Task 6.4: Add export verification and meeting package output.
 
 ### Phase 7: Local Control Panel
 
@@ -108,10 +108,10 @@ repair, exports, Control Board Agent Packs, and DataForge local extraction.
 
 ### Phase 9: Product-Grade Control Panel
 
-- [ ] Task 9.1: Build the Control Board catalog system.
-- [ ] Task 9.2: Build one-page offline Control Board prototype.
-- [ ] Task 9.3: Generate Agent Pack files from user choices.
-- [ ] Task 9.4: Build local preview from selected theme, template, font,
+- [x] Task 9.1: Build the Control Board catalog system.
+- [x] Task 9.2: Build one-page offline Control Board prototype.
+- [x] Task 9.3: Generate Agent Pack files from user choices.
+- [x] Task 9.4: Build local preview from selected theme, template, font,
       shape, transition, and animation options.
 - [ ] Task 9.5: Log locked choices and block weak-agent design changes.
 
@@ -151,7 +151,7 @@ repair, exports, Control Board Agent Packs, and DataForge local extraction.
 ## Open Questions
 
 - Which export format is most important after HTML: PNG, PDF, or PPTX?
-- Should the first Control Board MVP be static HTML or a Tauri/Electron Windows app?
+- Should the next Control Board phase be static HTML polish or a Tauri/Electron Windows app?
 - What Samsung visual boundaries are allowed for internal decks?
 - Which first three new templates should be built after the current family?
 - What exact source-tracking level is required for management decks?

@@ -17,6 +17,30 @@ The current deck remains the default:
 - Output: `index.html`
 - Golden style: `Template Family 001 - AI Executive Dark Tech`
 
+## Current Build Status
+
+Already implemented:
+
+- current deck renderer and validator
+- SlideSpec schema and validator
+- template registry and examples
+- theme and surface catalogs
+- prompt compiler prompts
+- repair rule registry
+- KPI dashboard renderer
+- meeting package export
+- offline Control Board MVP
+- demo Agent Pack generation
+- low-level work-agent playbook
+
+Next priority:
+
+1. DataForge project folder generator
+2. dummy CSV fixture to prove data-to-Markdown flow
+3. Markdown data index, warnings, and slide-ready facts
+4. Agent Pack that consumes those generated facts
+5. only then real `.xlsx` extraction
+
 ## Required Reading Order
 
 Before implementing any phase, read:
@@ -60,6 +84,8 @@ manual.
 | Slide renderers | `engine/lib/render.js` | Existing deterministic rendering |
 | Validation | `engine/lib/validate.js` plus tools | Existing validation path |
 | Verification | `npm run verify` | One command for routine gate |
+| Control Board | `tools/build_control_board.js` | Offline visual choice page and Agent Pack demo |
+| Agent Pack generation | `tools/create_agent_pack.js` | Writes weak-agent-safe task files |
 
 ### Future Candidate Technologies
 
@@ -71,7 +97,7 @@ These are not routine requirements yet.
 | PptxGenJS | Editable PPTX generation | Only after dependency ADR and packaging plan |
 | python-pptx | PPTX generation alternative | Only if Python runtime is intentionally bundled |
 | SQLite | provenance/control panel data | Only when file JSON becomes insufficient |
-| FastAPI/local UI backend | control panel | Only after contracts are stable |
+| FastAPI/local UI backend | later desktop/control app backend | Only after contracts are stable |
 
 ## Target Repository Structure
 
@@ -121,8 +147,9 @@ Current engine stability
                 -> prompt compiler
                   -> repair loop
                     -> export expansion
-                      -> control panel
-                        -> approval memory and governance
+                      -> Control Board MVP
+                        -> DataForge local data pipeline
+                          -> approval memory and governance
 ```
 
 Do not start UI or export work before contracts are stable.
@@ -557,4 +584,3 @@ These must explain the final system to the offline work agent in simple terms:
 7. present
 
 Do not expose architect complexity to the routine work agent.
-

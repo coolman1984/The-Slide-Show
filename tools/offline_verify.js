@@ -160,6 +160,41 @@ function checkTemplateRegistry() {
   runNode(['tools/validate_templates.js'], 'Validate template registry');
 }
 
+function checkDocumentationConsistency() {
+  const docs = {
+    readme: fs.readFileSync(path.join(ROOT, 'README.md'), 'utf8'),
+    agents: fs.readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf8'),
+    startHere: fs.readFileSync(path.join(ROOT, 'docs', 'WORK_AGENT_START_HERE.md'), 'utf8'),
+    skill: fs.readFileSync(path.join(ROOT, 'skills', 'SKILL.md'), 'utf8'),
+    schema: fs.readFileSync(path.join(ROOT, 'skills', 'deck-schema.md'), 'utf8'),
+  };
+
+  const requiredSnippets = [
+    [docs.readme, '11 slide types', 'README must advertise the current slide type count.'],
+    [docs.readme, '10 themes', 'README must advertise the current theme count.'],
+    [docs.readme, '7 transitions', 'README must advertise the current transition count.'],
+    [docs.agents, 'docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md', 'AGENTS.md must route weak work agents to the low-level playbook.'],
+    [docs.startHere, 'docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md', 'WORK_AGENT_START_HERE.md must route weak work agents to the low-level playbook.'],
+    [docs.skill, 'kpi-dashboard', 'skills/SKILL.md must include the KPI dashboard slide type.'],
+    [docs.schema, '### kpi-dashboard', 'skills/deck-schema.md must document the KPI dashboard schema.'],
+  ];
+
+  for (const [text, snippet, message] of requiredSnippets) {
+    if (!text.includes(snippet)) fail(message);
+  }
+
+  const staleSnippets = [
+    [docs.readme, '10 slide types', 'README has stale slide type count.'],
+    [docs.readme, '6 themes', 'README has stale theme count.'],
+    [docs.readme, '3 transitions', 'README has stale transition count.'],
+    [docs.readme, 'future slide\nwork', 'README describes the Control Board as future work.'],
+  ];
+
+  for (const [text, snippet, message] of staleSnippets) {
+    if (text.includes(snippet)) fail(message);
+  }
+}
+
 function checkControlBoard() {
   runNode(['tools/build_control_board.js'], 'Build Control Board');
   checkHtmlOffline(path.join(ROOT, 'dist', 'control-board.html'));
@@ -183,6 +218,7 @@ function checkControlBoard() {
 checkNoPackageDependencies();
 checkSlideSpecValidation();
 checkTemplateRegistry();
+checkDocumentationConsistency();
 checkControlBoard();
 checkDeckValidation();
 checkBuiltOutputs();

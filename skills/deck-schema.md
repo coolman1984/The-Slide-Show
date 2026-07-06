@@ -166,6 +166,20 @@ Max 6 items per group (warning beyond). 2–3 groups look best.
 ```
 2–4 tiles. `value` is huge — keep it ≤ 7 characters.
 
+### kpi-dashboard
+```json
+{ "type": "kpi-dashboard", "index": "2", "heading": "Operations Dashboard",
+  "subtitle": "Optional subtitle",
+  "rows": [
+    { "label": "Performance",
+      "tiles": [
+        { "value": "96.4%", "label": "Output attainment",
+          "sub": "vs. 95.0% target", "accent": "a1" }
+      ] }
+  ] }
+```
+Max 2 rows and 4 tiles per row. Keep `value` <= 7 characters.
+
 ### closing
 ```json
 { "type": "closing", "heading": "Thank you",

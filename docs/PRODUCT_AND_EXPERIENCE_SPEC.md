@@ -120,7 +120,12 @@ will guide agents into a safe workflow and produce a polished, verified output.
 6. Run `npm run verify`.
 7. Visually inspect rendered examples.
 
-### Future Control Panel Flow
+### Current And Future Control Board Flow
+
+Current MVP exists at `dist/control-board.html`. It supports visual choices,
+preview, prepared facts, validation warnings, and Agent Pack downloads.
+
+Future product flow:
 
 1. Select deck or create new deck.
 2. Pick template family.
@@ -130,7 +135,7 @@ will guide agents into a safe workflow and produce a polished, verified output.
 6. Approve the best version.
 7. Export meeting package.
 
-## The Local Control Panel Must Include
+## The Local Control Board Must Include
 
 - Deck list
 - Slide list

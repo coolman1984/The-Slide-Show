@@ -42,10 +42,11 @@ If you are here to create or edit slides, read only these files before working:
 1. `AGENTS.md`
 2. `docs/WORK_AGENT_START_HERE.md`
 3. `docs/WORK_AGENT_OPERATING_MANUAL.md`
-4. `skills/SKILL.md`
-5. `skills/deck-schema.md`
-6. `skills/design-guide.md`
-7. `skills/troubleshooting.md`
+4. `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`
+5. `skills/SKILL.md`
+6. `skills/deck-schema.md`
+7. `skills/design-guide.md`
+8. `skills/troubleshooting.md`
 
 Read `skills/theming-guide.md` only when changing or previewing themes.
 Read `docs/CHANGE_ON_THE_FLY.md` when the user needs a fast live-meeting edit.
@@ -61,6 +62,9 @@ The following files are for creator/coding work only:
 - `docs/ARCHITECTURE_BLUEPRINT.md`
 - `docs/QUALITY_AND_GOVERNANCE_GATES.md`
 - `docs/LOW_INTELLIGENCE_AGENT_COMPATIBILITY.md`
+- `docs/SLIDEFORGE_STUDIO_CONTROL_BOARD_PLAN.md`
+- `docs/DATAFORGE_LOCAL_DATA_PIPELINE_PLAN.md`
+- `docs/WEAK_AGENT_HANDOFF_PROTOCOL.md`
 - `docs/IDEA_INTAKE_DECISIONS.md`
 - `docs/CODING_AGENT_EXECUTION_MANUAL.md`
 - `docs/OFFLINE_OPERATING_MODEL.md`
@@ -96,6 +100,8 @@ Use only these project commands unless there is a clear reason:
 npm run list
 npm run build
 npm run demo
+npm run control-board:build
+npm run agent-pack:demo
 npm run verify
 npm run package
 ```

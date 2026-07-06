@@ -40,6 +40,17 @@
 | `engine/lib/themes.js` | Theme registry and accent resolution |
 | `engine/lib/icons.js` | Inline SVG icon registry |
 
+## Control Board And Agent Pack Map
+
+| Path | Responsibility |
+|---|---|
+| `dist/control-board.html` | Self-contained offline Control Board output |
+| `packages/control-board-demo/control-board.html` | Packaged demo copy of the Control Board |
+| `packages/control-board-demo/sample-agent-pack/` | Example weak-agent Agent Pack |
+| `tools/build_control_board.js` | Builds the Control Board HTML and demo package |
+| `tools/create_agent_pack.js` | Writes an Agent Pack from a control state JSON or demo input |
+| `tools/lib/agent_pack.js` | Shared Agent Pack catalog and file-generation logic |
+
 ## Deck Source Files
 
 | Path | Purpose |

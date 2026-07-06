@@ -442,7 +442,7 @@ Files likely touched:
 
 Dependencies: Meeting package or current workflow, whichever exists.
 
-## Future Phase 9: Control Board Agent Pack MVP
+## Phase 9: Control Board Agent Pack MVP
 
 STOP: This phase is for coding agents only. The routine slide work agent should
 not follow this phase.

@@ -44,6 +44,7 @@ their real content. Map each slide the user describes to a slide type:
 | A chapter break ("Part 2: …") | `section` |
 | Grouped bullet points | `bullets` |
 | Big numbers / metrics / targets | `kpi` |
+| Dense KPI readout with rows of tiles | `kpi-dashboard` |
 | Thank-you / next-steps ending | `closing` |
 
 ### Step 2 — Pick theme, transition, background
@@ -56,9 +57,10 @@ for executive/tech audiences. You can also preview any deck in another theme wit
 Create `decks/<kebab-name>.json`. Keep `skills/deck-schema.md` open — it has a copy-paste
 example of every slide type with every field explained. Rules while writing:
 
-- Respect the density limits (they trigger warnings): ≤ 8 agenda items, ≤ 4 cards per
-  section, ≤ 6 timeline columns, ≤ 4 KPI tiles, ≤ 6 items per bullet group, ≤ 3 org divisions,
-  ≤ 13 rows (teams+members) per org division column.
+- Respect the density limits (they trigger warnings): <= 8 agenda items, <= 4 cards per
+  section, <= 6 timeline columns, <= 4 KPI tiles, <= 2 KPI dashboard rows,
+  <= 4 KPI dashboard tiles per row, <= 6 items per bullet group, <= 3 org divisions,
+  <= 13 rows (teams+members) per org division column.
 - Accents: use slots `a1`–`a4` so the deck re-themes cleanly. Only use raw hex (`"#c084fc"`)
   when the user demands an exact brand color.
 - Escape nothing — the engine HTML-escapes all text. Write `&`, `<`, quotes freely.
@@ -102,3 +104,11 @@ If no slide type fits (e.g. "embed a video"), do NOT improvise HTML into strings
 escapes it, and inline hacks break theming. Tell the user which types exist and offer the
 closest match, or flag that the engine needs a new slide type (an engineering task, separate
 from deck writing).
+
+## When the user gives an Agent Pack
+
+Use `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`.
+
+Read `00_control/agent_task.md`, `00_control/slide_job.json`,
+`00_control/locked_choices.json`, and the prepared Markdown facts. Do not read
+raw Excel, Word, PDF, or PPTX files unless Mohamed explicitly asks for that.
