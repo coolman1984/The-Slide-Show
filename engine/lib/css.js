@@ -164,13 +164,29 @@ const COMPONENT_CSS = `
 .sl-org .side.right .ntitle{background:linear-gradient(90deg,var(--acc1),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sl-org .side .nm{font-size:23px;font-weight:600;color:var(--text-hi);line-height:1.42}
 .sl-org .side.right .nm{font-size:21px;line-height:1.38}
-.sl-org .divs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:46px;padding:0 64px;margin-top:26px}
+/* president → two-leader tree */
+.sl-org .orgtop{display:flex;flex-direction:column;align-items:center;margin-top:2px}
+.sl-org .node.pres{border:2px solid var(--acc4);box-shadow:0 0 26px rgba(var(--acc4-glow),.35);min-width:320px;padding:12px 34px}
+.sl-org .node.pres .lname{font-size:29px}
+.sl-org .leaders-wrap{position:relative;width:1180px;padding-top:66px}
+.sl-org .leaders-wrap::before{content:"";position:absolute;top:0;left:50%;margin-left:-1px;width:2px;height:33px;background:var(--connector)}
+.sl-org .leaders-wrap::after{content:"";position:absolute;top:33px;left:25%;width:50%;height:2px;background:var(--connector)}
+.sl-org .leaders{display:flex}
+.sl-org .lslot{flex:1;display:flex;justify-content:center;position:relative}
+.sl-org .lslot::before{content:"";position:absolute;top:-33px;left:50%;margin-left:-1px;width:2px;height:33px;background:var(--connector)}
+.sl-org .lslot .node.leader{min-width:360px;text-align:center;padding:12px 30px}
+/* grouped team card (name lists under teal sub-labels) */
+.sl-org .tgroup{margin:1px 0 3px}
+.sl-org .glabel{font-size:20px;font-weight:800;margin:2px 0 1px}
+.sl-org .gname{font-size:19.5px;font-weight:600;color:var(--text-hi);line-height:1.26;padding-left:2px}
+.sl-org .mem.flat{height:auto;align-items:baseline;margin-top:5px;gap:8px}
+.sl-org .divs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:46px;padding:0 64px;margin-top:18px}
 .sl-org .dhead{display:flex;align-items:center;justify-content:space-between}
 .sl-org .dhead h3{font-size:30px;font-weight:800;color:var(--text-hi);letter-spacing:.02em}
 .sl-org .mpill{font-size:19px;padding:5px 18px}
 .sl-org .dunder{height:2px;background:var(--rule);margin-top:12px;position:relative}
 .sl-org .dunder i{position:absolute;left:0;top:-3px;width:8px;height:8px;border-radius:50%}
-.sl-org .cards{display:flex;flex-direction:column;gap:11px;margin-top:16px}
+.sl-org .cards{display:flex;flex-direction:column;gap:10px;margin-top:14px}
 .sl-org .cards.airy{gap:34px;margin-top:20px}
 .sl-org .tcard{border-radius:12px;background:var(--card-bg);border:1px solid var(--card-border);padding:10px 16px;box-shadow:0 0 20px rgba(var(--glow),.05)}
 .sl-org .cards.airy .tcard{padding:18px 18px}

@@ -28,15 +28,11 @@
       "type": "org-chart",
       "index": "1",
       "heading": "AI Crew Org.",
-      "leader": { "title": "AX G Leader", "name": "Abdullah Selim" },
-      "left": {
-        "title": "AI Part",
-        "names": ["Ahmed Ramadan", "Eslam Matrawy", "Ahmed Ashraf"]
-      },
-      "right": {
-        "title": "Development part",
-        "names": ["Abdelrahman Rabea", "Abdelkereem Salah", "Abdelrahman Taha", "Albaraa Galal", "Doaa Khairat"]
-      },
+      "president": { "name": "Mr. President" },
+      "leaders": [
+        { "title": "AX G Leader", "name": "Abdullah Selim" },
+        { "title": "Business Management T", "name": "YONGJU PARK" }
+      ],
       "divisions": [
         {
           "name": "VD DIVISION",
@@ -45,7 +41,7 @@
           "teamAccent": "a1",
           "teams": [
             {
-              "name": "VD Droduction T",
+              "name": "VD Production T",
               "count": "3",
               "members": [
                 { "initials": "SA", "name": "Sara Ahmed Fouad", "role": "Main/LCM" },
@@ -100,7 +96,7 @@
         },
         {
           "name": "COMMON DIVISION",
-          "badge": "5 Members",
+          "badge": "13 Members",
           "accent": "a4",
           "teams": [
             {
@@ -114,9 +110,18 @@
             {
               "name": "Business Mgmt T",
               "count": "2",
+              "groups": [
+                {
+                  "label": "AI Part",
+                  "names": ["Mohamed Fawzy", "Ahmed Ramadan", "Eslam Matrawy", "Ahmed Ashraf"]
+                },
+                {
+                  "label": "Development Part",
+                  "names": ["Abdelrahman Rabea", "Abdelkereem Salah", "Abdelrahman Taha", "Albaraa Galal", "Doaa Khairat"]
+                }
+              ],
               "members": [
-                { "initials": "MF", "name": "Mohamed Fawzy", "role": "Finance" },
-                { "initials": "AA", "name": "Ahmed Mohamed Abdelwahed", "role": "Gov. Relation" }
+                { "name": "Ahmed Mohamed Abdelwahed", "role": "Gov. Relation" }
               ]
             },
             {

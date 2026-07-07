@@ -54,26 +54,47 @@ Max 8 items (warning beyond). Numbered circles are automatic (1..n); if you also
 number inside the text, include it in the string like the flagship deck does.
 
 ### org-chart
+Two possible top hierarchies. **(A) single leader** with optional side boxes:
 ```json
 { "type": "org-chart", "index": "1", "heading": "AI Crew Org.",
   "leader": { "title": "AX G Leader", "name": "Abdullah Selim" },
   "left":  { "title": "AI Part", "names": ["Name One", "Name Two"] },
   "right": { "title": "Development part", "names": ["Name Three"] },
-  "divisions": [
-    { "name": "VD DIVISION", "badge": "7 Members",
-      "accent": "a2", "teamAccent": "a1",
-      "airy": false,
-      "teams": [
-        { "name": "Team Name", "count": "3",
-          "members": [
-            { "initials": "SA", "name": "Full Name", "role": "Role text" }
-          ] } ] } ] }
+  "divisions": [ ... ] }
 ```
-`left`/`right` boxes *(opt)*. `accent` colors the member-count pill and underline dot;
+**(B) president → two leaders tree** (replaces `leader`/`left`/`right`):
+```json
+{ "type": "org-chart", "index": "1", "heading": "AI Crew Org.",
+  "president": { "name": "Mr. President" },
+  "leaders": [
+    { "title": "AX G Leader", "name": "Abdullah Selim" },
+    { "title": "Business Management T", "name": "YONGJU PARK" }
+  ],
+  "divisions": [ ... ] }
+```
+Divisions (same for both):
+```json
+"divisions": [
+  { "name": "VD DIVISION", "badge": "7 Members",
+    "accent": "a2", "teamAccent": "a1", "airy": false,
+    "teams": [
+      { "name": "Team Name", "count": "3",
+        "members": [ { "initials": "SA", "name": "Full Name", "role": "Role text" } ] },
+
+      { "name": "Business Mgmt T", "count": "2",
+        "groupAccent": "a3",                       // opt; color of the sub-labels (default teal a3)
+        "groups": [
+          { "label": "AI Part", "names": ["Name A", "Name B"] },
+          { "label": "Development Part", "names": ["Name C"], "accent": "a3" }
+        ],
+        "members": [ { "name": "Trailing Person", "role": "Gov. Relation" } ] } ] } ]
+```
+`left`/`right` boxes *(opt, mode A)*. `accent` colors the member-count pill and underline dot;
 `teamAccent` *(opt)* colors team names and avatar gradients (defaults to `accent`).
-`airy: true` spreads few cards over the column height (use when a division has ≤ 3 single-member
-teams). `count` *(opt)* defaults to the member count. Max 3 divisions; keep teams+members ≤ 13
-rows per column.
+`airy: true` spreads few cards over the column height. `count` *(opt)* defaults to the member
+count. A team may use **`groups`** — labeled name-lists (no avatars) under colored sub-labels —
+for nested structures; when a team has `groups`, its `members` render *flat* (bold name + role,
+no avatar, `initials` not required). Max 3 divisions; keep teams+rows ≤ 16 per column.
 
 ### card-sections
 ```json

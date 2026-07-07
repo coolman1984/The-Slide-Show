@@ -149,13 +149,29 @@ h1,h2,h3,h4{font-family:var(--font-h)}
 .sl-org .side.right .ntitle{background:linear-gradient(90deg,var(--acc1),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sl-org .side .nm{font-size:23px;font-weight:600;color:var(--text-hi);line-height:1.42}
 .sl-org .side.right .nm{font-size:21px;line-height:1.38}
-.sl-org .divs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:46px;padding:0 64px;margin-top:26px}
+/* president → two-leader tree */
+.sl-org .orgtop{display:flex;flex-direction:column;align-items:center;margin-top:2px}
+.sl-org .node.pres{border:2px solid var(--acc4);box-shadow:0 0 26px rgba(var(--acc4-glow),.35);min-width:320px;padding:12px 34px}
+.sl-org .node.pres .lname{font-size:29px}
+.sl-org .leaders-wrap{position:relative;width:1180px;padding-top:66px}
+.sl-org .leaders-wrap::before{content:"";position:absolute;top:0;left:50%;margin-left:-1px;width:2px;height:33px;background:var(--connector)}
+.sl-org .leaders-wrap::after{content:"";position:absolute;top:33px;left:25%;width:50%;height:2px;background:var(--connector)}
+.sl-org .leaders{display:flex}
+.sl-org .lslot{flex:1;display:flex;justify-content:center;position:relative}
+.sl-org .lslot::before{content:"";position:absolute;top:-33px;left:50%;margin-left:-1px;width:2px;height:33px;background:var(--connector)}
+.sl-org .lslot .node.leader{min-width:360px;text-align:center;padding:12px 30px}
+/* grouped team card (name lists under teal sub-labels) */
+.sl-org .tgroup{margin:1px 0 3px}
+.sl-org .glabel{font-size:20px;font-weight:800;margin:2px 0 1px}
+.sl-org .gname{font-size:19.5px;font-weight:600;color:var(--text-hi);line-height:1.26;padding-left:2px}
+.sl-org .mem.flat{height:auto;align-items:baseline;margin-top:5px;gap:8px}
+.sl-org .divs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:46px;padding:0 64px;margin-top:18px}
 .sl-org .dhead{display:flex;align-items:center;justify-content:space-between}
 .sl-org .dhead h3{font-size:30px;font-weight:800;color:var(--text-hi);letter-spacing:.02em}
 .sl-org .mpill{font-size:19px;padding:5px 18px}
 .sl-org .dunder{height:2px;background:var(--rule);margin-top:12px;position:relative}
 .sl-org .dunder i{position:absolute;left:0;top:-3px;width:8px;height:8px;border-radius:50%}
-.sl-org .cards{display:flex;flex-direction:column;gap:11px;margin-top:16px}
+.sl-org .cards{display:flex;flex-direction:column;gap:10px;margin-top:14px}
 .sl-org .cards.airy{gap:34px;margin-top:20px}
 .sl-org .tcard{border-radius:12px;background:var(--card-bg);border:1px solid var(--card-border);padding:10px 16px;box-shadow:0 0 20px rgba(var(--glow),.05)}
 .sl-org .cards.airy .tcard{padding:18px 18px}
@@ -387,53 +403,35 @@ h1,h2,h3,h4{font-family:var(--font-h)}
     <span class="sep a a-drop" style="--d:0.12s"></span>
     <h2 class="a a-left" style="--d:0.18s">AI Crew Org.</h2>
   </header>
-    <div class="orgrow">
-      
-      <div class="node side left a a-up" style="--d:0.55s">
-        <div class="ntitle">AI Part</div>
-        <div class="nm">Ahmed Ramadan</div><div class="nm">Eslam Matrawy</div><div class="nm">Ahmed Ashraf</div>
-      </div>
-      <div class="conn a a-wipe" style="--d:0.45s"></div>
-      <div class="node leader breathe a a-pop" style="--d:0.3s">
-        <div class="ltitle">AX G Leader</div>
-        <div class="lname">Abdullah Selim</div>
-        <span class="drop"></span>
-      </div>
-      <div class="conn a a-wipe" style="--d:0.45s"></div>
-      
-      <div class="node side right a a-up" style="--d:0.55s">
-        <div class="ntitle">Development part</div>
-        <div class="nm">Abdelrahman Rabea</div><div class="nm">Abdelkereem Salah</div><div class="nm">Abdelrahman Taha</div><div class="nm">Albaraa Galal</div><div class="nm">Doaa Khairat</div>
+    <div class="orgtop">
+      <div class="node leader pres breathe a a-pop" style="--d:0.3s"><div class="lname">Mr. President</div></div>
+      <div class="leaders-wrap a a-fade" style="--d:0.5s">
+        <div class="leaders">
+          <div class="lslot"><div class="node leader a a-up" style="--d:0.55s"><div class="ltitle">AX G Leader</div><div class="lname">Abdullah Selim</div></div></div><div class="lslot"><div class="node leader a a-up" style="--d:0.65s"><div class="ltitle">Business Management T</div><div class="lname">YONGJU PARK</div></div></div>
+        </div>
       </div>
     </div>
     <div class="divs" style="grid-template-columns:repeat(3,1fr)"><div class="col">
         <div class="dhead a a-left" style="--d:0.7s"><h3>VD DIVISION</h3><span class="dpill mpill" style="color:#4da3ff;border-color:rgba(77,163,255,.6);background:rgba(30,80,160,.35)">7 Members</span></div>
         <div class="dunder a a-wipe" style="--d:0.78s"><i style="background:#4da3ff;box-shadow:0 0 8px #4da3ff"></i></div>
         <div class="cards"><div class="tcard a a-up" style="--d:0.85s">
-          <div class="thead"><span class="tname" style="color:#4ff5ff">VD Droduction T</span><span class="cnt">3</span></div>
-          
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">SA</span><span class="mname">Sara Ahmed Fouad</span><span class="mrole">— Main/LCM</span></div>
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">NA</span><span class="mname">Nada Ahmed Abdel Raouf Abdelaziz</span><span class="mrole">— SMD/PBA</span></div>
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">AW</span><span class="mname">Abdelrahman Walid Sayed Gomaa</span><span class="mrole">— Inhouse</span></div>
+          <div class="thead"><span class="tname" style="color:#4ff5ff">VD Production T</span><span class="cnt">3</span></div>
+          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">SA</span><span class="mname">Sara Ahmed Fouad</span><span class="mrole">— Main/LCM</span></div><div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">NA</span><span class="mname">Nada Ahmed Abdel Raouf Abdelaziz</span><span class="mrole">— SMD/PBA</span></div><div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">AW</span><span class="mname">Abdelrahman Walid Sayed Gomaa</span><span class="mrole">— Inhouse</span></div>
         </div>
 <div class="tcard a a-up" style="--d:0.91s">
           <div class="thead"><span class="tname" style="color:#4ff5ff">Engineering T</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">ST</span><span class="mname">Seif Tarek Mohsen Ismail</span><span class="mrole">— Mecha Solution P</span></div>
         </div>
 <div class="tcard a a-up" style="--d:0.97s">
           <div class="thead"><span class="tname" style="color:#4ff5ff">CS T</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">OM</span><span class="mname">Osama Mohamed Ashour</span><span class="mrole">— LCM OQC P</span></div>
         </div>
 <div class="tcard a a-up" style="--d:1.03s">
           <div class="thead"><span class="tname" style="color:#4ff5ff">Procurement T</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">MN</span><span class="mname">Mohamed Nabil Reyad</span><span class="mrole">— Mecha. Import Purc. P</span></div>
         </div>
 <div class="tcard a a-up" style="--d:1.09s">
           <div class="thead"><span class="tname" style="color:#4ff5ff">SCM G</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#2563eb,#22d3ee)">KN</span><span class="mname">Khalid Nagy Abdelgaleel Ahmed</span><span class="mrole">— Main Planning P</span></div>
         </div></div>
       </div>
@@ -442,38 +440,34 @@ h1,h2,h3,h4{font-family:var(--font-h)}
         <div class="dunder a a-wipe" style="--d:0.86s"><i style="background:#2dd4a8;box-shadow:0 0 8px #2dd4a8"></i></div>
         <div class="cards airy"><div class="tcard a a-up" style="--d:0.93s">
           <div class="thead"><span class="tname" style="color:#2dd4a8">MX Production T</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#0d9488,#34d399)">MK</span><span class="mname">Mina Kamel</span><span class="mrole">— Innovation P (MX)</span></div>
         </div>
 <div class="tcard a a-up" style="--d:0.99s">
           <div class="thead"><span class="tname" style="color:#2dd4a8">SCM G (MX)</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#0d9488,#34d399)">HO</span><span class="mname">Hisham Omar El-Farouk</span><span class="mrole">— SCM P (MX)</span></div>
         </div>
 <div class="tcard a a-up" style="--d:1.05s">
           <div class="thead"><span class="tname" style="color:#2dd4a8">CS &amp; Eng. G (MX)</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#0d9488,#34d399)">MM</span><span class="mname">Mohamed Maged</span><span class="mrole">— PE P (MX)</span></div>
         </div></div>
       </div>
 <div class="col">
-        <div class="dhead a a-left" style="--d:0.86s"><h3>COMMON DIVISION</h3><span class="dpill mpill" style="color:#a78bfa;border-color:rgba(167,139,250,.6);background:rgba(88,60,160,.35)">5 Members</span></div>
+        <div class="dhead a a-left" style="--d:0.86s"><h3>COMMON DIVISION</h3><span class="dpill mpill" style="color:#a78bfa;border-color:rgba(167,139,250,.6);background:rgba(88,60,160,.35)">13 Members</span></div>
         <div class="dunder a a-wipe" style="--d:0.94s"><i style="background:#a78bfa;box-shadow:0 0 8px #a78bfa"></i></div>
         <div class="cards"><div class="tcard a a-up" style="--d:1.01s">
           <div class="thead"><span class="tname" style="color:#c4b5fd">People T</span><span class="cnt">2</span></div>
-          
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">FS</span><span class="mname">Farah Sameh Mohamed Abdelmoneam</span><span class="mrole">— People</span></div>
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">AG</span><span class="mname">Ayman Gamal Sayed Ewais</span><span class="mrole">— Work Solution</span></div>
+          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">FS</span><span class="mname">Farah Sameh Mohamed Abdelmoneam</span><span class="mrole">— People</span></div><div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">AG</span><span class="mname">Ayman Gamal Sayed Ewais</span><span class="mrole">— Work Solution</span></div>
         </div>
 <div class="tcard a a-up" style="--d:1.07s">
           <div class="thead"><span class="tname" style="color:#c4b5fd">Business Mgmt T</span><span class="cnt">2</span></div>
           
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">MF</span><span class="mname">Mohamed Fawzy</span><span class="mrole">— Finance</span></div>
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">AA</span><span class="mname">Ahmed Mohamed Abdelwahed</span><span class="mrole">— Gov. Relation</span></div>
+          <div class="tgroup"><div class="glabel" style="color:#2dd4a8">AI Part</div>
+          <div class="gname">Mohamed Fawzy</div><div class="gname">Ahmed Ramadan</div><div class="gname">Eslam Matrawy</div><div class="gname">Ahmed Ashraf</div></div>
+          <div class="tgroup"><div class="glabel" style="color:#2dd4a8">Development Part</div>
+          <div class="gname">Abdelrahman Rabea</div><div class="gname">Abdelkereem Salah</div><div class="gname">Abdelrahman Taha</div><div class="gname">Albaraa Galal</div><div class="gname">Doaa Khairat</div></div><div class="mem flat"><span class="mname">Ahmed Mohamed Abdelwahed</span><span class="mrole">— Gov. Relation</span></div>
         </div>
 <div class="tcard a a-up" style="--d:1.13s">
           <div class="thead"><span class="tname" style="color:#c4b5fd">EHS G</span><span class="cnt">1</span></div>
-          
           <div class="mem"><span class="av" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">MA</span><span class="mname">Mohamed Abdallah Abdelmohsen Ali</span><span class="mrole">— EHS Officer</span></div>
         </div></div>
       </div></div>

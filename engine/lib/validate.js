@@ -57,9 +57,17 @@ function validate(deck) {
           s.items.forEach((it, j) => { if (!isStr(it)) err(`${p}.items[${j}]`, 'must be a non-empty string.'); });
         }
         break;
-      case 'org-chart':
+      case 'org-chart': {
         if (!isStr(s.heading)) err(`${p}.heading`, 'required.');
-        if (!s.leader || !isStr(s.leader.name)) err(`${p}.leader`, 'required — {title, name}.');
+        // Top hierarchy: either president + leaders[], or a single leader{} with optional side boxes.
+        const hasTree = s.president || s.leaders;
+        if (hasTree) {
+          if (!s.president || !isStr(s.president.name)) err(`${p}.president`, 'required when using a president tree — {name}.');
+          if (!isArr(s.leaders)) err(`${p}.leaders`, 'required with president — array of {title, name}.');
+          else s.leaders.forEach((l, j) => { if (!isStr(l.name)) err(`${p}.leaders[${j}].name`, 'required.'); });
+        } else if (!s.leader || !isStr(s.leader.name)) {
+          err(`${p}.leader`, 'required — {title, name} (or use president + leaders[]).');
+        }
         ['left', 'right'].forEach(sideKey => {
           const sb = s[sideKey];
           if (sb == null) return;
@@ -74,20 +82,30 @@ function validate(deck) {
             const dp = `${p}.divisions[${j}]`;
             if (!isStr(dv.name)) err(`${dp}.name`, 'required.');
             if (!isArr(dv.teams)) return err(`${dp}.teams`, 'required — array of {name, members[]}.');
-            const memberRows = dv.teams.reduce((n, t) => n + (t.members ? t.members.length : 0), 0);
-            if (dv.teams.length + memberRows > 13) warn(dp, `${dv.teams.length} teams / ${memberRows} members — column may overflow vertically (keep teams+members ≤ 13 rows).`);
+            const rowCount = dv.teams.reduce((n, t) => {
+              const groupRows = (t.groups || []).reduce((a, g) => a + 1 + (g.names ? g.names.length : 0), 0);
+              return n + (t.members ? t.members.length : 0) + groupRows;
+            }, 0);
+            if (dv.teams.length + rowCount > 16) warn(dp, `${dv.teams.length} teams / ${rowCount} rows — column may overflow vertically (keep teams+rows ≤ 16).`);
             dv.teams.forEach((t, k) => {
               const tp = `${dp}.teams[${k}]`;
               if (!isStr(t.name)) err(`${tp}.name`, 'required.');
-              if (!isArr(t.members)) return err(`${tp}.members`, 'required — array of {initials, name, role}.');
-              t.members.forEach((m, l) => {
-                if (!isStr(m.initials) || m.initials.length > 2) err(`${tp}.members[${l}].initials`, 'required, max 2 characters.');
+              const grouped = isArr(t.groups);
+              if (grouped) t.groups.forEach((g, gi) => {
+                if (!isStr(g.label)) err(`${tp}.groups[${gi}].label`, 'required.');
+                if (!isArr(g.names)) err(`${tp}.groups[${gi}].names`, 'required — array of strings.');
+              });
+              if (!isArr(t.members) && !grouped) return err(`${tp}.members`, 'required — array of {initials, name, role} (or use groups[]).');
+              (t.members || []).forEach((m, l) => {
+                // Grouped cards render members flat (no avatar), so initials are optional there.
+                if (!grouped && (!isStr(m.initials) || m.initials.length > 2)) err(`${tp}.members[${l}].initials`, 'required, max 2 characters.');
                 if (!isStr(m.name)) err(`${tp}.members[${l}].name`, 'required.');
               });
             });
           });
         }
         break;
+      }
       case 'card-sections':
         if (!isStr(s.heading)) err(`${p}.heading`, 'required.');
         if (!isArr(s.sections)) err(`${p}.sections`, 'required — array of {label, icon, accent, grid, cards[]}.');

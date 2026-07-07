@@ -91,11 +91,19 @@ const RENDERERS = {
       const acc = resolveAccent(T, div.accent, ['a2', 'a3', 'a4'][ci % 3]);
       const teamAcc = resolveAccent(T, div.teamAccent || div.accent, 'a1');
       const teams = div.teams.map((team, ti) => {
-        const members = team.members.map(m => `
-          <div class="mem"><span class="av" style="background:linear-gradient(135deg,${teamAcc.grad[0]},${teamAcc.grad[1]})">${esc(m.initials)}</span><span class="mname">${esc(m.name)}</span><span class="mrole">— ${esc(m.role)}</span></div>`).join('');
+        const members = (team.members || []);
+        const grouped = Array.isArray(team.groups) && team.groups.length;
+        const groupsHtml = grouped ? team.groups.map(g => `
+          <div class="tgroup"><div class="glabel" style="color:${resolveAccent(T, g.accent, team.groupAccent || 'a3').color}">${esc(g.label)}</div>
+          ${g.names.map(n => `<div class="gname">${esc(n)}</div>`).join('')}</div>`).join('') : '';
+        // In grouped cards, trailing members render flat (no avatar); otherwise normal avatar rows.
+        const membersHtml = members.map(m => grouped
+          ? `<div class="mem flat"><span class="mname">${esc(m.name)}</span>${m.role ? `<span class="mrole">— ${esc(m.role)}</span>` : ''}</div>`
+          : `<div class="mem"><span class="av" style="background:linear-gradient(135deg,${teamAcc.grad[0]},${teamAcc.grad[1]})">${esc(m.initials)}</span><span class="mname">${esc(m.name)}</span>${m.role ? `<span class="mrole">— ${esc(m.role)}</span>` : ''}</div>`).join('');
+        const count = team.count != null ? team.count : members.length;
         return `<div class="tcard a a-up" style="${d(0.85 + ci * 0.08 + ti * 0.06)}">
-          <div class="thead"><span class="tname" style="color:${teamAcc.bright}">${esc(team.name)}</span><span class="cnt">${esc(team.count != null ? team.count : team.members.length)}</span></div>
-          ${members}
+          <div class="thead"><span class="tname" style="color:${teamAcc.bright}">${esc(team.name)}</span><span class="cnt">${esc(count)}</span></div>
+          ${groupsHtml}${membersHtml}
         </div>`;
       }).join('\n');
       return `<div class="col">
@@ -104,8 +112,19 @@ const RENDERERS = {
         <div class="cards${div.airy ? ' airy' : ''}">${teams}</div>
       </div>`;
     }).join('\n');
-    return `${shead(slide)}
-    <div class="orgrow">
+    // Top hierarchy: either a president → two leaders tree, or the classic left/leader/right row.
+    let topBlock;
+    if (slide.president && Array.isArray(slide.leaders)) {
+      topBlock = `<div class="orgtop">
+      <div class="node leader pres breathe a a-pop" style="${d(0.3)}"><div class="lname">${esc(slide.president.name)}</div></div>
+      <div class="leaders-wrap a a-fade" style="${d(0.5)}">
+        <div class="leaders">
+          ${slide.leaders.map((l, i) => `<div class="lslot"><div class="node leader a a-up" style="${d(0.55 + i * 0.1)}">${l.title ? `<div class="ltitle">${esc(l.title)}</div>` : ''}<div class="lname">${esc(l.name)}</div></div></div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+    } else {
+      topBlock = `<div class="orgrow">
       ${sideBox(slide.left, 'left', 0.55)}
       <div class="conn a a-wipe" style="${d(0.45)}"></div>
       <div class="node leader breathe a a-pop" style="${d(0.3)}">
@@ -115,7 +134,10 @@ const RENDERERS = {
       </div>
       <div class="conn a a-wipe" style="${d(0.45)}"></div>
       ${sideBox(slide.right, 'right', 0.55)}
-    </div>
+    </div>`;
+    }
+    return `${shead(slide)}
+    ${topBlock}
     <div class="divs" style="grid-template-columns:repeat(${slide.divisions.length},1fr)">${divisions}</div>
     ${footer(ctx.deck, 1.25)}`;
   },
