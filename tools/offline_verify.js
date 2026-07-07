@@ -7,6 +7,9 @@ const crypto = require('crypto');
 const childProcess = require('child_process');
 const os = require('os');
 
+const { VALID_TYPES, VALID_TRANSITIONS } = require('../engine/lib/validate');
+const { THEMES } = require('../engine/lib/themes');
+
 const ROOT = path.resolve(__dirname, '..');
 const MANIFEST = path.join(ROOT, 'OFFLINE_MANIFEST.json');
 
@@ -112,9 +115,53 @@ function checkHtmlOffline(file) {
 function checkBuiltOutputs() {
   checkHtmlOffline(path.join(ROOT, 'index.html'));
   const dist = path.join(ROOT, 'dist');
-  if (!fs.existsSync(dist)) return;
-  for (const file of fs.readdirSync(dist).filter(f => f.endsWith('.html'))) {
-    checkHtmlOffline(path.join(dist, file));
+  if (fs.existsSync(dist)) {
+    for (const file of fs.readdirSync(dist).filter(f => f.endsWith('.html'))) {
+      checkHtmlOffline(path.join(dist, file));
+    }
+  }
+  // Meeting packages ship built HTML too — they must also be self-contained.
+  const packages = path.join(ROOT, 'packages');
+  if (fs.existsSync(packages)) {
+    walkHtml(packages).forEach(checkHtmlOffline);
+  }
+}
+
+function walkHtml(dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walkHtml(full));
+    else if (entry.isFile() && entry.name.endsWith('.html')) out.push(full);
+  }
+  return out;
+}
+
+/* Every committed HTML output must equal a fresh build of its source deck.
+ * This catches the silent-drift failure where the engine changes but the
+ * committed index.html / dist previews are never regenerated. */
+function checkBuiltOutputsFresh() {
+  const targetsFile = path.join(ROOT, 'tools', 'build_targets.json');
+  if (!fs.existsSync(targetsFile)) {
+    fail('tools/build_targets.json is missing — cannot check built-output freshness.');
+    return;
+  }
+  const { targets } = readJson(targetsFile) || { targets: [] };
+  const noEol = s => s.replace(/\r\n/g, '\n');
+  const stale = [];
+  for (const t of targets) {
+    const committed = path.join(ROOT, t.out);
+    if (!fs.existsSync(committed)) { fail(`Committed output missing: ${t.out} — run "npm run build:all".`); continue; }
+    const tmp = path.join(os.tmpdir(), `sf-fresh-${Date.now()}-${Math.random().toString(36).slice(2)}.html`);
+    const result = runNode(['engine/build.js', t.deck, ...(t.args || []), '-o', tmp], `Build ${t.out}`);
+    if (result.status !== 0) continue;
+    if (fs.existsSync(tmp)) {
+      if (noEol(fs.readFileSync(committed, 'utf8')) !== noEol(fs.readFileSync(tmp, 'utf8'))) stale.push(t.out);
+      fs.unlinkSync(tmp);
+    }
+  }
+  if (stale.length) {
+    fail(`Committed output is stale (differs from a fresh engine build): ${stale.join(', ')}. Run "npm run build:all", then "npm run architect:manifest".`);
   }
 }
 
@@ -169,10 +216,15 @@ function checkDocumentationConsistency() {
     schema: fs.readFileSync(path.join(ROOT, 'skills', 'deck-schema.md'), 'utf8'),
   };
 
+  // Counts are derived from the engine so there is a single source of truth.
+  const typeCount = VALID_TYPES.length;
+  const themeCount = Object.keys(THEMES).length;
+  const transitionCount = VALID_TRANSITIONS.length;
+
   const requiredSnippets = [
-    [docs.readme, '11 slide types', 'README must advertise the current slide type count.'],
-    [docs.readme, '10 themes', 'README must advertise the current theme count.'],
-    [docs.readme, '7 transitions', 'README must advertise the current transition count.'],
+    [docs.readme, `${typeCount} slide types`, `README must advertise the current slide type count (${typeCount}).`],
+    [docs.readme, `${themeCount} themes`, `README must advertise the current theme count (${themeCount}).`],
+    [docs.readme, `${transitionCount} transitions`, `README must advertise the current transition count (${transitionCount}).`],
     [docs.agents, 'docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md', 'AGENTS.md must route weak work agents to the low-level playbook.'],
     [docs.startHere, 'docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md', 'WORK_AGENT_START_HERE.md must route weak work agents to the low-level playbook.'],
     [docs.skill, 'kpi-dashboard', 'skills/SKILL.md must include the KPI dashboard slide type.'],
@@ -183,16 +235,7 @@ function checkDocumentationConsistency() {
     if (!text.includes(snippet)) fail(message);
   }
 
-  const staleSnippets = [
-    [docs.readme, '10 slide types', 'README has stale slide type count.'],
-    [docs.readme, '6 themes', 'README has stale theme count.'],
-    [docs.readme, '3 transitions', 'README has stale transition count.'],
-    [docs.readme, 'future slide\nwork', 'README describes the Control Board as future work.'],
-  ];
-
-  for (const [text, snippet, message] of staleSnippets) {
-    if (text.includes(snippet)) fail(message);
-  }
+  if (/future slide\s+work/.test(docs.readme)) fail('README describes the Control Board as future work.');
 }
 
 function checkControlBoard() {
@@ -223,6 +266,7 @@ checkControlBoard();
 runNode(['tools/run_tests.js'], 'Run tests');
 checkDeckValidation();
 checkBuiltOutputs();
+checkBuiltOutputsFresh();
 checkManifest();
 
 for (const msg of warnings) console.warn(`WARN: ${msg}`);

@@ -20,7 +20,7 @@ const { buildCss } = require('./lib/css');
 const { buildRuntime } = require('./lib/runtime');
 const { renderSlide } = require('./lib/render');
 
-function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
 function listEverything() {
   console.log('\nTHEMES');

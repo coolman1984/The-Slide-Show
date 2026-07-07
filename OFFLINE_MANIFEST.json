@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T19:56:29.051Z",
+  "generatedAt": "2026-07-07T03:00:06.499Z",
   "files": [
     {
       "path": "AGENTS.md",
@@ -40,28 +40,28 @@
     },
     {
       "path": "dist/demo.html",
-      "bytes": 51484,
-      "sha256": "cf7f58ee9c74a68d77c6fb449f7f53b97b461808cf70499ade67867503259e53"
+      "bytes": 52173,
+      "sha256": "16094d0662b2e2d3e7b444c466baf47e32e55f1eda9a7f407a1321dcb7d39283"
     },
     {
       "path": "dist/kpi-dashboard-sample.html",
-      "bytes": 37387,
-      "sha256": "24cbb2113fd58cb3a2d1272a93e28f7042b04e82de2cc8174cc14333cd0db9eb"
+      "bytes": 38076,
+      "sha256": "17caf79830935ee8eb54abf52f5639ad69fdbba612e42635255bc242fde4d8bd"
     },
     {
       "path": "dist/orion-factory-control-demo.html",
-      "bytes": 75009,
-      "sha256": "6f125b1c56c099eb49067a5e60190f64586ae35cd71752baf0f37c1d41a8ce91"
+      "bytes": 75730,
+      "sha256": "60fae8f727a1c8f9fdb86d78ad8081b51fb765e7f28fb8d17c23d6c50791f692"
     },
     {
       "path": "dist/seegp-ax-monthly.html",
-      "bytes": 65515,
-      "sha256": "8fa04646a96690bca0c6840bffd97b4856bb1b9247672b54d4a476765f76108d"
+      "bytes": 72998,
+      "sha256": "f4aa375d13f24d82b11d05eb3fa4d6cd216bff35a0f85c66445be5db26ecac7b"
     },
     {
       "path": "dist/seegp-emerald.html",
-      "bytes": 65575,
-      "sha256": "ae730e5bf234141b6c6a24bba35c9446ebc1da6cf41fea2bc6cff82b8b64adf3"
+      "bytes": 72987,
+      "sha256": "c50592a0eefa3f2e10950d8df7a11c3509505eb83964d69039ce9e71295526da"
     },
     {
       "path": "dist/visual-style-showcase-aurora.html",
@@ -175,8 +175,8 @@
     },
     {
       "path": "engine/build.js",
-      "bytes": 6997,
-      "sha256": "d1758d514c6da9b1971bc06240f2fae1d7729a28a59824b19cfe42cf2b701c0c"
+      "bytes": 7033,
+      "sha256": "3ea2548cd95a04c79d3d2383b02c91e3391fde2a1999f52f8952da866cea34cd"
     },
     {
       "path": "engine/lib/css.js",
@@ -205,8 +205,8 @@
     },
     {
       "path": "engine/lib/validate.js",
-      "bytes": 11153,
-      "sha256": "ee9ba21f3e57321a849f531d2dc69508e236d7ec0b926ced2f9553a159df0216"
+      "bytes": 12336,
+      "sha256": "a34c314f7e13e33bbd1dc229ba01f5dc09cdc8f41e79fd1ede03e355d4af5a6e"
     },
     {
       "path": "engine/prompt_compiler/prompts/extract-agenda.md",
@@ -325,13 +325,13 @@
     },
     {
       "path": "index.html",
-      "bytes": 72277,
-      "sha256": "f0539e903bcd525914661b6df27fe755041786ac51709aa83a26975a69c1d658"
+      "bytes": 72998,
+      "sha256": "f4aa375d13f24d82b11d05eb3fa4d6cd216bff35a0f85c66445be5db26ecac7b"
     },
     {
       "path": "package.json",
-      "bytes": 918,
-      "sha256": "0d880ad6c68297c5e32c599a030745c2b03489f7551e365da67ed301cbc142bc"
+      "bytes": 955,
+      "sha256": "eb5a1ae222393ba0f3cc5c0411480961f83a1dbbedd3d6ef5c7ec9505933ed26"
     },
     {
       "path": "PLAN.md",
@@ -395,8 +395,8 @@
     },
     {
       "path": "skills/troubleshooting.md",
-      "bytes": 3746,
-      "sha256": "914e8e374e36cd67a27784bd4f07605fc515e9f0d15212ed2828179eaa93d490"
+      "bytes": 3933,
+      "sha256": "76c2d7b825cab76dda146cf48dddab382a6327376545fc0cc14cb06eb52d5df2"
     },
     {
       "path": "tasks/implementation_backlog.md",
@@ -444,6 +444,11 @@
       "sha256": "fa4cb2db4fee19e57ed1065605775e578626dc52ca634fba8e30d28b6c478c5b"
     },
     {
+      "path": "tools/build_all.js",
+      "bytes": 1282,
+      "sha256": "fc3cab89ff1c063f0b86f6f80d97bb64f60414679352ab39a9bc6bc1d2bee0bc"
+    },
+    {
       "path": "tools/build_control_board.js",
       "bytes": 36137,
       "sha256": "770659813872dd2148848055ae12d912b75a8e1f0d7394e903e69f248a33a03e"
@@ -452,6 +457,11 @@
       "path": "tools/build_meeting_package.js",
       "bytes": 3331,
       "sha256": "688f23a4d935193b7aac5f6a80d7d8454dcf208b129e7d9c58247b1ef99336ac"
+    },
+    {
+      "path": "tools/build_targets.json",
+      "bytes": 1589,
+      "sha256": "29ac61a6155e219875f7a04a9a0a4b6cb13ea325d3c7f5831f0a38e378737338"
     },
     {
       "path": "tools/create_agent_pack.js",
@@ -470,13 +480,13 @@
     },
     {
       "path": "tools/offline_verify.js",
-      "bytes": 7896,
-      "sha256": "2027f33c5918d559a901407eda43259fe76ffd09ce75df5643033ba428ee0a17"
+      "bytes": 9964,
+      "sha256": "ac7dc9a1612044a3cca230b858fbb7ee1048ff6c885a728f6fa821c42b8ee66c"
     },
     {
       "path": "tools/run_tests.js",
-      "bytes": 4861,
-      "sha256": "e65cba0cede5772c83e0f98a85813a22466b060bc861c548c6752440130a08c8"
+      "bytes": 13057,
+      "sha256": "b4e7146734dc7b267baf0c8911e89d498a7966503f9d444cd4fd111ac2012433"
     },
     {
       "path": "tools/validate_slidespec.js",

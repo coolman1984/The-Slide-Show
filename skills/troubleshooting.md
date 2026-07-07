@@ -39,7 +39,9 @@ Warnings are overflow predictions. For any deck a human will present, treat them
   on purpose so dense grids survive weak projectors.
 - **Reduced motion:** all animation (entrances, particles, transitions) disables automatically
   under OS "reduce motion"; slides jump-cut instead.
-- **Tab hidden / light slide active:** the particle canvas pauses (no fan spin-up mid-meeting).
+- **Tab hidden / timeline (light data) slide active:** the particle canvas pauses (no fan
+  spin-up mid-meeting). Note: full light-theme decks (e.g. `polar-light`, `mint-lab`) keep their
+  faint ambient particles running by design, since those themes configure them intentionally.
 - **Presenter mishits:** number keys jump only to existing slides; navigation clamps at both
   ends; manual navigation kills autoplay so it never fights the presenter.
 - **Touch devices:** ≥ 50px swipes navigate; edge taps work like edge clicks.

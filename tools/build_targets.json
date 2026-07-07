@@ -1,0 +1,15 @@
+{
+  "note": "Single source of truth for every committed HTML output built from a deck. Used by tools/build_all.js to regenerate them and by tools/offline_verify.js to detect drift (a committed output that no longer matches a fresh build). Control Board outputs are handled separately by tools/build_control_board.js.",
+  "targets": [
+    { "out": "index.html", "deck": "decks/seegp-ax-monthly.json", "args": [] },
+    { "out": "dist/seegp-ax-monthly.html", "deck": "decks/seegp-ax-monthly.json", "args": [] },
+    { "out": "dist/seegp-emerald.html", "deck": "decks/seegp-ax-monthly.json", "args": ["--theme", "emerald-night"] },
+    { "out": "dist/demo.html", "deck": "decks/demo-product-launch.json", "args": [] },
+    { "out": "dist/kpi-dashboard-sample.html", "deck": "decks/kpi-dashboard-sample.json", "args": [] },
+    { "out": "dist/orion-factory-control-demo.html", "deck": "decks/orion-factory-control-demo.json", "args": [] },
+    { "out": "dist/visual-style-showcase-aurora.html", "deck": "decks/visual-style-showcase.json", "args": ["--theme", "aurora-purple", "--transition", "flip"] },
+    { "out": "dist/visual-style-showcase-editorial.html", "deck": "decks/visual-style-showcase.json", "args": ["--theme", "editorial-ink", "--transition", "deck"] },
+    { "out": "dist/visual-style-showcase-mint.html", "deck": "decks/visual-style-showcase.json", "args": ["--theme", "mint-lab", "--transition", "vertical"] },
+    { "out": "dist/visual-style-showcase-mono.html", "deck": "decks/visual-style-showcase.json", "args": ["--theme", "mono-signal", "--transition", "none"] }
+  ]
+}

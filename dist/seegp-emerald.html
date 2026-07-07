@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
 <title>SEEG-P AX Monthly Meeting</title>
 <style>
 :root{
@@ -54,6 +55,15 @@ h1,h2,h3,h4{font-family:var(--font-h)}
 .trans-zoom .slide{transform:scale(.955)}
 .trans-zoom .slide.leaving{transform:scale(1.035)}
 .trans-zoom .slide.active{transform:none}
+.trans-vertical .slide{transform:translateY(calc(58px * var(--dir,1)))}
+.trans-vertical .slide.leaving{transform:translateY(calc(-58px * var(--dir,1)))}
+.trans-flip .slide{transform:perspective(1600px) rotateY(calc(12deg * var(--dir,1))) scale(.985)}
+.trans-flip .slide.leaving{transform:perspective(1600px) rotateY(calc(-12deg * var(--dir,1))) scale(.985)}
+.trans-flip .slide.active{transform:none}
+.trans-deck .slide{transform:translate(72px,34px) rotate(1.2deg) scale(.97)}
+.trans-deck .slide.leaving{transform:translate(-72px,-34px) rotate(-1.2deg) scale(.97)}
+.trans-deck .slide.active{transform:none}
+.trans-none .slide,.trans-none .slide.leaving{transition:none;transform:none}
 
 .a{opacity:0}
 .play .a-up  {animation:kUp   .6s var(--ease) var(--d,0s) both}
@@ -73,6 +83,23 @@ h1,h2,h3,h4{font-family:var(--font-h)}
 @keyframes kWipe{from{opacity:1;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
 @keyframes kBreathe{0%,100%{filter:drop-shadow(0 0 5px rgba(var(--glow),.30))}50%{filter:drop-shadow(0 0 15px rgba(var(--glow),.65))}}
 .breathe{animation:kBreathe 4s ease-in-out infinite}
+.anim-editorial .play .a-up{animation:kPaperUp .75s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+.anim-editorial .play .a-left{animation:kPaperLeft .75s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+.anim-editorial .play .a-pop{animation:kInkPop .65s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+.anim-editorial .play .a-zoom{animation:kInkZoom .8s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+.anim-kinetic .play .a-up{animation:kKineticUp .58s cubic-bezier(.18,1.35,.28,1) var(--d,0s) both}
+.anim-kinetic .play .a-left{animation:kKineticLeft .58s cubic-bezier(.18,1.35,.28,1) var(--d,0s) both}
+.anim-kinetic .play .a-pop{animation:kKineticPop .52s cubic-bezier(.18,1.35,.28,1) var(--d,0s) both}
+.anim-calm .play .a-up,.anim-calm .play .a-left,.anim-calm .play .a-pop,.anim-calm .play .a-fade,.anim-calm .play .a-drop,.anim-calm .play .a-zoom{animation:kCalm .9s ease var(--d,0s) both}
+.anim-none .a{opacity:1!important}.anim-none .play .a-up,.anim-none .play .a-left,.anim-none .play .a-pop,.anim-none .play .a-fade,.anim-none .play .a-drop,.anim-none .play .a-zoom,.anim-none .play .a-wipe{animation:none!important}
+@keyframes kPaperUp{from{opacity:0;transform:translateY(18px) rotate(-.6deg)}to{opacity:1;transform:none}}
+@keyframes kPaperLeft{from{opacity:0;transform:translateX(-18px) rotate(-.8deg)}to{opacity:1;transform:none}}
+@keyframes kInkPop{from{opacity:0;filter:blur(3px);transform:scale(.98)}to{opacity:1;filter:none;transform:none}}
+@keyframes kInkZoom{from{opacity:0;letter-spacing:.04em;filter:blur(2px);transform:scale(1.02)}to{opacity:1;letter-spacing:.005em;filter:none;transform:none}}
+@keyframes kKineticUp{from{opacity:0;transform:translateY(54px) skewY(2deg)}to{opacity:1;transform:none}}
+@keyframes kKineticLeft{from{opacity:0;transform:translateX(-64px) skewX(-3deg)}to{opacity:1;transform:none}}
+@keyframes kKineticPop{0%{opacity:0;transform:scale(.72) rotate(-2deg)}75%{opacity:1;transform:scale(1.08) rotate(1deg)}100%{opacity:1;transform:none}}
+@keyframes kCalm{from{opacity:0;filter:blur(5px);transform:translateY(10px)}to{opacity:1;filter:none;transform:none}}
 
 .foot{position:absolute;left:65px;right:65px;bottom:32px;z-index:2}
 .foot .rule{height:1px;background:var(--rule);position:relative;margin-bottom:15px}
@@ -160,6 +187,16 @@ h1,h2,h3,h4{font-family:var(--font-h)}
 .rbadge{border:1px solid var(--badge-border);border-radius:8px;padding:6px 13px;font-size:16px;font-weight:700;letter-spacing:.12em;color:var(--text-hi);background:var(--badge-bg)}
 .rcard h4{font-size:29px;font-weight:800;color:var(--text-hi);margin:16px 0 10px}
 .rcard p{font-size:20.5px;line-height:1.5;color:var(--text-mid)}
+.sl-cards .rgrid-1.count-3 .rcard{min-height:156px;padding:18px 22px}
+.sl-cards .rgrid-1.count-3 .rcard .ichip{width:44px;height:44px}
+.sl-cards .rgrid-1.count-3 .rcard .ichip svg{width:22px;height:22px}
+.sl-cards .rgrid-1.count-3 .rcard h4{font-size:25px;margin:12px 0 6px}
+.sl-cards .rgrid-1.count-3 .rcard p{font-size:18px;line-height:1.42}
+.sl-cards .rgrid-1.count-4 .rcard{min-height:122px;padding:14px 20px}
+.sl-cards .rgrid-1.count-4 .rcard .ichip{width:38px;height:38px}
+.sl-cards .rgrid-1.count-4 .rcard .ichip svg{width:19px;height:19px}
+.sl-cards .rgrid-1.count-4 .rcard h4{font-size:22px;margin:8px 0 4px}
+.sl-cards .rgrid-1.count-4 .rcard p{font-size:16.5px;line-height:1.34}
 
 /* ---- timeline matrix (light) ---- */
 .sl-tl{display:flex;flex-direction:column;padding:30px 40px 22px;background:var(--l-bg)}
@@ -232,6 +269,49 @@ h1,h2,h3,h4{font-family:var(--font-h)}
 .ktile .klabel{font-size:28px;font-weight:700;color:var(--text-hi);margin-top:18px}
 .ktile .ksub{font-size:21px;color:var(--text-low);margin-top:10px;line-height:1.45}
 
+/* ---- kpi dashboard ---- */
+.sl-kpi-dashboard{display:flex;flex-direction:column}
+.sl-kpi-dashboard .sub{padding:10px 0 0 122px;font-size:28px;color:var(--text-mid)}
+.sl-kpi-dashboard .kpi-rows{display:flex;flex-direction:column;gap:30px;padding:0 66px;margin:auto 0;transform:translateY(-20px)}
+.sl-kpi-dashboard .krow{display:flex;flex-direction:column;gap:18px}
+.sl-kpi-dashboard .krow-label{font-size:24px;font-weight:700;color:var(--text-mid);letter-spacing:.04em}
+.sl-kpi-dashboard .tiles-sm{grid-template-columns:repeat(4,1fr)}
+.sl-kpi-dashboard .ktile-sm{padding:32px 28px}
+.sl-kpi-dashboard .ktile-sm .kval{font-size:68px}
+.sl-kpi-dashboard .ktile-sm .klabel{font-size:24px}
+.sl-kpi-dashboard .ktile-sm .ksub{font-size:18px}
+
+/* ---- surface style system ---- */
+.slide.surface-sharp .rcard,.slide.surface-sharp .mcard,.slide.surface-sharp .banner,.slide.surface-sharp .bgroup,.slide.surface-sharp .ktile,.slide.surface-sharp .node,.slide.surface-sharp .tcard,.slide.surface-sharp .pcard,.slide.surface-sharp .pt{
+  border-radius:2px!important;box-shadow:none!important}
+.slide.surface-glass .rcard,.slide.surface-glass .mcard,.slide.surface-glass .banner,.slide.surface-glass .bgroup,.slide.surface-glass .ktile,.slide.surface-glass .node,.slide.surface-glass .tcard{
+  background:linear-gradient(145deg,rgba(255,255,255,.20),rgba(255,255,255,.06))!important;
+  border-color:rgba(255,255,255,.28)!important;backdrop-filter:blur(18px) saturate(1.2);
+  box-shadow:0 22px 60px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.20)!important}
+.slide.surface-ticket .rcard,.slide.surface-ticket .mcard,.slide.surface-ticket .banner,.slide.surface-ticket .bgroup,.slide.surface-ticket .ktile{
+  border-radius:22px!important;
+  -webkit-mask:radial-gradient(18px at 0 50%,transparent 98%,#000 101%) 0 0/100% 100%,
+    radial-gradient(18px at 100% 50%,transparent 98%,#000 101%) 0 0/100% 100%;
+  mask:radial-gradient(18px at 0 50%,transparent 98%,#000 101%) 0 0/100% 100%,
+    radial-gradient(18px at 100% 50%,transparent 98%,#000 101%) 0 0/100% 100%}
+.slide.surface-folder .rcard,.slide.surface-folder .mcard,.slide.surface-folder .bgroup,.slide.surface-folder .ktile{
+  position:relative;border-radius:10px 18px 18px 18px!important;margin-top:18px}
+.slide.surface-folder .rcard::before,.slide.surface-folder .mcard::before,.slide.surface-folder .bgroup::before,.slide.surface-folder .ktile::before{
+  content:"";position:absolute;left:24px;top:-17px;width:132px;height:18px;border:1px solid var(--card-border);
+  border-bottom:0;border-radius:10px 10px 0 0;background:var(--card-bg)}
+.slide.surface-paper .rcard,.slide.surface-paper .mcard,.slide.surface-paper .banner,.slide.surface-paper .bgroup,.slide.surface-paper .ktile,.slide.surface-paper .node,.slide.surface-paper .tcard{
+  background:#fffdf7!important;color:#171717;border:2px solid #171717!important;border-radius:4px!important;
+  box-shadow:10px 10px 0 rgba(23,23,23,.88)!important}
+.slide.surface-paper .rcard h4,.slide.surface-paper .mcard .mname,.slide.surface-paper .bgroup h4,.slide.surface-paper .ktile .klabel,.slide.surface-paper .node,.slide.surface-paper .tcard{color:#171717!important}
+.slide.surface-paper .rcard p,.slide.surface-paper .mcard p,.slide.surface-paper .bgroup li,.slide.surface-paper .ktile .ksub{color:#3f3f46!important}
+.slide.surface-neon .rcard,.slide.surface-neon .mcard,.slide.surface-neon .banner,.slide.surface-neon .bgroup,.slide.surface-neon .ktile,.slide.surface-neon .node,.slide.surface-neon .tcard{
+  border:1.5px solid var(--acc1)!important;box-shadow:0 0 0 1px rgba(var(--glow),.18),0 0 34px rgba(var(--glow),.38),inset 0 0 28px rgba(var(--glow),.06)!important}
+.slide.surface-brutalist .rcard,.slide.surface-brutalist .mcard,.slide.surface-brutalist .banner,.slide.surface-brutalist .bgroup,.slide.surface-brutalist .ktile,.slide.surface-brutalist .node,.slide.surface-brutalist .tcard,.slide.surface-brutalist .pcard{
+  border:4px solid currentColor!important;border-radius:0!important;box-shadow:14px 14px 0 rgba(var(--glow),.55)!important}
+.slide.surface-brutalist .ichip,.slide.surface-brutalist .rbadge,.slide.surface-brutalist .dpill,.slide.surface-brutalist .spill{border-radius:0!important}
+.slide.surface-soft .rcard,.slide.surface-soft .mcard,.slide.surface-soft .banner,.slide.surface-soft .bgroup,.slide.surface-soft .ktile,.slide.surface-soft .node,.slide.surface-soft .tcard{
+  border-radius:34px!important;border-color:rgba(var(--glow),.18)!important;box-shadow:0 26px 80px rgba(var(--glow),.12)!important}
+
 /* ---- chrome ---- */
 #chrome{position:absolute;inset:0;z-index:50;pointer-events:none}
 #chrome>*{pointer-events:auto;transition:opacity .4s ease}
@@ -268,11 +348,11 @@ h1,h2,h3,h4{font-family:var(--font-h)}
 }
 </style>
 </head>
-<body class="trans-slide">
+<body class="trans-slide anim-executive">
 <div id="stage" style="--dir:1">
   <canvas id="fx" width="1920" height="1080"></canvas>
 
-<section class="slide sl-title" id="slide-1" data-mode="dark">
+<section class="slide sl-title surface-classic" id="slide-1" data-mode="dark">
 <div class="stack">
       <h1 class="a a-zoom" style="--d:0.15s">[SEEG-P AX monthly meeting]</h1>
       <div class="divider a a-wipe from-center" style="--d:0.85s"><span class="line"></span><span class="bar breathe"></span></div>
@@ -284,7 +364,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
   </footer>
 </section>
 
-<section class="slide sl-agenda" id="slide-2" data-mode="dark">
+<section class="slide sl-agenda surface-classic" id="slide-2" data-mode="dark">
 <div class="h2head">
       <span class="vbar a a-drop" style="--d:0.05s"></span>
       <h2 class="a a-left" style="--d:0.15s">Agenda</h2>
@@ -301,7 +381,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
   </footer>
 </section>
 
-<section class="slide sl-org" id="slide-3" data-mode="dark">
+<section class="slide sl-org surface-classic" id="slide-3" data-mode="dark">
 <header class="shead">
     <span class="idx a a-pop" style="--d:0.05s">1</span>
     <span class="sep a a-drop" style="--d:0.12s"></span>
@@ -403,7 +483,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
   </footer>
 </section>
 
-<section class="slide sl-cards" id="slide-4" data-mode="dark">
+<section class="slide sl-cards surface-classic" id="slide-4" data-mode="dark">
 <header class="shead">
     <span class="idx a a-pop" style="--d:0.05s">2</span>
     <span class="sep a a-drop" style="--d:0.12s"></span>
@@ -419,7 +499,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
           <span style="color:#34d399;display:flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.6 1 2.5h6c0-.9.2-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span>
           <span style="color:#34d399">BUSINESS &amp; STRATEGY ROLES</span><i class="rline"></i>
         </div>
-        <div class="rgrid" style="grid-template-columns:repeat(2,1fr)"><div class="rcard a a-up" style="--d:0.82s;border-left-color:#34d399;box-shadow:-6px 0 22px -8px rgba(52,211,153,.45),0 0 20px rgba(52,211,153,.05)">
+        <div class="rgrid rgrid-2 count-4" style="grid-template-columns:repeat(2,1fr)"><div class="rcard a a-up" style="--d:0.82s;border-left-color:#34d399;box-shadow:-6px 0 22px -8px rgba(52,211,153,.45),0 0 20px rgba(52,211,153,.05)">
           <div class="rtop"><span class="ichip breathe" style="border-color:rgba(52,211,153,.6);color:#34d399"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></span><span class="rbadge">LEAD 01</span></div>
           <h4>Opportunity Finder</h4>
           <p>Identify process bottlenecks and evaluate potential automation ROI. [Insert custom objectives or scoping KPI parameters here].</p>
@@ -445,7 +525,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
           <span style="color:#c084fc;display:flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></span>
           <span style="color:#c084fc">TECHNICAL SUPPORT ROLES</span><i class="rline"></i>
         </div>
-        <div class="rgrid" style="grid-template-columns:repeat(1,1fr)"><div class="rcard a a-up" style="--d:1.18s;border-left-color:#c084fc;box-shadow:-6px 0 22px -8px rgba(192,132,252,.45),0 0 20px rgba(192,132,252,.05)">
+        <div class="rgrid rgrid-1 count-2" style="grid-template-columns:repeat(1,1fr)"><div class="rcard a a-up" style="--d:1.18s;border-left-color:#c084fc;box-shadow:-6px 0 22px -8px rgba(192,132,252,.45),0 0 20px rgba(192,132,252,.05)">
           <div class="rtop"><span class="ichip breathe" style="border-color:rgba(192,132,252,.6);color:#c084fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span><span class="rbadge">TECH 01</span></div>
           <h4>Programmer</h4>
           <p>Write robust integration logic, database queries, and secure API bridges. [Insert backend environment or language specs here].</p>
@@ -462,7 +542,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
   </footer>
 </section>
 
-<section class="slide sl-tl opaque ovr-corporate-light" id="slide-5" data-mode="light">
+<section class="slide sl-tl surface-classic opaque ovr-corporate-light" id="slide-5" data-mode="light">
 <div class="ltop">
       <div class="ltl a a-left" style="--d:0.05s"><span class="lbar"></span>Enterprise AI Monthly Implementation Plan</div>
       <h2 class="ltr a a-fade" style="--d:0.1s">MASTER TIMELINE MATRIX — JAN–JUN</h2>
@@ -502,7 +582,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
     </footer>
 </section>
 
-<section class="slide sl-tl opaque ovr-corporate-light" id="slide-6" data-mode="light">
+<section class="slide sl-tl surface-classic opaque ovr-corporate-light" id="slide-6" data-mode="light">
 <div class="ltop">
       <div class="ltl a a-left" style="--d:0.05s"><span class="lbar"></span>Enterprise AI Monthly Implementation Plan</div>
       <h2 class="ltr a a-fade" style="--d:0.1s">MASTER TIMELINE MATRIX — JUL–DEC</h2>
@@ -542,7 +622,7 @@ h1,h2,h3,h4{font-family:var(--font-h)}
     </footer>
 </section>
 
-<section class="slide sl-compare" id="slide-7" data-mode="dark">
+<section class="slide sl-compare surface-classic" id="slide-7" data-mode="dark">
 <header class="shead">
     <span class="idx a a-pop" style="--d:0.05s">3</span>
     <span class="sep a a-drop" style="--d:0.12s"></span>

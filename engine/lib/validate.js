@@ -16,6 +16,8 @@ const VALID_BG = ['waves', 'orbs', 'grid', 'none'];
 
 function isStr(v) { return typeof v === 'string' && v.length > 0; }
 function isArr(v) { return Array.isArray(v) && v.length > 0; }
+function hasVal(v) { return v != null && String(v).length > 0; }
+function isAccentRef(v) { return /^a[1-4]$/.test(v) || /^#[0-9a-f]{6}$/i.test(v); }
 
 function validate(deck) {
   const errors = [], warnings = [];
@@ -58,6 +60,13 @@ function validate(deck) {
       case 'org-chart':
         if (!isStr(s.heading)) err(`${p}.heading`, 'required.');
         if (!s.leader || !isStr(s.leader.name)) err(`${p}.leader`, 'required — {title, name}.');
+        ['left', 'right'].forEach(sideKey => {
+          const sb = s[sideKey];
+          if (sb == null) return;
+          if (typeof sb !== 'object' || Array.isArray(sb) || !isArr(sb.names)) {
+            err(`${p}.${sideKey}`, 'when present, must be an object {title, names[]} with a non-empty names array.');
+          }
+        });
         if (!isArr(s.divisions)) err(`${p}.divisions`, 'required — array of {name, badge, accent, teams[]}.');
         else {
           if (s.divisions.length > 3) warn(`${p}.divisions`, `${s.divisions.length} divisions — more than 3 columns get cramped at 1920px.`);
@@ -137,7 +146,8 @@ function validate(deck) {
         else {
           if (s.tiles.length > 4) warn(`${p}.tiles`, `${s.tiles.length} tiles — 4 max fit in one row; extras shrink.`);
           s.tiles.forEach((t, j) => {
-            if (!isStr(String(t.value))) err(`${p}.tiles[${j}].value`, 'required.');
+            if (!hasVal(t.value)) err(`${p}.tiles[${j}].value`, 'required — the big number/metric.');
+            else if (String(t.value).length > 7) warn(`${p}.tiles[${j}].value`, `"${t.value}" is ${String(t.value).length} chars — KPI values over 7 chars shrink or overflow.`);
             if (!isStr(t.label)) err(`${p}.tiles[${j}].label`, 'required.');
           });
         }
@@ -154,7 +164,8 @@ function validate(deck) {
             else {
               if (r.tiles.length > 4) warn(`${rp}.tiles`, `${r.tiles.length} tiles — 4 max fit in one row.`);
               r.tiles.forEach((t, k) => {
-                if (!isStr(String(t.value))) err(`${rp}.tiles[${k}].value`, 'required.');
+                if (!hasVal(t.value)) err(`${rp}.tiles[${k}].value`, 'required — the big number/metric.');
+                else if (String(t.value).length > 7) warn(`${rp}.tiles[${k}].value`, `"${t.value}" is ${String(t.value).length} chars — KPI values over 7 chars shrink or overflow.`);
                 if (!isStr(t.label)) err(`${rp}.tiles[${k}].label`, 'required.');
               });
             }
@@ -162,9 +173,10 @@ function validate(deck) {
         }
         break;
     }
-    /* icon references (best-effort walk) */
+    /* icon + accent references (best-effort walk) */
     JSON.stringify(s, (key, val) => {
       if (key === 'icon' && isStr(val) && !ICONS[val]) warn(`${p}`, `icon "${val}" not in library — will fall back to a dot. Valid: ${Object.keys(ICONS).join(', ')}`);
+      if (key === 'accent' && isStr(val) && !isAccentRef(val)) warn(`${p}`, `accent "${val}" is not a slot (a1–a4) or 6-digit hex (#rrggbb) — it will silently fall back to a default color.`);
       return val;
     });
   });
@@ -172,4 +184,4 @@ function validate(deck) {
   return { errors, warnings };
 }
 
-module.exports = { validate, VALID_TYPES };
+module.exports = { validate, VALID_TYPES, VALID_TRANSITIONS, VALID_ANIMATIONS, VALID_SURFACES, VALID_BG };
