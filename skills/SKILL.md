@@ -112,3 +112,12 @@ Use `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`.
 Read `00_control/agent_task.md`, `00_control/slide_job.json`,
 `00_control/locked_choices.json`, and the prepared Markdown facts. Do not read
 raw Excel, Word, PDF, or PPTX files unless Mohamed explicitly asks for that.
+
+## Specialized skills
+
+Use only when the task matches the skill:
+
+- `skills/control-board.md` for Control Board and Agent Pack operation.
+- `skills/dataforge-excel.md` for Excel extraction planning and behavior.
+- `skills/dataforge-pdf.md` for PDF extraction planning and behavior.
+- `skills/dataforge-db-markdown.md` for DB, Markdown, and fact-pack handoff.

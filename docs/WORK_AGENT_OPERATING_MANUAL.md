@@ -7,6 +7,9 @@ project after the creator has built the system.
 
 You are here to make slides, not to build the software.
 
+Use this manual only when `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md` is too short
+for the current task.
+
 Do not redesign the system. Do not add setup steps. Do not follow coding
 plans. Use the wired commands.
 

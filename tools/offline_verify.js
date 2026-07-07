@@ -220,6 +220,7 @@ checkSlideSpecValidation();
 checkTemplateRegistry();
 checkDocumentationConsistency();
 checkControlBoard();
+runNode(['tools/run_tests.js'], 'Run tests');
 checkDeckValidation();
 checkBuiltOutputs();
 checkManifest();

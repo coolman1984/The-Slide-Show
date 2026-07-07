@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-06T19:46:22.667Z",
+  "generatedAt": "2026-07-06T19:56:29.051Z",
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 4359,
-      "sha256": "36e4fe34aced0b0c7a5d09147fd1c638c1dde7ee0d090a3a09cca2fa72bfcb39"
+      "bytes": 4555,
+      "sha256": "74fcd4d6eac33132c9d8225f2c7bc49e6dd1c687d3edc803640418d08e9b9e21"
     },
     {
       "path": "decks/demo-product-launch.json",
@@ -35,8 +35,8 @@
     },
     {
       "path": "dist/control-board.html",
-      "bytes": 48109,
-      "sha256": "34c2e44f7cad9583d36a2e6ab01d5d31b71d9723feb0ca1eb471321afbce1582"
+      "bytes": 48693,
+      "sha256": "961b23033a90d8a5c30d50e7380719ca5c39b612cd1f463018372a4e19970bfc"
     },
     {
       "path": "dist/demo.html",
@@ -140,8 +140,8 @@
     },
     {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 7117,
-      "sha256": "f12d78d5799a7f166df3cd5b103c224e9edfe1d71ddfa153a43286debfa567b1"
+      "bytes": 7374,
+      "sha256": "242adb765d8d388c1ce0fb79ff193552a5ae3d7ebab1e85dfe6706ca4b3f751e"
     },
     {
       "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
@@ -165,13 +165,13 @@
     },
     {
       "path": "docs/WORK_AGENT_OPERATING_MANUAL.md",
-      "bytes": 3860,
-      "sha256": "f1500594cea4409784e3fdc2abaf857bf647bf5f19e8d40df1be07fe2ecc2163"
+      "bytes": 3962,
+      "sha256": "4bd3e677395a2b11eba0e5827cc4e5805467a5c09a722b5a139b8309ec439b22"
     },
     {
       "path": "docs/WORK_AGENT_START_HERE.md",
-      "bytes": 2647,
-      "sha256": "a5f91e43eee8b6ba3ca6b940c37f863e2ddda9ec75e6cdc852f891308cfc7058"
+      "bytes": 2950,
+      "sha256": "2ed833917a131cc1d15dda018c866a8711a370f690a63e29274877a64de25883"
     },
     {
       "path": "engine/build.js",
@@ -330,8 +330,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 879,
-      "sha256": "ecc425a7f3ae623b4d832f45dc122930c993204bc6dcdcb33e0ce0a2373a3833"
+      "bytes": 918,
+      "sha256": "0d880ad6c68297c5e32c599a030745c2b03489f7551e365da67ed301cbc142bc"
     },
     {
       "path": "PLAN.md",
@@ -354,6 +354,26 @@
       "sha256": "dff4dd4ae8b4f90562e01124c333856b986cf7cde5d87594fffceb35d29ab9fd"
     },
     {
+      "path": "skills/control-board.md",
+      "bytes": 2099,
+      "sha256": "f8c303544566fe97d6cef47867f4d3e802fffea24dc1a6bf2667394f4f0f35ae"
+    },
+    {
+      "path": "skills/dataforge-db-markdown.md",
+      "bytes": 2017,
+      "sha256": "9fe38214cf1faaf96580e71ca6c62e12830007688544c6a68f0d0185ca1f2ba3"
+    },
+    {
+      "path": "skills/dataforge-excel.md",
+      "bytes": 2536,
+      "sha256": "1642db66999c208ed25dbaf9ffd062ef97b91b4f321e48e62cc384f7705385e0"
+    },
+    {
+      "path": "skills/dataforge-pdf.md",
+      "bytes": 2277,
+      "sha256": "59fc66f6603172c7a46904eb3653ece4a1e48e242f3d08eb5b272d0c9de489ac"
+    },
+    {
       "path": "skills/deck-schema.md",
       "bytes": 8545,
       "sha256": "b2c5c58ac720c6b2936f1597920a4d2f06bdbca7b01565be6bc881ca87955b4a"
@@ -365,8 +385,8 @@
     },
     {
       "path": "skills/SKILL.md",
-      "bytes": 5699,
-      "sha256": "57beb8eb2c9a535106d58b4b109bd8bf6dbbf964fb8bc76b948d37b392af2a18"
+      "bytes": 6059,
+      "sha256": "504ee115d37a9a21ed0a74fcc4f0310a9ee443129e73640fd9a65e8853b30fe5"
     },
     {
       "path": "skills/theming-guide.md",
@@ -425,8 +445,8 @@
     },
     {
       "path": "tools/build_control_board.js",
-      "bytes": 35553,
-      "sha256": "cfc98e2788f4674c7bba20b8d7b8dbb49f14d57cc107f597f9a056fd00f65990"
+      "bytes": 36137,
+      "sha256": "770659813872dd2148848055ae12d912b75a8e1f0d7394e903e69f248a33a03e"
     },
     {
       "path": "tools/build_meeting_package.js",
@@ -450,8 +470,13 @@
     },
     {
       "path": "tools/offline_verify.js",
-      "bytes": 7850,
-      "sha256": "f1a982a7cd182270a3aaae40f4610e8eea2594f376f49a94d3ab612512ac985e"
+      "bytes": 7896,
+      "sha256": "2027f33c5918d559a901407eda43259fe76ffd09ce75df5643033ba428ee0a17"
+    },
+    {
+      "path": "tools/run_tests.js",
+      "bytes": 4861,
+      "sha256": "e65cba0cede5772c83e0f98a85813a22466b060bc861c548c6752440130a08c8"
     },
     {
       "path": "tools/validate_slidespec.js",

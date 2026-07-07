@@ -30,17 +30,18 @@ function buildHtml() {
 <title>SlideForge Control Board</title>
 <style>
 :root{
-  --paper:#f6f6f1;
   --board:#ffffff;
   --ink:#162135;
   --muted:#627086;
   --line:rgba(22,33,53,.12);
   --accent:#0d9488;
   --accent-2:#f97316;
-  --shadow:0 24px 64px rgba(22,33,53,.12);
-  --radius-xl:26px;
-  --radius-lg:18px;
-  --radius-md:12px;
+  --warn:#b45309;
+  --good:#15803d;
+  --shadow:0 14px 40px rgba(22,33,53,.08);
+  --radius-xl:14px;
+  --radius-lg:10px;
+  --radius-md:6px;
 }
 *{box-sizing:border-box}
 body{
@@ -48,90 +49,83 @@ body{
   font-family:"Aptos","Segoe UI","Helvetica Neue",Arial,sans-serif;
   color:var(--ink);
   background:
-    radial-gradient(900px 500px at 0% 0%, rgba(13,148,136,.10), transparent 60%),
-    radial-gradient(820px 460px at 100% 0%, rgba(249,115,22,.10), transparent 58%),
+    linear-gradient(90deg, rgba(22,33,53,.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(22,33,53,.03) 1px, transparent 1px),
     linear-gradient(180deg,#f9fbfa 0%,#f1f3ef 100%);
+  background-size:32px 32px,32px 32px,auto;
 }
 a{color:inherit}
 .shell{
-  width:min(1500px, calc(100vw - 32px));
-  margin:20px auto;
+  width:min(1580px, calc(100vw - 24px));
+  margin:12px auto;
   display:grid;
-  grid-template-columns:minmax(420px, 1.1fr) minmax(480px, 1fr);
-  gap:18px;
+  grid-template-columns:minmax(520px, 1fr) minmax(520px, .95fr);
+  gap:12px;
 }
 .panel{
-  background:rgba(255,255,255,.86);
+  background:rgba(255,255,255,.92);
   border:1px solid var(--line);
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow);
-  backdrop-filter:blur(14px);
 }
 .controls{
   display:grid;
-  gap:16px;
-  padding:18px;
-}
-.hero{
-  position:relative;
-  overflow:hidden;
-  padding:22px 22px 20px;
-  background:
-    linear-gradient(135deg, rgba(13,148,136,.92), rgba(26,58,94,.92)),
-    linear-gradient(160deg,#0f3b48,#182134);
-  color:#f7fffd;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:auto -80px -120px auto;
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  background:rgba(255,255,255,.14);
-  filter:blur(2px);
-}
-.hero h1{
-  margin:0 0 8px;
-  font-family:"Bahnschrift","Trebuchet MS","Segoe UI",Arial,sans-serif;
-  font-size:36px;
-  letter-spacing:.02em;
-}
-.hero p{
-  margin:0;
-  max-width:64ch;
-  color:rgba(247,255,253,.84);
-  line-height:1.45;
-}
-.hero-strip{
-  display:flex;
-  flex-wrap:wrap;
   gap:10px;
-  margin-top:16px;
 }
-.pill{
-  border:1px solid rgba(255,255,255,.26);
-  background:rgba(255,255,255,.10);
+.appbar{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;
+  align-items:end;
+  padding:12px 2px 4px;
+}
+.appbar h1{
+  margin:0;
+  font-family:"Bahnschrift","Aptos Display","Segoe UI",Arial,sans-serif;
+  font-size:28px;
+  line-height:1;
+}
+.appbar p{margin:6px 0 0;color:var(--muted);line-height:1.35}
+.health-strip{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.health{
+  border:1px solid var(--line);
   border-radius:999px;
-  padding:8px 12px;
+  padding:7px 10px;
+  background:#fff;
   font-size:12px;
-  letter-spacing:.04em;
-  text-transform:uppercase;
+  color:var(--muted);
 }
+.workflow{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+}
+.step{
+  min-height:54px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  padding:9px 10px;
+  display:grid;
+  align-content:center;
+  gap:3px;
+}
+.step b{font-size:12px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.step span{font-size:12px;color:var(--muted);line-height:1.25}
 .section{
-  padding:18px;
+  padding:14px;
 }
 .section-head{
   display:flex;
   justify-content:space-between;
   gap:14px;
   align-items:flex-start;
-  margin-bottom:14px;
+  margin-bottom:10px;
 }
 .section-head h2{
   margin:0 0 4px;
   font-family:"Trebuchet MS","Aptos Display","Segoe UI",Arial,sans-serif;
-  font-size:20px;
+  font-size:18px;
 }
 .section-head p{
   margin:0;
@@ -140,7 +134,7 @@ a{color:inherit}
 }
 .badge{
   padding:7px 10px;
-  border-radius:999px;
+  border-radius:6px;
   background:rgba(13,148,136,.10);
   color:#0f766e;
   font-size:12px;
@@ -164,13 +158,13 @@ input,select,textarea,button{
 input,select,textarea{
   width:100%;
   border:1px solid var(--line);
-  border-radius:12px;
-  padding:12px 13px;
+  border-radius:8px;
+  padding:10px 11px;
   background:#fff;
   color:var(--ink);
 }
 textarea{
-  min-height:118px;
+  min-height:92px;
   resize:vertical;
   line-height:1.45;
 }
@@ -181,7 +175,7 @@ input[type="file"]{
   min-height:44px;
   padding:10px 12px;
   border:1px dashed var(--line);
-  border-radius:12px;
+  border-radius:8px;
   background:rgba(22,33,53,.025);
   color:var(--muted);
   line-height:1.5;
@@ -199,8 +193,8 @@ input[type="file"]{
 }
 button{
   border:0;
-  border-radius:14px;
-  padding:12px 16px;
+  border-radius:8px;
+  padding:10px 14px;
   cursor:pointer;
 }
 .btn-primary{
@@ -215,7 +209,7 @@ button{
 .preview-shell{
   display:grid;
   grid-template-rows:auto 1fr auto;
-  min-height:calc(100vh - 40px);
+  min-height:calc(100vh - 24px);
 }
 .preview-head{
   padding:18px 18px 0;
@@ -241,10 +235,10 @@ button{
 .preview-stage{
   position:relative;
   aspect-ratio:16/9;
-  border-radius:24px;
+  border-radius:12px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 28px 60px rgba(15,23,42,.18);
+  box-shadow:0 18px 48px rgba(15,23,42,.16);
   background:#0b1320;
   color:#fff;
 }
@@ -291,7 +285,7 @@ button{
   gap:12px;
 }
 .preview-card, .preview-tile, .preview-agenda-item, .preview-col{
-  border-radius:18px;
+  border-radius:10px;
   padding:14px;
   background:rgba(255,255,255,.10);
   border:1px solid rgba(255,255,255,.18);
@@ -366,7 +360,7 @@ button{
   gap:10px;
 }
 .status-item{
-  border-radius:16px;
+  border-radius:10px;
   border:1px solid var(--line);
   background:#fff;
   padding:12px 14px;
@@ -377,7 +371,7 @@ button{
   margin-bottom:4px;
 }
 .code-box{
-  border-radius:18px;
+  border-radius:10px;
   background:#101728;
   color:#dbe7ff;
   padding:16px;
@@ -409,22 +403,34 @@ button{
     grid-template-columns:1fr;
   }
   .shell{width:min(100vw - 16px, 1500px);margin:8px auto}
-  .hero h1{font-size:28px}
+  .workflow{grid-template-columns:1fr}
+  .appbar{grid-template-columns:1fr}
+  .health-strip{justify-content:flex-start}
 }
 </style>
 </head>
 <body>
   <div class="shell">
-    <div class="panel controls">
-      <section class="hero panel">
-        <h1>SlideForge Control Board</h1>
-        <p>Choose the design visually, attach source files, preview the result, and create a locked Agent Pack for a weaker offline work agent. The human chooses. The agent follows.</p>
-        <div class="hero-strip">
-          <div class="pill">Offline HTML</div>
-          <div class="pill">Weak-agent safe</div>
-          <div class="pill">Self-contained</div>
+    <div class="controls">
+      <header class="appbar">
+        <div>
+          <h1>SlideForge Control Board</h1>
+          <p>Choose source, data, design, quality, and handoff settings. The Agent Pack locks those choices for the work agent.</p>
         </div>
-      </section>
+        <div class="health-strip" aria-label="System status">
+          <span class="health">Offline</span>
+          <span class="health">No dependencies</span>
+          <span class="health">Agent locked</span>
+        </div>
+      </header>
+
+      <nav class="workflow" aria-label="Workflow">
+        <div class="step"><b>1 Source</b><span>Files and project context</span></div>
+        <div class="step"><b>2 Data</b><span>Prepared facts and warnings</span></div>
+        <div class="step"><b>3 Design</b><span>Template, theme, shape, motion</span></div>
+        <div class="step"><b>4 Quality gate</b><span>Validation and preview check</span></div>
+        <div class="step"><b>5 Handoff</b><span>Agent Pack files</span></div>
+      </nav>
 
       <section class="panel section">
         <div class="section-head">
@@ -460,7 +466,7 @@ button{
         <div class="section-head">
           <div>
             <h2>Source intake</h2>
-            <p>Attach files for the future DataForge pipeline, or start from prepared facts only.</p>
+            <p>Attach files for DataForge later, or start from prepared facts only.</p>
           </div>
           <div class="badge">Sources</div>
         </div>
@@ -473,8 +479,8 @@ button{
       <section class="panel section">
         <div class="section-head">
           <div>
-            <h2>Design choices</h2>
-            <p>These are the options the weak agent must not change.</p>
+            <h2>Design lock</h2>
+            <p>These choices become locked job settings for the weak agent.</p>
           </div>
           <div class="badge">Locked</div>
         </div>
@@ -515,7 +521,7 @@ button{
             <h2>Prepared facts</h2>
             <p>Write slide-ready facts in simple lines. These become Markdown files for the work agent.</p>
           </div>
-          <div class="badge">Data</div>
+          <div class="badge">Facts</div>
         </div>
         <label>Prepared facts
           <textarea id="factsText">${esc(demoState.factsText)}</textarea>

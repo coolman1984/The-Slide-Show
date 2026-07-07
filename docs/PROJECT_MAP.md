@@ -84,6 +84,10 @@ Start with `skills/SKILL.md`. It routes the agent through:
 - `skills/deck-schema.md` for allowed JSON fields
 - `skills/design-guide.md` for presentation quality
 - `skills/theming-guide.md` for theme work
+- `skills/control-board.md` for Control Board and Agent Pack operation
+- `skills/dataforge-excel.md` for Excel extraction rules
+- `skills/dataforge-pdf.md` for PDF extraction rules
+- `skills/dataforge-db-markdown.md` for DB, Markdown, and fact-pack handoff
 - `skills/troubleshooting.md` for known failure modes
 
 ## Work Agent Docs

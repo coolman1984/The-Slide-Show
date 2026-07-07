@@ -37,19 +37,22 @@ Generated alternative outputs live in `dist/`.
 
 ## Routine Work Agent Reading Order
 
-If you are here to create or edit slides, read only these files before working:
+If you are here to create or edit slides, read only these files first:
 
 1. `AGENTS.md`
 2. `docs/WORK_AGENT_START_HERE.md`
-3. `docs/WORK_AGENT_OPERATING_MANUAL.md`
-4. `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`
-5. `skills/SKILL.md`
-6. `skills/deck-schema.md`
-7. `skills/design-guide.md`
-8. `skills/troubleshooting.md`
+3. `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md`
 
-Read `skills/theming-guide.md` only when changing or previewing themes.
-Read `docs/CHANGE_ON_THE_FLY.md` when the user needs a fast live-meeting edit.
+Then read only the file that matches the task:
+
+- `skills/SKILL.md` and `skills/deck-schema.md` for deck JSON work.
+- `skills/theming-guide.md` for theme, color, font, animation, or shape work.
+- `skills/control-board.md` for Control Board or Agent Pack work.
+- `skills/dataforge-excel.md` for Excel extraction work.
+- `skills/dataforge-pdf.md` for PDF extraction work.
+- `skills/dataforge-db-markdown.md` for DB, Markdown, and fact-pack work.
+- `docs/CHANGE_ON_THE_FLY.md` for fast live-meeting edits.
+
 Do not read or follow coding plans for routine slide work. They are not your
 task.
 
