@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-07T03:16:04.841Z",
+  "generatedAt": "2026-07-07T03:46:58.916Z",
   "files": [
     {
       "path": "AGENTS.md",
@@ -334,9 +334,14 @@
       "sha256": "f4aa375d13f24d82b11d05eb3fa4d6cd216bff35a0f85c66445be5db26ecac7b"
     },
     {
+      "path": "index.pptx",
+      "bytes": 5215484,
+      "sha256": "aa44d10529e720624dd23ada3c48ca8756d22e488a0e6460b8ad984e812f8a32"
+    },
+    {
       "path": "package.json",
-      "bytes": 992,
-      "sha256": "1cc64121350ac5196dd3904c3561facfe9ad76e7d868dde00333801ed890a3e5"
+      "bytes": 1074,
+      "sha256": "61f6c0b0a8d467c7514f9e26bcebbd6741d52c10ca7727d708f1108e84792a41"
     },
     {
       "path": "PLAN.md",
@@ -479,14 +484,19 @@
       "sha256": "4976c0ad2a87a939b484291adb5dcabd67ad95b3a95fbf4dc91a215ca78bbf6a"
     },
     {
+      "path": "tools/export_html_to_pptx.js",
+      "bytes": 5653,
+      "sha256": "925ad50b498781c54b66518f7b0dcd6a6ffc6dfd6dbd047205c6c9fa2687d2c6"
+    },
+    {
       "path": "tools/lib/agent_pack.js",
       "bytes": 18673,
       "sha256": "93d965c8ae176c7020e3b3e8b4652c72077d465bf5927a2ca05cc30e1ba7c06c"
     },
     {
       "path": "tools/offline_manifest.js",
-      "bytes": 1920,
-      "sha256": "89c488c8ad0a9e028184c150ad309eeafc88bff3a8f4a81cd360b225f8af3148"
+      "bytes": 1934,
+      "sha256": "be4d7110910a5d086c83c8758ec463b693b0c74dfa9e8923f6e0de48e49022bb"
     },
     {
       "path": "tools/offline_verify.js",
