@@ -10,6 +10,7 @@
     "map": "node tools/deck_map.js",
     "control-board:build": "node tools/build_control_board.js",
     "agent-pack:demo": "node tools/create_agent_pack.js --demo --out packages/control-board-cli-demo",
+    "pptx:default": "node tools/export_html_to_pptx.js index.html -o index.pptx",
     "test": "node tools/run_tests.js",
     "verify": "node tools/offline_verify.js",
     "package": "node tools/build_meeting_package.js",
