@@ -9,7 +9,7 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'OFFLINE_MANIFEST.json');
 
 const INCLUDE_DIRS = ['decks', 'dist', 'docs', 'engine', 'examples', 'schemas', 'skills', 'tasks', 'templates', 'themes', 'tools'];
-const INCLUDE_FILES = ['AGENTS.md', 'README.md', 'PLAN.md', 'package.json', 'index.html'];
+const INCLUDE_FILES = ['AGENTS.md', 'README.md', 'PLAN.md', 'package.json', 'index.html', 'index.pptx'];
 const EXCLUDE_NAMES = new Set(['.git', '.agents', '.codex', 'OFFLINE_MANIFEST.json']);
 
 function toPosix(p) {
