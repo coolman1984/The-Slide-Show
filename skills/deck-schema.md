@@ -145,6 +145,13 @@ track). Max 4 cards per section. 1–2 sections look best.
 with `badgeColor: "#hex"`. Card top-border auto-matches badge/status color.
 `legend` colors: `green|blue|orange|prep|mvp|augred` or any hex.
 
+**Fitting a full year in one slide:** up to 12 months work in a single `timeline-matrix` —
+past 6 columns the engine automatically switches to a compact "dense" layout (smaller type,
+tighter grid, fixed-height cards centered as one balanced block instead of stretching to fill
+the slide). For a 12-month table, use `"repeatRows": 1` (2 rows total, no duplicated rows) and
+keep project names to ≤ 3 words so they fit the narrower columns. Going past 12 columns is not
+supported — split into two slides instead.
+
 ### comparison
 ```json
 { "type": "comparison", "index": "3", "heading": "AI Capability Expansion",

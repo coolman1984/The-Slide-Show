@@ -200,38 +200,16 @@
       "type": "timeline-matrix",
       "themeOverride": "corporate-light",
       "eyebrow": "Enterprise AI Monthly Implementation Plan",
-      "heading": "MASTER TIMELINE MATRIX — JAN–JUN",
-      "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-      "repeatRows": 2,
+      "heading": "MASTER TIMELINE MATRIX — JAN–DEC",
+      "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "repeatRows": 1,
       "columns": [
         [{ "name": "Data Pipeline Audit", "status": "completed" }, { "name": "Infrastructure Setup", "status": "completed" }],
         [{ "name": "AI Governance Charter", "status": "completed" }, { "name": "Model Sandbox Dev", "status": "completed" }],
         [{ "name": "Finance OCR Engine", "status": "completed" }, { "name": "Inventory Forecasting", "status": "completed" }],
         [{ "name": "HR Resume Screener", "status": "completed" }, { "name": "Predictive Maintenance", "status": "inprogress" }],
         [{ "name": "Log Anomaly Detection", "status": "inprogress" }, { "name": "Marketing Copy Gen", "status": "inprogress" }],
-        [{ "name": "Executive Dashboard", "status": "inprogress" }, { "name": "Fraud Classifier API", "status": "planning" }]
-      ],
-      "legend": [
-        { "color": "green", "label": "Completed" },
-        { "color": "blue", "label": "In Progress" },
-        { "color": "orange", "label": "Planning" },
-        { "color": "prep", "label": "Jul Preparation for External AI change" },
-        { "color": "augred", "label": "August External AI change" }
-      ],
-      "footer": {
-        "left": "enterprise ai",
-        "center": "Continuous Allocation: 2 Projects Per Month Master Plan",
-        "right": "Slide 5"
-      }
-    },
-    {
-      "type": "timeline-matrix",
-      "themeOverride": "corporate-light",
-      "eyebrow": "Enterprise AI Monthly Implementation Plan",
-      "heading": "MASTER TIMELINE MATRIX — JUL–DEC",
-      "months": ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      "repeatRows": 2,
-      "columns": [
+        [{ "name": "Executive Dashboard", "status": "inprogress" }, { "name": "Fraud Classifier API", "status": "planning" }],
         [{ "name": "Org Change Readiness", "badge": "prep", "status": "completed" }, { "name": "Data Schema Refactor", "badge": "prep", "status": "inprogress" }],
         [{ "name": "Intelligent CX Chatbot", "badge": "mvp", "status": "inprogress" }, { "name": "Demand Forecasting v2", "badge": "mvp", "status": "inprogress" }],
         [{ "name": "Procurement Model", "status": "planning" }, { "name": "Support Auto-Route", "status": "planning" }],
@@ -249,7 +227,7 @@
       "footer": {
         "left": "enterprise ai",
         "center": "Continuous Allocation: 2 Projects Per Month Master Plan",
-        "right": "Slide 6"
+        "right": "Slide 5"
       }
     },
     {

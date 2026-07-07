@@ -182,6 +182,9 @@ const RENDERERS = {
     const badgeDefs = { prep: { label: 'PREP', bg: 'var(--sem-prep)' }, mvp: { label: 'MVP GATE', bg: 'var(--sem-mvp)' } };
     const legendColor = k => ({ green: 'var(--sem-green)', blue: 'var(--sem-blue)', orange: 'var(--sem-orange)', prep: 'var(--sem-prep)', mvp: 'var(--sem-mvp)', augred: 'var(--sem-augred)' })[k] || k;
     const months = slide.months, rows = (slide.repeatRows || 2) * 2;
+    const dense = months.length > 6;
+    const cornerW = dense ? Math.max(90, 150 - (months.length - 6) * 6) : 180;
+    const rowH = dense ? Math.min(230, Math.max(120, Math.floor(760 / rows) - 10)) : null;
     let cells = `<div class="tlh a a-drop" style="${d(0.1)}">${esc(slide.cornerLabel || 'Timeline')}</div>`;
     months.forEach((m, i) => { cells += `<div class="tlh a a-drop" style="${d(0.16 + i * 0.06)}">${esc(m)}</div>`; });
     cells += `<div class="tlproj a a-fade" style="${d(0.5)};grid-column:1;grid-row:2/${rows + 2}">${esc(slide.sideLabel || 'Projects')}</div>`;
@@ -206,7 +209,7 @@ const RENDERERS = {
       <div class="ltl a a-left" style="${d(0.05)}"><span class="lbar"></span>${esc(slide.eyebrow || '')}</div>
       <h2 class="ltr a a-fade" style="${d(0.1)}">${esc(slide.heading)}</h2>
     </div>
-    <div class="tlgrid" style="grid-template-columns:180px repeat(${months.length},1fr);grid-template-rows:56px repeat(${rows},1fr)">${cells}</div>
+    <div class="tlgrid" style="grid-template-columns:${cornerW}px repeat(${months.length},1fr);grid-template-rows:56px repeat(${rows},${rowH ? rowH + 'px' : '1fr'})">${cells}</div>
     ${legend ? `<div class="legend a a-fade" style="${d(1.15)}">${legend}</div>` : ''}
     <footer class="lfoot a a-fade" style="${d(1.25)}">
       <span>${esc(f.left || '')}</span><span>${esc(f.center || '')}</span><span>${esc(f.right || '')}</span>
@@ -331,7 +334,10 @@ function renderSlide(slide, i, ctx) {
   const classes = ['slide', TYPE_CLASS[slide.type]];
   const surface = slide.surfaceStyle || ctx.deck.meta.surfaceStyle || 'classic';
   classes.push(`surface-${surface}`);
-  if (slide.type === 'timeline-matrix') classes.push('opaque');
+  if (slide.type === 'timeline-matrix') {
+    classes.push('opaque');
+    if ((slide.months || []).length > 6) classes.push('dense');
+  }
   if (slide._ovr) classes.push(`ovr-${slide._ovr}`);
   return `<section class="${classes.join(' ')}" id="slide-${i + 1}" data-mode="${mode}">\n${inner}\n</section>`;
 }

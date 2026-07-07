@@ -251,6 +251,22 @@ const COMPONENT_CSS = `
 .sl-tl .legend .li{display:flex;align-items:center;gap:12px;font-size:19px;color:var(--l-text-soft);font-weight:500}
 .sl-tl .legend .sq{width:17px;height:17px;border-radius:4px}
 .sl-tl .lfoot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--l-foot-rule);margin-top:18px;padding-top:14px;font-size:19px;color:var(--l-foot)}
+/* dense variant: many columns (e.g. a full 12-month year) in one grid */
+.sl-tl.dense .tlgrid{gap:8px;flex:none;margin:auto 0;width:100%}
+.sl-tl.dense .tlh{font-size:19px;border-radius:6px}
+.sl-tl.dense .tlproj{font-size:20px;border-radius:8px}
+.sl-tl.dense .ltr{font-size:32px}
+.sl-tl.dense .ltl{font-size:19px}
+.sl-tl.dense .pcard{padding:9px 7px;gap:7px;border-radius:8px}
+.sl-tl.dense .pcard .pname{font-size:15.5px;line-height:1.22;font-weight:700}
+.sl-tl.dense .pcard .prow{gap:5px}
+.sl-tl.dense .spill{font-size:11.5px;padding:3px 9px;gap:5px}
+.sl-tl.dense .spill i{width:6px;height:6px}
+.sl-tl.dense .sbadge{font-size:10.5px;padding:3px 7px;letter-spacing:.01em}
+.sl-tl.dense .legend{gap:26px;margin-top:14px}
+.sl-tl.dense .legend .li{font-size:16px}
+.sl-tl.dense .legend .sq{width:14px;height:14px}
+.sl-tl.dense .lfoot{font-size:16px;margin-top:12px;padding-top:10px}
 
 /* ---- comparison ---- */
 .sl-compare .sub{padding:10px 0 0 122px;font-size:28px;color:var(--text-mid)}

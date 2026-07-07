@@ -123,7 +123,8 @@ function validate(deck) {
       case 'timeline-matrix':
         if (!isStr(s.heading)) err(`${p}.heading`, 'required.');
         if (!isArr(s.months)) err(`${p}.months`, 'required — array of column labels.');
-        else if (s.months.length > 6) warn(`${p}.months`, `${s.months.length} columns — more than 6 makes cards too narrow.`);
+        else if (s.months.length > 6 && s.months.length <= 12) warn(`${p}.months`, `${s.months.length} columns — the engine auto-switches to a compact "dense" layout; use short project names (≤ 3 words) and 1-2 rows for best fit.`);
+        else if (s.months.length > 12) warn(`${p}.months`, `${s.months.length} columns — even dense mode gets unreadably narrow past 12 (a full year). Consider splitting the deck.`);
         if (!isArr(s.columns)) err(`${p}.columns`, 'required — one array of project objects per month.');
         else {
           if (s.months && s.columns.length !== s.months.length) err(`${p}.columns`, `has ${s.columns.length} entries but months has ${(s.months || []).length} — they must match 1:1.`);
