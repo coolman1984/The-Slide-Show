@@ -7,6 +7,9 @@ If Mohamed asked you to create or edit slides, ignore this file and use
 
 ## Immediate
 
+- [ ] Execute `docs/GRAND_IMPROVEMENT_PLAN.md` (V2 audit + prioritized roadmap; P0 first:
+      visual verify harness, deterministic builds, presenter keys, concurrency protocol,
+      flagship deck completion). Where it disagrees with older plans, it wins.
 - [ ] Review `docs/SLIDEFORGE_STUDIO_CONTROL_BOARD_PLAN.md` with Mohamed.
 - [ ] Review `docs/DATAFORGE_LOCAL_DATA_PIPELINE_PLAN.md` with Mohamed.
 - [ ] Review `docs/WEAK_AGENT_HANDOFF_PROTOCOL.md` with Mohamed.
