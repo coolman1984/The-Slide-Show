@@ -98,6 +98,7 @@ production.
 | Path | Purpose |
 |---|---|
 | `docs/WORK_AGENT_START_HERE.md` | First simple slide-only instruction file for the routine work agent |
+| `docs/WEAK_AGENT_TASK_CARDS.md` | Copy-paste task cards Mohamed gives a weak agent for one exact change each |
 | `docs/WORK_AGENT_OPERATING_MANUAL.md` | Simple routine operating manual for the final work agent |
 | `docs/LOW_LEVEL_WORK_AGENT_PLAYBOOK.md` | Short step-by-step playbook for weak slide work agents |
 | `docs/CHANGE_ON_THE_FLY.md` | Safe process for fast live-meeting edits |

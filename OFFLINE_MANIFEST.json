@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-07T03:00:06.499Z",
+  "generatedAt": "2026-07-07T03:10:06.826Z",
   "files": [
     {
       "path": "AGENTS.md",
@@ -140,8 +140,8 @@
     },
     {
       "path": "docs/PROJECT_MAP.md",
-      "bytes": 7374,
-      "sha256": "242adb765d8d388c1ce0fb79ff193552a5ae3d7ebab1e85dfe6706ca4b3f751e"
+      "bytes": 7487,
+      "sha256": "5c680ff1ebd55cfc1131f9d630c079b93cbb62965353506ecfe9cd25d171c8ec"
     },
     {
       "path": "docs/QUALITY_AND_GOVERNANCE_GATES.md",
@@ -162,6 +162,11 @@
       "path": "docs/WEAK_AGENT_HANDOFF_PROTOCOL.md",
       "bytes": 4018,
       "sha256": "6c58afb2bb867b160091fa426e24bcc0e430108436b9e2036d7a033f07a2b397"
+    },
+    {
+      "path": "docs/WEAK_AGENT_TASK_CARDS.md",
+      "bytes": 7673,
+      "sha256": "e19f1c7926d4d904a5e8db188b9bc8b4b54907867c8a8b8cf26e7c8de0d0df57"
     },
     {
       "path": "docs/WORK_AGENT_OPERATING_MANUAL.md",
