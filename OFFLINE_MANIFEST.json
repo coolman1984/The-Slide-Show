@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "purpose": "Creator-maintained drift manifest for Slide Forge. Regenerate only after intentional verified changes.",
-  "generatedAt": "2026-07-07T03:10:06.826Z",
+  "generatedAt": "2026-07-07T03:16:04.841Z",
   "files": [
     {
       "path": "AGENTS.md",
@@ -165,8 +165,8 @@
     },
     {
       "path": "docs/WEAK_AGENT_TASK_CARDS.md",
-      "bytes": 7673,
-      "sha256": "e19f1c7926d4d904a5e8db188b9bc8b4b54907867c8a8b8cf26e7c8de0d0df57"
+      "bytes": 9126,
+      "sha256": "cb7c80473b0908bbbd94d12125e2466ae33c01c35e302026bcb64c7191535331"
     },
     {
       "path": "docs/WORK_AGENT_OPERATING_MANUAL.md",
@@ -335,8 +335,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 955,
-      "sha256": "eb5a1ae222393ba0f3cc5c0411480961f83a1dbbedd3d6ef5c7ec9505933ed26"
+      "bytes": 992,
+      "sha256": "1cc64121350ac5196dd3904c3561facfe9ad76e7d868dde00333801ed890a3e5"
     },
     {
       "path": "PLAN.md",
@@ -472,6 +472,11 @@
       "path": "tools/create_agent_pack.js",
       "bytes": 1371,
       "sha256": "3c11b7ffebbd2fe6ae443bf38251d8f09815d40d8a4f8eb8d298b8fb68d66ac0"
+    },
+    {
+      "path": "tools/deck_map.js",
+      "bytes": 2788,
+      "sha256": "4976c0ad2a87a939b484291adb5dcabd67ad95b3a95fbf4dc91a215ca78bbf6a"
     },
     {
       "path": "tools/lib/agent_pack.js",

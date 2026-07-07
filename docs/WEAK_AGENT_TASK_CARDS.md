@@ -160,35 +160,80 @@ Note: at 6 rows (`repeatRows: 3`) cards get short — check readability from
 
 ## CARD 6 — Data from Excel / Word / PDF (the safe way today)
 
-Automated extraction (DataForge) is not built yet. The safe path today has two
-steps, and the weak model NEVER opens the raw file:
+> **This is the answer to "how does the agent know which number goes where?"**
+> It does NOT know, and it must not guess. YOU decide the mapping once, using
+> exact addresses. The agent only places each value at the address you give.
+> That is what makes a weak model safe here.
 
-**Step 1 — you extract (30 seconds):** open the Excel/Word/PDF yourself, select
-the table or numbers, copy, and paste them as plain text into the chat.
+### The address book
 
-**Step 2 — paste this card with your pasted data:**
+Every editable slot in the deck has a fixed address. See them all:
 
-```text
-You are the slide work agent. Do NOT open any Excel, Word, or PDF file.
-Use ONLY the data I paste below. It is the single source of truth.
-
-DATA (transcribe exactly — do not calculate, round, translate, or invent):
-<paste the copied table/text here>
-
-Task: Put this data into decks/seegp-ax-monthly.json, in the slide with
-heading "<HEADING>", into <which part — e.g. the kpi tiles / the Jan column>.
-
-Rules:
-- Every number and name must appear character-for-character as in my DATA.
-- If a slot needs a value my DATA does not contain, write [Insert ...] and
-  tell me the list of missing values. Never fill a gap with a guess.
-
-Then run: npm run build, then npm run verify.
-Report what changed, both results, and the missing-values list.
+```powershell
+npm run map
 ```
 
-Your check for this card: compare 3 random numbers on the rebuilt slide
-against the original file. If all 3 match, the transcription is trustworthy.
+This prints lines like:
+
+```text
+slides[6].cards[0].paragraphs[0]   "Best for Google-connected workflows ..."
+slides[4].columns[0][0].name       "Data Pipeline Audit"
+slides[4].columns[0][0].status     "completed"
+```
+
+Reading timeline addresses (slides 5 & 6): `columns[MONTH][ROW].name` —
+`columns[0]` = 1st month, `columns[0][0]` = 1st project in it, `columns[0][1]`
+= 2nd project. `.name` is the text, `.status` is completed/inprogress/planning.
+
+### Step 1 — you extract (30 seconds)
+
+Open the Excel/Word/PDF yourself. Copy the numbers/text you need. The agent
+never opens the file.
+
+### Step 2 — you write the mapping (this is your job, not the model's)
+
+Make a simple two-column list: **address = new value**. You are pairing each
+source value with the exact place it belongs. Example:
+
+```text
+slides[6].cards[0].paragraphs[0] = Best for real-time market data lookups.
+slides[4].columns[0][0].name     = Q1 Cost Audit
+slides[4].columns[0][0].status   = completed
+slides[3].tiles[0].value         = 38%
+```
+
+### Step 3 — paste this card with your mapping
+
+```text
+You are the slide work agent. Do NOT open any Excel, Word, or PDF file, and do
+NOT decide where anything goes. I have already decided every placement below.
+
+In decks/seegp-ax-monthly.json, set each address to the value I give. Treat the
+left side as an exact JSON path and the right side as literal text:
+
+<paste your address = value list here>
+
+Rules:
+- Change ONLY the addresses I listed. Touch nothing else.
+- Copy each value character-for-character. Do not calculate, round, translate,
+  reorder, or improve.
+- If an address does not exist in the file, STOP and tell me — do not invent a
+  new place for it.
+
+Then run: npm run build, then npm run verify.
+Report each address you changed with its old and new value, and both results.
+```
+
+Your check: run `npm run map` again after the build and confirm the addresses
+you listed now show your new values. Then open `index.html` and look at those
+slides.
+
+### If you need MORE rows/columns/cards than exist
+
+Addresses only cover slots that already exist. To add a 3rd project to a month,
+or a new tile, the shape must grow first — use **Card 5** (timeline) or
+**Card 2** (new slide), which tell the agent to add the structure. Then Card 6
+fills the new addresses.
 
 ---
 
